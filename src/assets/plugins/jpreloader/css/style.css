@@ -1,0 +1,89 @@
+.wrapper-inner{
+	width:700px;
+	margin:0 auto;
+}
+#navigation{
+	margin:10px auto;
+	width:410px;
+}
+
+#wrapper .hide{
+	display:none;
+}
+#wrapper ul{
+	list-style:none;
+	margin:0 auto;
+	padding:0;
+}
+#wrapper li{
+	float:left;
+	padding:10px;
+	margin:3px;
+	background:#fff;
+	border-bottom:1px solid #ccc;
+	border-right:1px solid #ccc;
+	box-shadow:1px 1px 1px #ccc;
+}
+#wrapper img, #wrapper li div{
+	width:200px;
+	height:133px;
+	display:block;
+}
+#wrapper .container{
+	position:relative;
+	height:500px;
+}
+#wrapper .holder{
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+#li1{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-ash2/182930_154035181318376_153515891370305_260764_6365588_n.jpg);
+	background-size:200px 133px;
+}
+#li2{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-ash4/261253_187145914673969_153515891370305_436202_926797_n.jpg);
+	background-size:200px 133px;
+}
+#li3{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-snc6/217682_168889103166317_153515891370305_343060_6659917_n.jpg);
+	background-size:200px 133px;
+}
+#li4{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-ash4/200642_159280900793804_153515891370305_290469_1710201_n.jpg);
+	background-size:200px 133px;
+}
+#li5{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-ash4/296869_232616733460220_153515891370305_574790_2136909669_n.jpg);
+	background-size:200px 133px;
+}
+#li6{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-snc6/181904_153791694676058_153515891370305_259645_1410414_n.jpg);
+	background-size:200px 133px;
+}
+#li7{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-ash4/216192_166438856744675_153515891370305_330847_5624531_n.jpg);
+	background-size:200px 133px;
+}
+#li8{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-snc6/190406_162538513801376_153515891370305_310836_1218396_n.jpg);
+	background-size:200px 133px;
+}
+#li9{
+	background-image: url(http://sphotos-b.ak.fbcdn.net/hphotos-ak-snc6/269801_187798634608697_153515891370305_437902_7056837_n.jpg);
+	background-size:200px 133px;
+}
+
+#jSplash{
+	line-height:1.7;
+}
+#jSplash h2{
+	margin:10px 0;
+	color:#14D9EE;
+	text-shadow:1px 1px 1px #aaa;
+	font-size:57px;
+	font-family:Arial Narrow, Arial, sans-serif;
+	letter-spacing:1px;
+}

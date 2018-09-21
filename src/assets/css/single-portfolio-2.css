@@ -1,0 +1,229 @@
+/*---------------------------------------------------------------------*/
+/*  SINGLE PORTFOLIO 2
+/*---------------------------------------------------------------------*/
+body {
+  background-color: #0d0c0d;
+}
+
+.img-thumbnail {
+  padding: 20px;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+  border-radius: 0px;
+}
+
+@media (max-width: 600px) {
+  .img-thumbnail {
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+#single-portfolio .section-content {
+  padding: 50px 10px 20px;
+}
+
+@media (min-width: 480px) {
+  #single-portfolio .section-content {
+    padding: 80px 20px 0px;
+  }
+}
+
+@media (min-width: 992px) {
+  #single-portfolio .section-content {
+    padding: 80px 0px;
+  }
+}
+
+#single-portfolio .project-nav {
+  position: relative;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 991px) {
+  #single-portfolio .project-nav {
+    text-align: center;
+  }
+}
+
+@media (min-width: 480px) {
+  #single-portfolio .project-nav {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  #single-portfolio .project-nav {
+    margin-bottom: 40px;
+  }
+}
+
+#single-portfolio .project-nav a {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  color: #a1a1a1;
+  font-size: 35px;
+}
+
+#single-portfolio .project-nav a:hover {
+  color: #d9d9d9;
+}
+
+@media (min-width: 480px) and (max-width: 991px) {
+  #single-portfolio .project-nav a {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 991px) {
+  #single-portfolio .project-nav .project-nav-link.pull-left {
+    float: none !important;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 991px) {
+  #single-portfolio .project-nav .project-nav-link.pull-right {
+    float: none !important;
+    display: inline-block;
+  }
+}
+
+#single-portfolio .project-nav .project-nav-link.pull-right a {
+  text-align: center;
+}
+
+#single-portfolio .project-nav.bottom {
+  margin-top: 40px;
+}
+
+#single-portfolio .project-title {
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (min-width: 480px) {
+  #single-portfolio .project-title {
+    margin-bottom: 35px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 991px) {
+  #single-portfolio .project-title {
+    font-size: 38px;
+  }
+}
+
+@media (min-width: 992px) {
+  #single-portfolio .project-title {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 991px) {
+  #single-portfolio .project-description {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  #single-portfolio .project-description .text-center {
+    text-align: left;
+  }
+}
+
+#single-portfolio .project-description .project-details {
+  color: #a1a1a1;
+}
+
+#single-portfolio .project-description .project-details ul > li {
+  margin-bottom: 18px;
+}
+
+@media (min-width: 480px) and (max-width: 991px) {
+  #single-portfolio .project-description .project-details ul > li {
+    margin-bottom: 24px;
+  }
+}
+
+#single-portfolio .project-description .project-details ul > li h5 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 480px) {
+  #single-portfolio .project-description .project-details ul > li h5 {
+    margin-bottom: 3px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 991px) {
+  #single-portfolio .project-description .project-details ul > li h5 {
+    font-size: 20px;
+  }
+}
+
+#single-portfolio .project-description .project-details ul > li p {
+  margin-top: 3px;
+  color: #d9d9d9;
+  font-size: 15px;
+}
+
+@media (min-width: 480px) and (max-width: 991px) {
+  #single-portfolio .project-description .project-details ul > li p {
+    font-size: 20px;
+  }
+}
+
+#single-portfolio .project-description .project-details .external-link {
+  margin-top: 10px;
+}
+
+#single-portfolio .bar-chart {
+  margin: 40px 0px;
+}
+
+@media (min-width: 992px) {
+  #single-portfolio .bar-chart {
+    margin: 0px 0px 20px;
+  }
+}
+
+#single-portfolio .bar-chart > .item {
+  margin-bottom: 30px;
+}
+
+@media (min-width: 992px) {
+  #single-portfolio .bar-chart > .item {
+    margin-bottom: 25px;
+  }
+}
+
+#single-portfolio .bar-chart > .item > h5 {
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 480px) and (max-width: 991px) {
+  #single-portfolio .bar-chart > .item > h5 {
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+}
+
+#single-portfolio .bar-chart > .item > .bar > .percent {
+  color: #ffffff;
+}

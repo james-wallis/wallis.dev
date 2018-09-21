@@ -1,0 +1,52 @@
+body {
+    display:none;
+}
+
+#jpreBar {
+    animation: progress 2s linear infinite;
+    -moz-animation: progress 2s linear infinite;
+    -webkit-animation: progress 2s linear infinite;
+    -ms-animation: progress 2s linear infinite;
+    -o-animation: progress 2s linear infinite;	
+}
+
+@-webkit-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+@-moz-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+@-ms-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+@-o-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+@keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
