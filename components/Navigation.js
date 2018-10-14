@@ -3,7 +3,7 @@ import Link from './ActiveLink'
 class Navigation extends React.Component {
   render() {
     return <nav className={(this.props.animate ? 'animated fadeInDown' : null)} onScroll={this.toggleNavigationBackground}>
-      <h2 className='nav-name'>james-wallis.com</h2>
+      <h2 className='nav-name'>James Wallis</h2>
       <ul>
         <Link href='/'>
           <li><a>Home</a></li>
@@ -37,7 +37,7 @@ class Navigation extends React.Component {
         z-index: 100; // Should be above everything
       }
       nav.dark {
-        background-color: rgba(0, 0, 0, 0.7)
+        background-color: rgba(0, 0, 0, 0.9)
       }
       h2 {
         float: left;
@@ -75,23 +75,27 @@ class Navigation extends React.Component {
   }
 
   componentDidMount() {
-    const nav = document.getElementsByTagName('nav')[0];
-    const navName = document.getElementsByClassName('nav-name')[0];
-    const background = document.getElementsByClassName('background')[0];
-    document.addEventListener('scroll', function(e) {
-      const scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
-      if (scrollTop && scrollTop !== 0 && scrollTop > (background.offsetHeight - nav.offsetHeight) && !nav.classList.contains('dark')) {
-        nav.classList.add('dark');
-        navName.style.opacity = '1';
-      } else if (scrollTop && scrollTop !== 0 && scrollTop < (background.offsetHeight - nav.offsetHeight) && nav.classList.contains('dark')) {
-        nav.classList.remove('dark');
-        navName.style.opacity = '0';
-      }
-    })
+    const toggleNavigationBackground = this.toggleNavigationBackground;
+    document.addEventListener('scroll', toggleNavigationBackground);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('scroll');
+    const toggleNavigationBackground = this.toggleNavigationBackground;
+    document.removeEventListener('scroll', toggleNavigationBackground);
+  }
+
+  toggleNavigationBackground() {
+    const nav = document.getElementsByTagName('nav')[0];
+    const navName = document.getElementsByClassName('nav-name')[0];
+    const background = document.getElementsByClassName('background')[0];
+    const scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    if (scrollTop && scrollTop !== 0 && scrollTop > (background.offsetHeight - nav.offsetHeight) && !nav.classList.contains('dark')) {
+      nav.classList.add('dark');
+      navName.style.opacity = '1';
+    } else if (scrollTop && scrollTop !== 0 && scrollTop < (background.offsetHeight - nav.offsetHeight) && nav.classList.contains('dark')) {
+      nav.classList.remove('dark');
+      navName.style.opacity = '0';
+    }
   }
 }
 

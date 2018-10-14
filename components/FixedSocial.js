@@ -2,12 +2,16 @@
 class Social extends React.Component {
   render() {
     return <div className={(this.props.animate ? 'animated fadeInUp ' : null) + 'fixed-social'}>
-      <div>
-        <i className='fab fa-linkedin-in fa-md'></i>
-        <i className='fab fa-github fa-md'></i>
+      <div className='social'>
+        <a href='https://www.linkedin.com/in/jamesemwallis/' target='_blank' rel='noopener' rel='noreferrer'>
+          <i className='fab fa-linkedin-in fa-md'></i>
+        </a>
+        <a href='https://www.github.com/james-wallis' target='_blank' rel='noopener' rel='noreferrer'>
+          <i className='fab fa-github fa-md'></i>
+        </a>
       </div>
       <div>
-        <a href='mailto:mail@james-wallis.com?Subject=Hello'>mail@james-wallis.com</a>
+        <a className='email' href='mailto:mail@james-wallis.com?Subject=Hello'>mail@james-wallis.com</a>
       </div>
       <style jsx>{`
         .fixed-social {
@@ -28,13 +32,15 @@ class Social extends React.Component {
           color: white;
           transition: color 0.3s;
         }
-        i:first-child {
+        .social a:first-child {
           margin-right: 30px;
         }
         a {
           color: #aaa;
           text-decoration: none;
           transition: color 0.3s;
+        }
+        a.email {
           letter-spacing: 0.1px;
           font-size: 12px;
         }
