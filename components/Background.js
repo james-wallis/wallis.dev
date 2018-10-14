@@ -12,8 +12,8 @@ class Background extends React.Component {
           bottom: 0;
           left: 0;
           right: 0;
-          background-image: ${`url(./static/${this.props.image})`};
-          background-position: center;
+          background-image: ${`url(/static/${this.props.image})`};
+          background-position: ${ this.props.imagePosition ? this.props.imagePosition : 'center'};
           background-size: cover;
           z-index: 2;
         }

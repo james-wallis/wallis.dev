@@ -15,10 +15,10 @@ class Layout extends React.Component {
         <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400" rel="stylesheet"></link>
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossOrigin="anonymous"/>
         <link rel="stylesheet" href="/static/css/animate.min.css" />
       </Head>
-      <Background height={this.props.header.height} image={this.props.header.image}/>
+      <Background height={this.props.header.height} image={this.props.header.image} imagePosition={this.props.header.imagePosition}/>
       <Navigation />
       <Headings h1={this.props.header.h1} h2={this.props.header.h2} height={this.props.header.height}/>
       {this.props.children}

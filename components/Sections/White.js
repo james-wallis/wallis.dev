@@ -5,7 +5,7 @@ export default class Headings extends React.Component {
       {this.props.children}
       <style jsx>{`
         background-color: #FFF;
-        padding: 80px 30%;
+        padding: 80px 20%;
         text-align: center;
         color: black;
         border-top: ${ 'border' in this.props ? '1px solid #f1f1f1' : 'none' };

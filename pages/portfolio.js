@@ -28,28 +28,32 @@ const portfolio = [
     type: 'project',
     src: 'dashboard.png',
     alt: 'A screenshot of the dashboard',
-    link: '/dashboard'
+    link: '/dashboard',
+    comingSoon: true,
   },
   {
     name: 'wallisconsultancy.co.uk',
     type: 'website',
     src: 'wallisconsultancy.png',
     alt: 'A screenshot of the wallisconsultancy.co.uk homepage',
-    link: '/wallisconsultancy'
+    link: '/wallisconsultancy',
+    comingSoon: true,
   },
   {
     name: 'Web Fundamentals',
     type: 'coursework',
     src: 'webf1.png',
     alt: 'A screenshot of my web fundamental coursework homepage',
-    link: '/webf1'
+    link: '/webf1',
+    comingSoon: true,
   },
   {
     name: 'brickbreaker',
     type: 'competition',
     src: 'brickbreaker.jpg',
     alt: 'A screenshot of my brickbreaker game made for a programming competition in first year',
-    link: '/brickbreaker'
+    link: '/brickbreaker',
+    comingSoon: true,
   },
 ]
 

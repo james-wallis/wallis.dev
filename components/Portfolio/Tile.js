@@ -7,11 +7,18 @@ class Tile extends React.Component {
       <div className='overlay'>
         <h4>{this.props.name}</h4>
         <p>{this.props.type}</p>
-        <Link href={'/portfolio' + this.props.link}>
-          <div className='view-button'>
-            <p>View project</p>
-          </div>
-        </Link>
+        {
+          this.props.comingSoon 
+            ? <div className='view-button coming-soon'>
+              <p>Coming soon</p>
+            </div>
+            : <Link href={'/portfolio' + this.props.link}>
+                <div className='view-button'>
+                  <p>View project</p>
+                </div>
+              </Link>
+        }
+       
       </div>
       <style jsx>{`
       .tile {
@@ -71,6 +78,9 @@ class Tile extends React.Component {
         border: 1px solid white;
         padding: 10px 20px;
         cursor: pointer !important;
+      }
+      .view-button.coming-soon {
+        cursor: default !important;
       }
       .view-button p {
         text-transform: uppercase;

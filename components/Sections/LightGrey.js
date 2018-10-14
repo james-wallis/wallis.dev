@@ -1,5 +1,5 @@
 
-export default class Headings extends React.Component {
+export default class LightGrey extends React.Component {
   render() {
     return <div>
       {this.props.children}

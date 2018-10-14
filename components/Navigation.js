@@ -4,22 +4,22 @@ class Navigation extends React.Component {
   render() {
     return <nav className={(this.props.animate ? 'animated fadeInDown' : null)} onScroll={this.toggleNavigationBackground}>
       <h2 className='nav-name'>James Wallis</h2>
-      <ul>
+      <ul onMouseOver={this.dimNavigation} onMouseOut={this.showNavigation}>
         <Link href='/'>
-          <li><a>Home</a></li>
+          <li><a onMouseOut={this.removeHover}>Home</a></li>
         </Link>
         <Link href='/about'>
-          <li><a>About</a></li>
+          <li><a onMouseOut={this.removeHover}>About</a></li>
         </Link>
         <Link href='/portfolio'>
-          <li><a>Portfolio</a></li>
+          <li><a onMouseOut={this.removeHover}>Portfolio</a></li>
         </Link>
         <Link href='/resume'>
-          <li><a>Resume</a></li>
+          <li><a onMouseOut={this.removeHover}>Resume</a></li>
         </Link>
-        <Link href='/contact'>
+        {/* <Link href='/contact'>
           <li><a>Contact</a></li>
-        </Link>
+        </Link> */}
       </ul>
       <style jsx>{`
       nav {
@@ -33,11 +33,11 @@ class Navigation extends React.Component {
         user-select: none;
         animation-duration: 1.5s;
         animation-delay: 1.7s;
-        transition: 0.5s background-color;
+        transition: 0.2s background-color;
         z-index: 100; // Should be above everything
       }
       nav.dark {
-        background-color: rgba(0, 0, 0, 0.9)
+        background-color: rgba(0, 0, 0, 0.8)
       }
       h2 {
         float: left;
@@ -70,6 +70,12 @@ class Navigation extends React.Component {
       li.active {
         border-bottom: 1px #c7a674 solid;
       }
+      .dim li {
+        opacity: 0.4;
+      }
+      .dim li.hover {
+        opacity: 1;
+      }
       `}</style>
     </nav>
   }
@@ -96,6 +102,29 @@ class Navigation extends React.Component {
       nav.classList.remove('dark');
       navName.style.opacity = '0';
     }
+  }
+
+  dimNavigation(e) {
+    const ul = e.currentTarget;
+    const target = e.target;
+    if (!ul.classList.contains('dim')) {
+      ul.classList.add('dim');
+    }
+    if (target.tagName.toLowerCase() === 'a') {
+      target.parentNode.classList.add('hover');
+    }
+  }
+
+  showNavigation(e) {
+    const ul = e.currentTarget;
+    if (ul.classList.contains('dim')) {
+      ul.classList.remove('dim');
+    }
+  }
+
+  removeHover(e) {
+    const el = e.currentTarget;
+    el.parentNode.classList.remove('hover');
   }
 }
 
