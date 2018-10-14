@@ -1,0 +1,31 @@
+{
+  "name": "james-wallis.com",
+  "version": "0.0.1",
+  "description": "Personal website for James Wallis",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/james-wallis/.com.git"
+  },
+  "keywords": [
+    "James",
+    "Wallis"
+  ],
+  "author": "James Wallis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/james-wallis/.com/issues"
+  },
+  "homepage": "https://github.com/james-wallis/.com#readme",
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "rellax": "^1.7.0"
+  }
+}

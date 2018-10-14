@@ -1,2 +1,0 @@
-# .com
-My personal website
