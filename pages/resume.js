@@ -29,7 +29,7 @@ export default class extends React.Component {
           to make rational judgements and solve problems logically with 
           a planned approach.
         </p>
-        <a href='/static/james-wallis-cv.pdf' download className='button'>
+        <a href='/static/james-wallis-cv.pdf' download='JamesWallisCV.pdf' className='button'>
           Download CV
         </a>
       </LightGrey>
