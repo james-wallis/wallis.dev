@@ -5,5 +5,5 @@ services:
 
 script: 
   - docker login -u jamesemwallis -p $PASSWORD
-  - docker build -t jamesemwallis/james-wallis.com:next
+  - docker build -t jamesemwallis/james-wallis.com:next .
   - docker push jamesemwallis/james-wallis.com:next
