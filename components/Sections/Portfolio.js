@@ -16,7 +16,7 @@ export default class Portfolio extends React.Component {
         flex: 1;
         flex-direction: column;
         border-top: ${ 'border' in this.props ? '1px solid #f1f1f1' : 'none' };
-         @media (min-width: 992px) {
+        @media (min-width: 992px) {
           flex-direction: unset;
         }
       `}</style>

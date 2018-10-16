@@ -10,9 +10,10 @@ class Headings extends React.Component {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 100%;
+          width: 95%;
           height: ${ this.props.height }vh;
           overflow-wrap: break-word;
+          margin: 0 auto;
         }
         .headings h1 {
           z-index: 6;

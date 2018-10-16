@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Layout from '../components/Layout'
 import White from '../components/Sections/White';
 import LightGrey from '../components/Sections/LightGrey';
+import Button from '../components/Button';
 
 const properties = {
   head: {
@@ -29,9 +30,9 @@ export default class extends React.Component {
           to make rational judgements and solve problems logically with 
           a planned approach.
         </p>
-        <a href='/static/james-wallis-cv.pdf' download='JamesWallisCV.pdf' className='button'>
+        <Button href='/static/james-wallis-cv.pdf' download='JamesWallisCV.pdf'>
           Download CV
-        </a>
+        </Button>
       </LightGrey>
       <White>
         <h3>Education</h3>
@@ -136,10 +137,10 @@ export default class extends React.Component {
             main platform to push the business to customers.
           </li>
         </ul>
-        <Link href='/portfolio/wallisconsultancy'>
-          <a className='button'>
+        <Link href='/portfolio/wallisconsultancy' passHref>
+          <Button>
             View in Portfolio
-          </a>
+          </Button>
         </Link>
         <h4>Salsa Mish</h4>
         <p className='job-title'>Part time/on call</p>
@@ -307,22 +308,6 @@ export default class extends React.Component {
         h4:first-of-type {
           margin-top: 0;
         }
-        .button {
-          border: 1px solid black;
-          padding: 10px 20px;
-          cursor: pointer !important;
-          width: 50%;
-          margin: 0 auto;
-          margin-top: 20px;
-          opacity: 0.5;
-          transition: 0.2s opacity;
-          display: block;
-          color: black;
-          text-decoration: none;
-        }
-        .button:hover {
-          opacity: 1;
-        }
         .job-title, .year {
           font-size: 14px;
           margin: 0;
@@ -357,11 +342,6 @@ export default class extends React.Component {
         }
         ul.education li {
           list-style-type: none;
-        }
-        @media (min-width: 992px) {
-          .button {
-            width: 20%;
-          }
         }
       `}</style>
     </Layout>

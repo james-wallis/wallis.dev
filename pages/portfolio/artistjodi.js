@@ -1,6 +1,7 @@
 import Layout from '../../components/Layout.js';
 import Portfolio from '../../components/Sections/Portfolio.js';
 import LightGrey from '../../components/Sections/LightGrey.js';
+import Button from '../../components/Button';
 
 const properties = {
   head: {
@@ -45,12 +46,14 @@ export default class extends React.Component {
           </p>
         </div>
         <div className='col col-img'>
-          <img src={'/static/portfolio/artistjodi.png'} alt='The artistjodi.co.uk homepage' />
+          <img src={'/static/portfolio/artistjodi.png'} alt='A screenshot of the artistjodi.co.uk homepage' />
+          <p>The homepage for artistjodi.co.uk</p>
         </div>
       </Portfolio>
       <Portfolio border>
         <div className='col col-img'>
-          <img src={'/static/portfolio/artistjodi-commissions.png'} alt='something' />
+          <img src={'/static/portfolio/artistjodi-commissions.png'} alt='A screenshot of the artistjodi.co.uk commissions page' />
+          <p>The commissions page</p>
         </div>
         <div className='col'>
           <h4>Technical Details</h4>
@@ -68,10 +71,13 @@ export default class extends React.Component {
       <Portfolio border>
         <div className='col'>
           <h4>Visit ArtistJodi.co.uk</h4>
-          <p></p>
+          <Button href='https://artistjodi.co.uk' external>
+            artistjodi.co.uk
+          </Button>
         </div>
         <div className='col col-img'>
-          <img src={'/static/portfolio/artistjodi-artsplashbacks.png'} alt='The artistjodi.co.uk homepage' />
+          <img src={'/static/portfolio/artistjodi-artsplashbacks.png'} alt='A screenshot of the artistjodi.co.uk artsplashbacks page' />
+          <p>The Art Splashbacks section of the website</p>
         </div>
       </Portfolio>
       <style jsx>{`
@@ -83,6 +89,9 @@ export default class extends React.Component {
         .col-img {
           order: 2;
           margin-top: 30px;
+        }
+        .col-img p {
+          text-align: center;
         }
         img {
           width: 100%;

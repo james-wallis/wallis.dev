@@ -22,12 +22,15 @@ class Tile extends React.Component {
       </div>
       <style jsx>{`
       .tile {
-        margin: 20px;
-        height: 250px;
+        height: auto;
         width: 100%;
         display: block;
         margin: 0 auto;
         position: relative;
+        margin-bottom: 40px;
+      }
+      .tile:last-child {
+        margin-bottom: 0;
       }
       img {
         width: 90%;
@@ -41,11 +44,13 @@ class Tile extends React.Component {
       .overlay {
         position: absolute;
         top: 0;
-        width: 90%;
-        margin-left: 19px;
         bottom: 0;
-        opacity: 0;
-        background-color: rgba(0, 0, 0, 0.8);
+        left: 0;
+        right: 0;
+        width: 90%;
+        margin: 0 auto;
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.6);
         transition: 0.5s opacity;
         display: flex;
         align-items: center;
@@ -68,9 +73,7 @@ class Tile extends React.Component {
         font-size: 12px;
         letter-spacing: 0.6px;
       }
-      .overlay:hover {
-        opacity: 1;
-      }
+      
 
       .view-button {
         margin-top: 10px;
@@ -92,6 +95,15 @@ class Tile extends React.Component {
           display: inline-block;
           width: 33.33%; 
           width: calc(100% / 3);
+          height: 250px;
+          margin-bottom: 0px;
+        }
+        .overlay {
+          opacity: 0;
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+        .overlay:hover {
+          opacity: 1;
         }
       }
       `}</style>
