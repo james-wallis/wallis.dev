@@ -30,7 +30,7 @@ class Grid extends React.Component {
           background-color: white;
         }
         .portfolio-inner {
-          width: 1140px;
+          width: 100%;
           padding: 80px 0px;
           margin: 0 auto;
         }
@@ -44,6 +44,26 @@ class Grid extends React.Component {
           text-align: center;
           margin: 0;
           margin-bottom: 60px;
+        }
+        @media (min-width: 576px) {
+          .portfolio-inner {
+            width: 540px;
+          }
+        }
+        @media (min-width: 768px) {
+          .portfolio-inner {
+            width: 720px;
+          }
+        }
+        @media (min-width: 992px) {
+          .portfolio-inner {
+            width: 960px;
+          }
+        }
+         @media (min-width: 1200px) {
+          .portfolio-inner {
+            width: 1140px;
+          }
         }
       `}</style>
     </div>

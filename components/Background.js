@@ -5,7 +5,7 @@ class Background extends React.Component {
       <div className='darken'></div>
       <style jsx>{`
         .background {
-          height: ${ this.props.height }vh;
+          height: ${ this.props.height }%;
           width: 100%;
           position: fixed;
           top: 0;
@@ -18,7 +18,7 @@ class Background extends React.Component {
           z-index: 2;
         }
         .darken {
-          height: ${ this.props.height }vh;
+          height: ${ this.props.height }%;
           width: 100%;
           background-color: black;
           position: absolute;

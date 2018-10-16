@@ -38,6 +38,10 @@ class Layout extends React.Component {
   componentDidMount() {
     window.Rellax = require('rellax');
     new Rellax('.rellax');
+    window.Cookies = require('js-cookie');
+    // Create cookie, if its created add 5 minutes to expiry time
+    const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
+    Cookies.set('james-wallis.com', true, { expires: inFiveMinutes });
   }
 }
 

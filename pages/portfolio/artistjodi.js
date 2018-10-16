@@ -7,7 +7,7 @@ const properties = {
     title: 'James Wallis'
   },
   header: {
-    h1: 'ArtistJodi.co.uk',
+    h1: 'ArtistJodi',
     h2: 'Website',
     image: 'portfolio/artistjodi.png',
     imagePosition: 'top',
@@ -44,12 +44,12 @@ export default class extends React.Component {
             and then set about planning and developing the website.
           </p>
         </div>
-        <div className='col'>
+        <div className='col col-img'>
           <img src={'/static/portfolio/artistjodi.png'} alt='The artistjodi.co.uk homepage' />
         </div>
       </Portfolio>
       <Portfolio border>
-        <div className='col'>
+        <div className='col col-img'>
           <img src={'/static/portfolio/artistjodi-commissions.png'} alt='something' />
         </div>
         <div className='col'>
@@ -70,18 +70,23 @@ export default class extends React.Component {
           <h4>Visit ArtistJodi.co.uk</h4>
           <p></p>
         </div>
-        <div className='col'>
-          <img src={'/static/portfolio/artistjodi.png'} alt='The artistjodi.co.uk homepage' />
+        <div className='col col-img'>
+          <img src={'/static/portfolio/artistjodi-artsplashbacks.png'} alt='The artistjodi.co.uk homepage' />
         </div>
       </Portfolio>
       <style jsx>{`
         .col {
-          width: 50%;
+          width: 100%;
           padding: 0 10px;
+          order: 1;
+        }
+        .col-img {
+          order: 2;
+          margin-top: 30px;
         }
         img {
           width: 100%;
-          
+          position: 1;
         }
         h3, h4 {
           font-size: 26px;
@@ -104,6 +109,16 @@ export default class extends React.Component {
           text-align: justify;
           // text-align-last: center;
         }
+        @media (min-width: 992px) {
+            .col {
+              width: 50%;
+              order: unset;
+            }
+            .col-img {
+              order: unset;
+              margin-top: 0;
+            }
+          }
       `}</style>
     </Layout>
   }

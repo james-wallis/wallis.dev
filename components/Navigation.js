@@ -55,6 +55,14 @@ class Navigation extends React.Component {
         transition: all 0.3s;
         color: rgba(238, 238, 238, 1);
         float: right;
+        // Styles for mobile navigation
+        // position: fixed;
+        // top: 0;
+        // bottom: 0;
+        // width: 100%;
+        // background-color: grey;
+        // margin-left: 101%;
+        // padding: 0;
       }
       li {
         margin: 10px 20px;

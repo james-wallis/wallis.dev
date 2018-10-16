@@ -311,7 +311,7 @@ export default class extends React.Component {
           border: 1px solid black;
           padding: 10px 20px;
           cursor: pointer !important;
-          width: 20%;
+          width: 50%;
           margin: 0 auto;
           margin-top: 20px;
           opacity: 0.5;
@@ -357,6 +357,11 @@ export default class extends React.Component {
         }
         ul.education li {
           list-style-type: none;
+        }
+        @media (min-width: 992px) {
+          .button {
+            width: 20%;
+          }
         }
       `}</style>
     </Layout>

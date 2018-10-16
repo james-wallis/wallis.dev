@@ -24,9 +24,8 @@ class Tile extends React.Component {
       .tile {
         margin: 20px;
         height: 250px;
-        width: 33.33%; 
-        width: calc(100% / 3);
-        display: inline-block;
+        width: 100%;
+        display: block;
         margin: 0 auto;
         position: relative;
       }
@@ -87,6 +86,13 @@ class Tile extends React.Component {
         font-size: 12px;
         letter-spacing: 2px;
         font-style: normal;
+      }
+      @media (min-width: 992px) {
+        .tile {
+          display: inline-block;
+          width: 33.33%; 
+          width: calc(100% / 3);
+        }
       }
       `}</style>
     </div>
