@@ -3,7 +3,7 @@ import Link from 'next/link';
 class Tile extends React.Component {
   render() {
     return <div className='tile'>
-      <img src={'/static/portfolio/' + this.props.src} alt={this.props.alt} />
+      <img src={require(`../../images/portfolio/${this.props.src}`)} alt={this.props.alt} />
       <div className='overlay'>
         <h4>{this.props.name}</h4>
         <p>{this.props.type}</p>

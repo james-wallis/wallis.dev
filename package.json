@@ -25,6 +25,8 @@
   "dependencies": {
     "js-cookie": "^2.2.0",
     "next": "^7.0.2",
+    "next-compose-plugins": "^2.1.1",
+    "next-optimized-images": "^1.4.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "rellax": "^1.7.0"

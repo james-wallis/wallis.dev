@@ -19,14 +19,14 @@ const portfolio = [
   {
     name: 'artistjodi.co.uk',
     type: 'website',
-    src: 'artistjodi.png',
+    src: 'artistjodi/artistjodi-home.png',
     alt: 'A screenshot of the artistjodi.co.uk homepage',
     link: '/artistjodi'
   },
   {
     name: 'Dashboard',
     type: 'project',
-    src: 'dashboard.png',
+    src: 'dashboard/home.png',
     alt: 'A screenshot of the dashboard',
     link: '/dashboard',
     comingSoon: true,
@@ -34,7 +34,7 @@ const portfolio = [
   {
     name: 'wallisconsultancy.co.uk',
     type: 'website',
-    src: 'wallisconsultancy.png',
+    src: 'wallisconsultancy/home.png',
     alt: 'A screenshot of the wallisconsultancy.co.uk homepage',
     link: '/wallisconsultancy',
     comingSoon: true,
@@ -42,7 +42,7 @@ const portfolio = [
   {
     name: 'Web Fundamentals',
     type: 'coursework',
-    src: 'webf1.png',
+    src: 'webf1/home.png',
     alt: 'A screenshot of my web fundamental coursework homepage',
     link: '/webf1',
     comingSoon: true,
@@ -50,7 +50,7 @@ const portfolio = [
   {
     name: 'brickbreaker',
     type: 'competition',
-    src: 'brickbreaker.jpg',
+    src: 'brickbreaker/game-and-source.jpg',
     alt: 'A screenshot of my brickbreaker game made for a programming competition in first year',
     link: '/brickbreaker',
     comingSoon: true,

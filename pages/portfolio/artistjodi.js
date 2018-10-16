@@ -10,7 +10,7 @@ const properties = {
   header: {
     h1: 'ArtistJodi',
     h2: 'Website',
-    image: 'portfolio/artistjodi.png',
+    image: 'artistjodi.png',
     imagePosition: 'top',
     height: 80
   }
@@ -46,13 +46,13 @@ export default class extends React.Component {
           </p>
         </div>
         <div className='col col-img'>
-          <img src={'/static/portfolio/artistjodi.png'} alt='A screenshot of the artistjodi.co.uk homepage' />
+          <img src={require('../../images/portfolio/artistjodi/artistjodi-home.png')} alt='A screenshot of the artistjodi.co.uk homepage' />
           <p>The homepage for artistjodi.co.uk</p>
         </div>
       </Portfolio>
       <Portfolio border>
         <div className='col col-img'>
-          <img src={'/static/portfolio/artistjodi-commissions.png'} alt='A screenshot of the artistjodi.co.uk commissions page' />
+          <img src={require('../../images/portfolio/artistjodi/artistjodi-commissions.png')} alt='A screenshot of the artistjodi.co.uk commissions page' />
           <p>The commissions page</p>
         </div>
         <div className='col'>
@@ -76,7 +76,7 @@ export default class extends React.Component {
           </Button>
         </div>
         <div className='col col-img'>
-          <img src={'/static/portfolio/artistjodi-artsplashbacks.png'} alt='A screenshot of the artistjodi.co.uk artsplashbacks page' />
+          <img src={require('../../images/portfolio/artistjodi/artistjodi-artsplashbacks.png')} alt='A screenshot of the artistjodi.co.uk artsplashbacks page' />
           <p>The Art Splashbacks section of the website</p>
         </div>
       </Portfolio>

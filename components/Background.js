@@ -1,5 +1,6 @@
 class Background extends React.Component {
   render() {
+    const imgSource = require(`../images/backgrounds/${this.props.image}`)
     return <div>
       <div className='background rellax' data-rellax-speed='2'></div>
       <div className='darken'></div>
@@ -12,7 +13,7 @@ class Background extends React.Component {
           bottom: 0;
           left: 0;
           right: 0;
-          background-image: ${`url(/static/${this.props.image})`};
+          background-image: url('${imgSource}');
           background-position: ${ this.props.imagePosition ? this.props.imagePosition : 'center'};
           background-size: cover;
           z-index: 2;
