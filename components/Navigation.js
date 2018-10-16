@@ -70,6 +70,7 @@ class Navigation extends React.Component {
         margin-left: 101vw;
         padding: 0;
         padding-top: 50px;
+        height: 100vh;
       }
       li {
         transition: all 0.3s;
