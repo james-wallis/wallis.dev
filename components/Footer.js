@@ -19,6 +19,8 @@ class Footer extends React.Component {
           background-color: #26262a;
           text-align: center;
           padding: 40px 0;
+          z-index: 20;
+          position: relative;
         }
         .social {
           margin-bottom: 1em;

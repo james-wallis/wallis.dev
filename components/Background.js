@@ -6,7 +6,7 @@ class Background extends React.Component {
       <div className='darken'></div>
       <style jsx>{`
         .background {
-          height: ${ this.props.height }%;
+          height: 100%;
           width: 100%;
           position: fixed;
           top: 0;
@@ -19,10 +19,10 @@ class Background extends React.Component {
           z-index: 2;
         }
         .darken {
-          height: ${ this.props.height }%;
+          height: 100%;
           width: 100%;
           background-color: black;
-          position: absolute;
+          position: fixed;
           top: 0;
           bottom: 0;
           left: 0;
@@ -30,8 +30,22 @@ class Background extends React.Component {
           opacity: 0.8;
           z-index: 4;
         }
+        @media (min-width: 992px) {
+          .background {
+            height: ${ this.props.height }%;
+          }
+          .darken {
+            height: ${ this.props.height }%;
+          }
+        }
       `}</style>
     </div>
+  }
+
+  componentDidMount() {
+    const heading = document.getElementsByClassName('headings')[0];
+    const height = heading.offsetHeight;
+    heading.style.height = height + 'px';
   }
 }
 
