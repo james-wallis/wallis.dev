@@ -103,6 +103,7 @@ class Navigation extends React.Component {
           padding: 10px 20px;
           color: rgba(238, 238, 238, 1);
           float: right;
+          height: auto;
         }
         li {
           display: inline-block;

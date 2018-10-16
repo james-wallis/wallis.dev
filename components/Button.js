@@ -21,7 +21,7 @@ class Button extends React.Component {
         border: 1px solid black;
         padding: 10px 20px;
         cursor: pointer !important;
-        width: 50%;
+        width: 60%;
         margin: 0 auto;
         margin-top: 20px;
         opacity: 0.5;
@@ -30,12 +30,27 @@ class Button extends React.Component {
         color: black;
         text-decoration: none;
       }
+      @media (min-width: 576px) {
+        a {
+          width: 50%;
+        }
+      }
+      @media (min-width: 768px) {
+        a {
+          width: 45%;
+        }
+      }
       @media (min-width: 992px) {
         a {
-            width: 20%;
+            width: 40%;
           }
         a:hover {
           opacity: 1;
+        }
+      }
+      @media (min-width: 1200px) {
+        a {
+          width: 30%;
         }
       }
       `}</style>

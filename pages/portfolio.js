@@ -34,10 +34,9 @@ const portfolio = [
   {
     name: 'wallisconsultancy.co.uk',
     type: 'website',
-    src: 'wallisconsultancy/home.png',
+    src: 'wallisconsultancy/wallisconsultancy-home.png',
     alt: 'A screenshot of the wallisconsultancy.co.uk homepage',
     link: '/wallisconsultancy',
-    comingSoon: true,
   },
   {
     name: 'Web Fundamentals',
