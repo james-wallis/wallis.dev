@@ -6,7 +6,7 @@ class Background extends React.Component {
       <div className='darken'></div>
       <style jsx>{`
         .background {
-          height: 100%;
+          height: ${ this.props.height }vh;
           width: 100%;
           position: fixed;
           top: 0;
@@ -43,9 +43,20 @@ class Background extends React.Component {
   }
 
   componentDidMount() {
-    const heading = document.getElementsByClassName('headings')[0];
-    const height = heading.offsetHeight;
-    heading.style.height = height + 'px';
+    afterOrientationChange();
+    window.addEventListener('orientationchange', setBackgroundHeight);
+    function setBackgroundHeight() {
+      window.addEventListener('resize', afterOrientationChange);
+    }
+    function afterOrientationChange() {
+      const heading = document.getElementsByClassName('headings')[0];
+      const background = document.getElementsByClassName('background')[0];
+      // const height = heading.offsetHeight;
+      let vh = window.innerHeight * 0.01 * 80;
+      heading.style.height = vh + 'px';
+      background.style.height = vh + 'px';
+      window.removeEventListener('resize', afterOrientationChange);
+    }
   }
 }
 
