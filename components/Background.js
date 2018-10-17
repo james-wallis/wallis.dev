@@ -43,6 +43,7 @@ class Background extends React.Component {
   }
 
   componentDidMount() {
+    const height = this.props.height;
     afterOrientationChange();
     window.addEventListener('orientationchange', setBackgroundHeight);
     function setBackgroundHeight() {
@@ -52,7 +53,7 @@ class Background extends React.Component {
       const heading = document.getElementsByClassName('headings')[0];
       const background = document.getElementsByClassName('background')[0];
       // const height = heading.offsetHeight;
-      let vh = window.innerHeight * 0.01 * 80;
+      let vh = window.innerHeight * 0.01 * height;
       heading.style.height = vh + 'px';
       background.style.height = vh + 'px';
       window.removeEventListener('resize', afterOrientationChange);
