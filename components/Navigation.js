@@ -17,9 +17,7 @@ class Navigation extends React.Component {
         <Link href='/portfolio'>
           <li><a onMouseOut={this.removeHover}>Portfolio</a></li>
         </Link>
-        <Link href='/resume'>
-          <li><a onMouseOut={this.removeHover}>Resume</a></li>
-        </Link>
+        <li><a target='_blank' href='/static/james-wallis-cv.pdf' onMouseOut={this.removeHover}>Resume</a></li>
         {/* <Link href='/contact'>
           <li><a>Contact</a></li>
         </Link> */}
@@ -87,6 +85,10 @@ class Navigation extends React.Component {
       }
       li:last-child {
         border: 0;
+      }
+      a {
+        color: white;
+        text-decoration: none;
       }
       
       @media (min-width: 992px) {
