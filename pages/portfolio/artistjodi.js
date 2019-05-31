@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout.js';
+import Layout from '../../components/Layouts/Main';
 import Portfolio from '../../components/Sections/Portfolio.js';
 import LightGrey from '../../components/Sections/LightGrey.js';
 import Button from '../../components/Button';
@@ -109,7 +109,7 @@ export default class extends React.Component {
           // font-size: 35px;
         }
         p {
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 200;
           font-family: 'Roboto', sans-serif;
           line-height: 30px;

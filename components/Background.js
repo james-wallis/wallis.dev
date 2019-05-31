@@ -42,23 +42,25 @@ class Background extends React.Component {
     </div>
   }
 
-  componentDidMount() {
-    const height = this.props.height;
-    afterOrientationChange();
-    window.addEventListener('orientationchange', setBackgroundHeight);
-    function setBackgroundHeight() {
-      window.addEventListener('resize', afterOrientationChange);
-    }
-    function afterOrientationChange() {
-      const heading = document.getElementsByClassName('headings')[0];
-      const background = document.getElementsByClassName('background')[0];
-      // const height = heading.offsetHeight;
-      let vh = window.innerHeight * 0.01 * height;
-      heading.style.height = vh + 'px';
-      background.style.height = vh + 'px';
-      window.removeEventListener('resize', afterOrientationChange);
-    }
-  }
+  // Function which should stop the weird vh behaviour on mobiles, needs fixing.
+  // componentDidMount() {
+  //   const height = this.props.height;
+  //   afterOrientationChange();
+  //   window.addEventListener('orientationchange', setBackgroundHeight);
+  //   function setBackgroundHeight() {
+  //     window.addEventListener('resize', afterOrientationChange);
+  //   }
+  //   function afterOrientationChange() {
+  //     const heading = document.getElementsByClassName('headings')[0];
+  //     const background = document.getElementsByClassName('background')[0];
+  //     // const height = heading.offsetHeight;
+  //     let vh = window.innerHeight * 0.01 * height;
+  //     console.log('vh', vh);
+  //     // heading.style.height = vh + 'px';
+  //     // background.style.height = vh + 'px';
+  //     window.removeEventListener('resize', afterOrientationChange);
+  //   }
+  // }
 }
 
 export default Background

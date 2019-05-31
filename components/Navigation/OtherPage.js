@@ -1,26 +1,23 @@
-import Link from './ActiveLink'
-import MenuIcon from './Navigation/MenuIcon'
+import Link from '../ActiveLink'
+import MenuIcon from './MenuIcon'
 
 class Navigation extends React.Component {
   render() {
     return <nav className={(this.props.animate ? 'animated fadeInDown' : null)} onScroll={this.toggleNavigationBackground}>
       <h2 className='nav-name'>James Wallis</h2>
-      <MenuIcon onClick={this.openMenu}/>
+      <MenuIcon onClick={this.openMenu} />
       <ul onMouseOver={this.dimNavigation} onMouseOut={this.showNavigation}>
         <MenuIcon close onClick={this.closeMenu} />
         <Link href='/'>
           <li><a onMouseOut={this.removeHover}>Home</a></li>
         </Link>
-        <Link href='/#about'>
+        <Link href='/?about'>
           <li><a onMouseOut={this.removeHover}>About</a></li>
         </Link>
-        <Link href='/#portfolio'>
+        <Link href='/?portfolio'>
           <li><a onMouseOut={this.removeHover}>Portfolio</a></li>
         </Link>
         <li><a target='_blank' href='/static/james-wallis-cv.pdf' onMouseOut={this.removeHover}>Resume</a></li>
-        {/* <Link href='/contact'>
-          <li><a>Contact</a></li>
-        </Link> */}
       </ul>
       <style jsx>{`
       nav {

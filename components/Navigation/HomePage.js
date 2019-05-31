@@ -1,26 +1,36 @@
-import Link from './ActiveLink'
-import MenuIcon from './Navigation/MenuIcon'
+import { Link } from 'react-scroll'
+import MenuIcon from './MenuIcon'
 
 class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      navBarOffset: 0
+    }
+  }
   render() {
+    const { navBarOffset } = this.state;
     return <nav className={(this.props.animate ? 'animated fadeInDown' : null)} onScroll={this.toggleNavigationBackground}>
       <h2 className='nav-name'>James Wallis</h2>
-      <MenuIcon onClick={this.openMenu}/>
+      <MenuIcon onClick={this.openMenu} />
       <ul onMouseOver={this.dimNavigation} onMouseOut={this.showNavigation}>
         <MenuIcon close onClick={this.closeMenu} />
-        <Link href='/'>
-          <li><a onMouseOut={this.removeHover}>Home</a></li>
+        <li>
+          <Link onMouseOut={this.removeHover} activeClass='active' to='__next' spy={true} smooth={'easeInOutCubic'} duration={500} onSetActive={this.closeMenu}>
+          Home
         </Link>
-        <Link href='/#about'>
-          <li><a onMouseOut={this.removeHover}>About</a></li>
+        </li>
+        <li>
+          <Link onMouseOut={this.removeHover} activeClass='active' to='about' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={this.closeMenu}>
+          About
         </Link>
-        <Link href='/#portfolio'>
-          <li><a onMouseOut={this.removeHover}>Portfolio</a></li>
+        </li>
+        <li>
+          <Link onMouseOut={this.removeHover} activeClass='active' to='portfolio' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={this.closeMenu}>
+          Portfolio
         </Link>
+        </li>
         <li><a target='_blank' href='/static/james-wallis-cv.pdf' onMouseOut={this.removeHover}>Resume</a></li>
-        {/* <Link href='/contact'>
-          <li><a>Contact</a></li>
-        </Link> */}
       </ul>
       <style jsx>{`
       nav {
@@ -136,6 +146,7 @@ class Navigation extends React.Component {
     const toggleNavigationBackground = this.toggleNavigationBackground;
     document.addEventListener('scroll', toggleNavigationBackground);
     toggleNavigationBackground();
+    this.setState({ navBarOffset: this.calculateNavBarHeight()})
   }
 
   componentWillUnmount() {
@@ -190,6 +201,11 @@ class Navigation extends React.Component {
     const nav = document.getElementsByTagName('nav')[0];
     const ul = nav.getElementsByTagName('ul')[0];
     ul.style.marginLeft = '';
+  }
+
+  calculateNavBarHeight() {
+    const nav = document.getElementsByTagName('nav')[0];
+    return -(nav.offsetHeight);
   }
 }
 
