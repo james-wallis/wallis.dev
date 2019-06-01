@@ -40,6 +40,7 @@ class Headings extends React.Component {
           color: #c7a674;
           animation-duration: 2s;
           animation-delay: 1.2s;
+          padding-bottom: 150px;
         }
         @media (min-width: 992px) {
           .headings h1 {
@@ -49,6 +50,7 @@ class Headings extends React.Component {
           .headings h2 {
             letter-spacing: 20px;
             font-size: 24px;
+            padding-bottom: 0;
           }
         }
       `}</style>

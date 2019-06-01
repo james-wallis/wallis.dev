@@ -5,7 +5,8 @@ import Button from '../../components/Button';
 
 const properties = {
   head: {
-    title: 'James Wallis'
+    title: 'Portfolio - Artist Jodi',
+    description: 'ArtistJodi is a website developed by James Wallis using React and Nextjs, find out more here.'
   },
   header: {
     h1: 'ArtistJodi',
@@ -46,19 +47,19 @@ export default class extends React.Component {
           </p>
         </div>
         <div className='col col-img'>
-          <img src={require('../../images/portfolio/artistjodi/artistjodi-home.png')} alt='A screenshot of the artistjodi.co.uk homepage' />
-          <p>The homepage for artistjodi.co.uk</p>
+          <img src={require('../../images/portfolio/artistjodi/artistjodi-home.png')} alt='A screenshot of the artistjodi.com homepage' />
+          <p>The homepage for artistjodi.com</p>
         </div>
       </Portfolio>
       <Portfolio border>
         <div className='col col-img'>
-          <img src={require('../../images/portfolio/artistjodi/artistjodi-commissions.png')} alt='A screenshot of the artistjodi.co.uk commissions page' />
+          <img src={require('../../images/portfolio/artistjodi/artistjodi-commissions.png')} alt='A screenshot of the artistjodi.com commissions page' />
           <p>The commissions page</p>
         </div>
         <div className='col'>
           <h4>Technical Details</h4>
           <p>
-            I chose to write artistjodi.co.uk in React.js using Next.js framework as the server side 
+            I chose to write artistjodi.com in React.js using Next.js framework as the server side 
             rendering is a perfect for fast page loading time and strong SEO. For fast image load time, 
             I use a Next.js plugin to compress the images.
             Bootstrap 4 is used to get the responsive layout and font-awesome for icons 
@@ -70,13 +71,13 @@ export default class extends React.Component {
       </Portfolio>
       <Portfolio border>
         <div className='col'>
-          <h4>Visit ArtistJodi.co.uk</h4>
-          <Button href='https://artistjodi.co.uk' external>
-            artistjodi.co.uk
+          <h4>Visit ArtistJodi.com</h4>
+          <Button href='https://artistjodi.com' external>
+            artistjodi.com
           </Button>
         </div>
         <div className='col col-img'>
-          <img src={require('../../images/portfolio/artistjodi/artistjodi-artsplashbacks.png')} alt='A screenshot of the artistjodi.co.uk artsplashbacks page' />
+          <img src={require('../../images/portfolio/artistjodi/artistjodi-artsplashbacks.png')} alt='A screenshot of the artistjodi.com artsplashbacks page' />
           <p>The Art Splashbacks section of the website</p>
         </div>
       </Portfolio>

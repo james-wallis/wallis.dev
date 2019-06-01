@@ -5,7 +5,7 @@ export default class Portfolio extends React.Component {
       {this.props.children}
       <style jsx>{`
         background-color: #fff;
-        padding: 80px 10%;
+        padding: 40px 10%;
         text-align: center;
         color: black;
         position: relative;
@@ -18,6 +18,7 @@ export default class Portfolio extends React.Component {
         border-top: ${ 'border' in this.props ? '1px solid #f1f1f1' : 'none' };
         @media (min-width: 992px) {
           flex-direction: unset;
+          padding: 80px 10%;
         }
       `}</style>
     </div>

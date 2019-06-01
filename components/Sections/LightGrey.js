@@ -5,7 +5,7 @@ export default class LightGrey extends React.Component {
       {this.props.children}
       <style jsx>{`
         background-color: #edeeef;
-        padding: 80px 10%;
+        padding: 40px 10%;
         text-align: center;
         color: black;
         position: relative;

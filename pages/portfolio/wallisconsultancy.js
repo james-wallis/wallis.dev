@@ -5,7 +5,8 @@ import Button from '../../components/Button';
 
 const properties = {
   head: {
-    title: 'James Wallis'
+    title: 'Portfolio - Wallis Consultancy',
+    description: 'Wallis Consultancy is a website designed and built by James Wallis, find out more here.'
   },
   header: {
     h1: 'Wallis Consultancy',

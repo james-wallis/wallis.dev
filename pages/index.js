@@ -6,7 +6,8 @@ import FixedSocial from '../components/FixedSocial';
 
 const properties = {
   head: {
-    title: 'James Wallis'
+    title: 'Home',
+    description: 'The personal website for James Wallis, developer.'
   },
   header: {
     h1: 'James Wallis',
@@ -60,31 +61,41 @@ const portfolio = [
 ]
 
 export default class extends React.Component {
+
+  static async getInitialProps({ query }) {
+    return { query: query }
+  }
+
   render() {
+    const { query } = this.props;
+    properties.elementToScrollTo = (query.section) ? query.section : null;
     return <Layout {...properties} >
       <FixedSocial animate />
-      <div id="about">
+      <div id='about' className='section'>
         <LightGrey>
           <h3>Let me introduce myself</h3>
-          <p>I'm 21, born in Hertfordshire, living in Portsmouth, studying Computer Science and just finished my placement year at IBM.</p>
-          <p>Oh and I love coffee as much as the next developer.</p>
+          <p>I'm 22, studying Computer Science at the University of Portsmouth and recently finished my placement year at IBM.</p>
+          {/* <p>Oh and I love coffee as much as the next developer.</p> */}
         </LightGrey>
         <White>
-          <h3>Technology &amp; development</h3>
-          <p><strong>Pre-code:</strong> At 12 I helped my older brother build my first computer which sparked my passion for technology.</p>
-          <p><strong>Secondary School:</strong> I was introduced to HTML &amp; CSS and began developing my own websites.</p>
-          <p><strong>University of Portsmouth:</strong> I was introduced to development languages such as JavaScript, Java and Python.</p>
-          <p><strong>IBM:</strong> I honed my JavaScript skills, learnt Bash programming and was introduced to Docker Containerisation and Kubernetes Orchestration.</p>
-        </White>
-        <White border>
-          <h3>Working life</h3>
-          <p><strong>Secondary School:</strong> Worked as an instructor at my local Kumon centre and as a kitchen porter then waiter at Martin's Pond.</p>
-          <p><strong>University of Portsmouth:</strong> During 2nd year worked for Deliveroo. Now in my final year I am working as an Placement Ambassador for the university.</p>
-          <p><strong>IBM:</strong> Spent a year at IBM on placement where I worked in an agile team on Microclimate.</p>
-          <p><strong>Casual Work:</strong> Developed and maintain artistjodi.co.uk and wallisconsultancy.co.uk. Work at SalsaMish on an "on call" basis.</p>
+          <h3>Technology &amp; personal development</h3>
+          <p>
+            <strong>1996 - 2015</strong> 
+            Built my first computer and was introduced to HTML and CSS during high school and began developing my own websites.
+            Worked as an English and Maths tutor at Kumon and as a Waiter at a local bistro.
+          </p>
+          <p>
+            <strong>2015 - 2019</strong> 
+            Attended the University of Portsmouth where I was introduced to development languages such as JavaScript, Java and Python. 
+            In addition to completing my Computer Science degree I also became a Placement Ambassador.
+          </p>
+          <p>
+            <strong>2019 - Present</strong> 
+            Currently working in a local bistro passing time before starting at IBM in September.
+          </p>
         </White>
       </div>
-      <div id='portfolio'>
+      <div id='portfolio' className='section'>
         <LightGrey>
           <h3>Take a look at my work</h3>
           <p>Ever since I discovered programming at university I've been pushing myself to develop in my free time.</p>
@@ -112,9 +123,48 @@ export default class extends React.Component {
           margin: 0;
           margin-bottom: 5px;
           text-align: justify;
-          // text-align-last: center;
+        }
+        strong {
+          padding-right: 10px;
         }
       `}</style>
     </Layout>
+  }
+
+  componentDidMount() {
+    window.Cookies = require('js-cookie');
+    const cookieFound = Cookies.getJSON('wallis.devs');
+    if (cookieFound) {
+      const headings = document.getElementsByClassName('headings')[0].childNodes;
+      for (let index = 0; index < headings.length; index++) {
+        const element = headings[index];
+        element.classList.remove('animated');
+        element.classList.remove('fadeIn');
+      }
+      const nav = document.getElementsByTagName('NAV')[0];
+      nav.classList.remove('animated');
+      nav.classList.remove('fadeInDown');
+      const fixedSocial = document.getElementById('fixed-social');
+      fixedSocial.classList.remove('animated');
+      fixedSocial.classList.remove('fadeInUp');
+    }
+
+    const hideFixedSocial = this.hideFixedSocial;
+    document.addEventListener('scroll', hideFixedSocial);
+  }
+
+  componentWillUnmount() {
+    const hideFixedSocial = this.hideFixedSocial;
+    document.removeEventListener('scroll', hideFixedSocial);
+  }
+
+  hideFixedSocial = () => {
+    const aboutSection = document.getElementById('about').offsetTop;
+    const fixedSocial = document.getElementById('fixed-social');
+    if (window.scrollY > aboutSection) {
+      fixedSocial.style.visibility = 'hidden';
+    } else {
+      fixedSocial.style.visibility = 'visible';
+    }
   }
 }

@@ -1,7 +1,7 @@
 class Background extends React.Component {
   render() {
     const imgSource = require(`../images/backgrounds/${this.props.image}`)
-    return <div>
+    return <div className='section'>
       <div className='background rellax' data-rellax-speed='2'></div>
       <div className='darken'></div>
       <style jsx>{`

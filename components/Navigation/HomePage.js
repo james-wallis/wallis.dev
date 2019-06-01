@@ -1,5 +1,6 @@
 import { Link } from 'react-scroll'
 import MenuIcon from './MenuIcon'
+import func from './navigationFunctions';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -10,202 +11,73 @@ class Navigation extends React.Component {
   }
   render() {
     const { navBarOffset } = this.state;
-    return <nav className={(this.props.animate ? 'animated fadeInDown' : null)} onScroll={this.toggleNavigationBackground}>
+    return <nav className={(this.props.animate ? 'animated fadeInDown' : null)} onScroll={func.toggleNavigationBackground}>
       <h2 className='nav-name'>James Wallis</h2>
-      <MenuIcon onClick={this.openMenu} />
-      <ul onMouseOver={this.dimNavigation} onMouseOut={this.showNavigation}>
-        <MenuIcon close onClick={this.closeMenu} />
-        <li>
-          <Link onMouseOut={this.removeHover} activeClass='active' to='__next' spy={true} smooth={'easeInOutCubic'} duration={500} onSetActive={this.closeMenu}>
+      <MenuIcon onClick={func.openMenu} />
+      <ul onMouseOver={func.dimNavigation} onMouseOut={func.showNavigation}>
+        <MenuIcon close onClick={func.closeMenu} />
+        <li className='section-link'>
+          <Link onMouseOut={func.removeHover} to='__next' spy={true} smooth={'easeInOutCubic'} duration={500} onSetActive={func.closeMenu}>
           Home
         </Link>
         </li>
-        <li>
-          <Link onMouseOut={this.removeHover} activeClass='active' to='about' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={this.closeMenu}>
+        <li className='section-link'>
+          <Link onMouseOut={func.removeHover} to='about' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={func.closeMenu}>
           About
         </Link>
         </li>
-        <li>
-          <Link onMouseOut={this.removeHover} activeClass='active' to='portfolio' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={this.closeMenu}>
+        <li className='section-link'>
+          <Link onMouseOut={func.removeHover} to='portfolio' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={func.closeMenu}>
           Portfolio
         </Link>
         </li>
-        <li><a target='_blank' href='/static/james-wallis-cv.pdf' onMouseOut={this.removeHover}>Resume</a></li>
+        <li><a target='_blank' href='/static/james-wallis-cv.pdf' onMouseOut={func.removeHover}>Resume</a></li>
       </ul>
-      <style jsx>{`
-      nav {
-        height: auto;
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        padding-top: 10px;
-        padding-right: 10px;
-        padding: 10px 0;
-        text-align: right;
-        user-select: none;
-        animation-duration: 1.5s;
-        animation-delay: 1.7s;
-        transition: 0.2s background-color;
-        z-index: 100; // Should be above everything
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      nav.dark {
-        background-color: rgba(0, 0, 0, 0.8)
-      }
-      h2 {
-        float: left;
-        text-transform: uppercase;
-        font-size: 12px;
-        text-align: left;
-        letter-spacing: 2px;
-        padding: 10px 40px;
-        opacity: 0;
-        transition: 0.5s opacity;
-        font-weight: normal;
-      }
-      ul {
-        margin: 0;
-        transition: all 0.3s;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: #edeeef;
-        color: black;
-        margin-left: 101vw;
-        padding: 0;
-        padding-top: 50px;
-        height: 100vh;
-      }
-      li {
-        transition: all 0.3s;
-        text-transform: uppercase;
-        list-style-type: none;
-        cursor: pointer !important;
-        display: block;
-        text-align: center;
-        margin: 0;
-        padding: 20px 0;
-        font-size: 14px;
-        letter-spacing: 3px;
-        border-bottom: 1px solid #dfdddf;
-      }
-      li:last-child {
-        border: 0;
-      }
-      a {
-        text-decoration: none;
-      }
-      
-      @media (min-width: 992px) {
-        nav {
-          height: auto;
-        }
-        ul {
-          margin: 0;
-          position: relative;
-          background-color: initial;
-          top: auto;
-          bottom: auto;
-          width: auto;
-          padding: 10px 20px;
-          color: rgba(238, 238, 238, 1);
-          float: right;
-          height: auto;
-        }
-        li {
-          display: inline-block;
-          margin: 10px 20px;
-          padding: 0 0 3px 2px;
-          font-size: 12px;
-          letter-spacing: 2px;
-          border: none;
-        }
-        li.active {
-          border-bottom: 1px #c7a674 solid !important;
-        }
-        .dim li {
-          opacity: 0.4;
-        }
-        .dim li.hover {
-          opacity: 1;
-        }
-        a {
-          color: white;
-          text-decoration: none;
-        }
-      }
-      `}</style>
     </nav>
   }
 
   componentDidMount() {
-    const toggleNavigationBackground = this.toggleNavigationBackground;
-    document.addEventListener('scroll', toggleNavigationBackground);
-    toggleNavigationBackground();
-    this.setState({ navBarOffset: this.calculateNavBarHeight()})
+    const scrollEvents = this.scrollEvents;
+    document.addEventListener('scroll', scrollEvents);
+    func.normaliseNavigation();
+    this.setState({ navBarOffset: func.calculateNavBarHeight()})
+    this.toggleActiveSection();
   }
 
   componentWillUnmount() {
-    const toggleNavigationBackground = this.toggleNavigationBackground;
-    document.removeEventListener('scroll', toggleNavigationBackground);
+    const scrollEvents = this.scrollEvents;
+    document.removeEventListener('scroll', scrollEvents);
   }
 
-  toggleNavigationBackground() {
-    const nav = document.getElementsByTagName('nav')[0];
-    const navName = document.getElementsByClassName('nav-name')[0];
-    const background = document.getElementsByClassName('background')[0];
-    const scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
-    if (scrollTop && scrollTop !== 0 && scrollTop > (background.offsetHeight - nav.offsetHeight) && !nav.classList.contains('dark')) {
-      nav.classList.add('dark');
-      navName.style.opacity = '1';
-    } else if (scrollTop && scrollTop !== 0 && scrollTop < (background.offsetHeight - nav.offsetHeight) && nav.classList.contains('dark')) {
-      nav.classList.remove('dark');
-      navName.style.opacity = '0';
+  scrollEvents = () => {
+    func.toggleNavigationBackground();
+    this.toggleActiveSection();
+  }
+
+  toggleActiveSection() {
+    const { navBarOffset } = this.state;
+    const currentScroll = window.scrollY;
+    const sections = document.getElementsByClassName('section');
+    const sectionLinks = document.getElementsByClassName('section-link');
+    // determine current section
+    let linkToSetActive = null;
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i].offsetTop + navBarOffset;
+      const nextSection = (sections[i + 1]) ? (sections[i + 1].offsetTop + navBarOffset) : -1;
+      const link = sectionLinks[i];
+      if (currentScroll >= section && (currentScroll < nextSection || nextSection < 0) && !link.classList.contains('active')) {
+        linkToSetActive = link;
+        break;
+      }
     }
-  }
-
-  dimNavigation(e) {
-    const ul = e.currentTarget;
-    const target = e.target;
-    if (!ul.classList.contains('dim')) {
-      ul.classList.add('dim');
+    // If a new link needs to be set to active, first set all links to not active.
+    if (linkToSetActive) {
+      for (let i = 0; i < sectionLinks.length; i++) {
+        const link = sectionLinks[i];
+        if (link.classList.contains('active')) link.classList.remove('active');
+      }
+      linkToSetActive.classList.add('active');
     }
-    if (target.tagName.toLowerCase() === 'a') {
-      target.parentNode.classList.add('hover');
-    }
-  }
-
-  showNavigation(e) {
-    const ul = e.currentTarget;
-    if (ul.classList.contains('dim')) {
-      ul.classList.remove('dim');
-    }
-  }
-
-  removeHover(e) {
-    const el = e.currentTarget;
-    el.parentNode.classList.remove('hover');
-  }
-
-  openMenu() {
-    const nav = document.getElementsByTagName('nav')[0];
-    const ul = nav.getElementsByTagName('ul')[0];
-    ul.style.marginLeft = 0;
-  }
-
-  closeMenu() {
-    const nav = document.getElementsByTagName('nav')[0];
-    const ul = nav.getElementsByTagName('ul')[0];
-    ul.style.marginLeft = '';
-  }
-
-  calculateNavBarHeight() {
-    const nav = document.getElementsByTagName('nav')[0];
-    return -(nav.offsetHeight);
   }
 }
 

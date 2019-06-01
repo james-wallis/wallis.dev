@@ -10,7 +10,7 @@ const ActiveLink = ({ router, children, ...props }) => {
   // Remove slash from page href
   // const href = props.href.replace('/', '');
   // Remove query from page href
-  const href = props.href.replace('/?', '');
+  const href = (props.href.query && props.href.query.section) ? props.href.query.section : null;
   if (splitPath[1] === href) {
     className = `${className} active`.trim();
   }

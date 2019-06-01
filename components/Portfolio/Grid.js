@@ -31,7 +31,7 @@ class Grid extends React.Component {
         }
         .portfolio-inner {
           width: 100%;
-          padding: 80px 0px;
+          padding: 40px 0px;
           margin: 0 auto;
         }
         h3 {
@@ -58,6 +58,7 @@ class Grid extends React.Component {
         @media (min-width: 992px) {
           .portfolio-inner {
             width: 960px;
+            padding: 80px 0px;
           }
         }
          @media (min-width: 1200px) {
