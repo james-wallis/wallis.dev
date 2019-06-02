@@ -5,5 +5,9 @@ services:
 
 script: 
   - docker login -u jamesemwallis -p $PASSWORD
-  - docker build -t jamesemwallis/wallis.dev:latest .
+  # Output something every 10 minutes or Travis kills the job
+  - while sleep 5m; do echo "=====[ $SECONDS seconds still running ]====="; done &
+  - docker build -t jamesemwallis/wallis.dev:latest . 
+  # Killing background sleep loop
+  - kill %1
   - docker push jamesemwallis/wallis.dev:latest
