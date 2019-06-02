@@ -39,6 +39,15 @@ const portfolio = [
     comingSoon: true,
   },
   {
+    name: 'admin',
+    type: 'project',
+    date: 2017,
+    src: 'admin/admin-dashboard.png',
+    alt: 'A screenshot of the admin dashboard',
+    link: '/admin',
+    comingSoon: true
+  },
+  {
     name: 'wallisconsultancy.co.uk',
     type: 'website',
     date: 2016,
