@@ -59,7 +59,7 @@
                               </div>
                               <!-- //.project-title -->
 
-                              <img src="" alt="Coming Soon" class="img-responsive"/>
+                              <!-- <img src="" alt="Coming Soon" class="img-responsive"/> -->
                           </div>
                           <!-- //.project-wrapper -->
                       </div>
@@ -83,7 +83,7 @@
                               </div>
                               <!-- //.project-title -->
 
-                              <img src="" alt="Coming Soon" class="img-responsive"/>
+                              <!-- <img src="" alt="Coming Soon" class="img-responsive"/> -->
                           </div>
                           <!-- //.project-wrapper -->
                       </div>
@@ -107,7 +107,7 @@
                               </div>
                               <!-- //.project-title -->
 
-                              <img src="/" alt="Coming Soon" class="img-responsive"/>
+                              <!-- <img src="/" alt="Coming Soon" class="img-responsive"/> -->
                           </div>
                           <!-- //.project-wrapper -->
                       </div>

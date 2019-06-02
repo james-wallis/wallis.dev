@@ -10,13 +10,14 @@
     <meta name="description" content="Computer Science Student at the University of Portsmouth and thriving Web Developer and Programmer">
     <meta name="keywords" content="James, Wallis, James Wallis, resume, Computer Science, Student, Web, Design, Development, Portsmouth, Hampshire">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex" />
 
     <!-- Favicon -->
     <link rel="icon" href="/assets/images/favicon.png" type="image/png"/>
 
     <!-- Google Font -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap Core CSS -->
     <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">

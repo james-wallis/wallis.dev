@@ -61,8 +61,8 @@
                 <!-- PROFILE PICTURE START -->
                 <div class="col-md-4 hidden-xs hidden-sm match-height pp-wrapper" style="height: 744px;">
                         <div class="profile-picture style-two">
-                            <img src="assets/images/mesalsa-resized.jpg" alt="profile picture" class="img-responsive">
-
+                            <!-- <img src="assets/images/mesalsa-resized.jpg" alt="profile picture" class="img-responsive"> -->
+                            <p class="img-responsive">Here lay an old picture of myself</p>
                         </div>
                     </div>
                 <!-- //PROFILE PICTURE END -->

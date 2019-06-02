@@ -20,7 +20,7 @@
                     <div class="col-md-8 col-md-offset-2 text-justify">
                         <h3 class="blog-title">First Post</h3>
                         <span class="date"><span class="day">Saturday</span> 9th July 2016</span>
-                        <p><strong>Why blog?</strong><br> I am starting a blog on my site so that I can keep it relevant and keep anyone interested in me or my services up-to-date on what I have achieved.
+                        <!-- <p><strong>Why blog?</strong><br> I am starting a blog on my site so that I can keep it relevant and keep anyone interested in me or my services up-to-date on what I have achieved.
                         Although the blog may appear rough on the edges in terms of writing, I am sure that the content will be 100% relevant on not only displaying my personality, but also my perseverance to learn.
                         I believe that blogging is the best way to do this as it means that I can keep a record of every achievement that I gain, no matter how little or insignificant.
                         For example, today I officially finished the website for Flowerpot Men. An extremely simple site that I created for a friend so that he is able to advertise his summer gardening in a professional way.</p>
@@ -36,7 +36,8 @@
                         <p id="signature"><small>James Wallis</small></p>
                         <a href="#" class="btn btn-md btn-custom">
                             <i class="fa fa-file-text-o"></i> Other Posts
-                        </a>
+                        </a> -->
+                        <p>Here lay a blog post.</p>
                     </div>
                     <!-- //.col-md-12 -->
                 </div>

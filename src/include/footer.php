@@ -9,12 +9,11 @@
                 <!-- //.page-scroll -->
 
                 <ul class="list-inline social-icons">
-                    <li>
+                    <!-- <li>
                         <div class="item">
                             <a href="https://www.facebook.com/jamesemwallis" target="_blank"><i class="fa fa-facebook"></i></a>
                         </div>
-                        <!-- //.item -->
-                    </li>
+                    </li> -->
 
                     <li>
                         <div class="item">
