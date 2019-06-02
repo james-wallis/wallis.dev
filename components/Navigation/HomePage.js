@@ -56,7 +56,7 @@ class Navigation extends React.Component {
     this.toggleActiveSection();
   }
 
-  setNavBarOffset = (x) => {
+  setNavBarOffset = () => {
     this.setState({ navBarOffset: func.calculateNavBarHeight()})
   }
 

@@ -11,7 +11,7 @@ class Social extends React.Component {
   render() {
     const {navBarOffset} = this.state;
     return <div className={(this.props.animate ? 'animated fadeInUp ' : null)} id='fixed-social'>
-      <div id='down-page-arrow'>
+      <div id='down-page-arrow' onMouseEnter={this.setNavBarOffset} onClick={this.setNavBarOffset}>
         <Link activeClass='active' to='about' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500}>
             <i className='fal fa-angle-double-down fa-2x'></i>
         </Link>
@@ -78,6 +78,11 @@ class Social extends React.Component {
   }
 
   componentDidMount() {
+    this.setNavBarOffset();
+  }
+
+  setNavBarOffset = () => {
+    console.log('fired');
     this.setState({ navBarOffset: calculateNavBarHeight() })
   }
 }
