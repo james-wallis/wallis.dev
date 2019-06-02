@@ -2,17 +2,21 @@ import Link from 'next/link';
 
 class Tile extends React.Component {
   render() {
+    const { name, type, date, ongoing, src, alt, link, comingSoon } = this.props;
+    let desc = type;
+    if (date) desc += ` - ${date}`;
+    if (ongoing) desc += ` - ongoing`;
     return <div className='tile'>
-      <img src={require(`../../images/portfolio/${this.props.src}`)} alt={this.props.alt} />
+      <img src={require(`../../images/portfolio/${src}`)} alt={alt} />
       <div className='overlay'>
-        <h4>{this.props.name}</h4>
-        <p>{this.props.type}</p>
+        <h4>{name}</h4>
+        <p>{desc}</p>
         {
-          this.props.comingSoon 
+          comingSoon 
             ? <div className='view-button coming-soon'>
               <p>Coming soon</p>
             </div>
-            : <Link href={'/portfolio' + this.props.link}>
+            : <Link href={'/portfolio' + link}>
                 <div className='view-button'>
                   <p>View project</p>
                 </div>
