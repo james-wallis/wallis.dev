@@ -45,10 +45,9 @@ const portfolio = [
   {
     name: 'Web Fundamentals',
     type: 'coursework',
-    src: 'webf1/home.png',
+    src: 'webf1/webf1-home.png',
     alt: 'A screenshot of my web fundamental coursework homepage',
     link: '/webf1',
-    comingSoon: true,
   },
   {
     name: 'brickbreaker',

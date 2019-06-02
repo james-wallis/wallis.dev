@@ -1,5 +1,6 @@
-import { Link } from 'react-scroll'
-import MenuIcon from './MenuIcon'
+import { Link } from 'react-scroll';
+import ReactResizeDetector from 'react-resize-detector';
+import MenuIcon from './MenuIcon';
 import func from './navigationFunctions';
 
 class Navigation extends React.Component {
@@ -13,6 +14,7 @@ class Navigation extends React.Component {
     const { navBarOffset } = this.state;
     return <nav className={(this.props.animate ? 'animated fadeInDown' : null)} onScroll={func.toggleNavigationBackground}>
       <h2 className='nav-name'>James Wallis</h2>
+      <ReactResizeDetector handleWidth handleHeight onResize={this.setNavBarOffset} />
       <MenuIcon onClick={func.openMenu} />
       <ul onMouseOver={func.dimNavigation} onMouseOut={func.showNavigation}>
         <MenuIcon close onClick={func.closeMenu} />
@@ -40,7 +42,7 @@ class Navigation extends React.Component {
     const scrollEvents = this.scrollEvents;
     document.addEventListener('scroll', scrollEvents);
     func.normaliseNavigation();
-    this.setState({ navBarOffset: func.calculateNavBarHeight()})
+    this.setNavBarOffset();
     this.toggleActiveSection();
   }
 
@@ -52,6 +54,10 @@ class Navigation extends React.Component {
   scrollEvents = () => {
     func.toggleNavigationBackground();
     this.toggleActiveSection();
+  }
+
+  setNavBarOffset = (x) => {
+    this.setState({ navBarOffset: func.calculateNavBarHeight()})
   }
 
   toggleActiveSection() {

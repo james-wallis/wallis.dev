@@ -1,0 +1,221 @@
+<!doctype html>
+<head>
+        <meta charset="utf-8">
+        <title>Work Log</title>
+        <link rel="stylesheet" type="text/css" href="commonStylesheet.css">
+        <link rel="stylesheet" type="text/css" href="workLogStylesheet.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="workLogScript.js"></script>
+
+</head>
+
+<body class="workLog">
+        <header>
+                <h1>Work Log</h1>
+                <h2>UP773867</h2>
+        </header>
+        <main>
+                <!--id="navigation" is Used to create the sticky header in JavaScript-->
+                <nav id="navigation">
+                        <label for="showNavigation" class="showNavigation">
+                                <i class="fa fa-chevron-down" title="Show Navigation"></i>
+                        </label>
+                        <input type="checkbox" id="showNavigation" value="button"/>
+                        <ul id="menu">
+                                <li><a href="index.html" class="index">Home</a></li>
+                                <li><a href="literatureReview.html" class="literatureReview">Literature</a></li>
+                                <li><a href="workLog.html" class="workLog">Work Log</a></li>
+                                <li><a href="media.html" class="media">Media</a></li>
+                                <li><a href="references.html" class="references">References</a></li>
+                        </ul>
+                </nav>
+                <article>
+                        <h2>I have completed this logbook week by week.</h2>
+                        <p>Once you have finished reading each week, you can close it by click on its date and title.</p>
+                        <p>Hover over images to make them bigger</p>
+                        <h3 onclick="toggle_visibility('25/09/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>25/09/15 - <em>Virtual Machine</em></h3>
+                        <ul id="25/09/15">
+                                  <li>This lesson I started and configured my Virtual Machine for the first time, I used Secure Shell to create a HTML page so I could view some things on my server using the IP Address.</li>
+                                  <li>In addition to the Virtual Machine, I also tried out some text editors to use in the coming lessons.</li>
+                                  <li class="removePoint"><img src="images/worklog/2509html.jpg" alt="First time editing on Atom"/></li>
+                                  <li class="removePoint"><img src="images/worklog/2509secureshell.jpg" alt="Secure Shell"/></li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('02/10/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>02/10/15 - <em>HTML</em></h3>
+                        <ul id="02/10/15">
+                                <li>In this practical session I coded my first webpage on Atom and uploaded it onto WinSCP inorder to see it on my server.</li>
+                                <li>To achieve this I started my web server in the same way as the previous session, and found the file and made it a HTTP server. By default the server listens out for the file name index.html</li>
+                                <li class="removePoint"><img src="images/worklog/0210winscp.jpg" alt="winscp"/></li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('09/10/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>09/10/15 - <em>CSS</em></h3>
+                        <ul id="09/10/15">
+                                <li>In this practical we created a CSS style sheet and linked it to the HTML that we also created in the practical. The purpose of this was to use CSS to style how the HTML will look when opened on a browser.</li>
+                                <li>I have done HTML and CSS before but this lesson went into detail on descriptive HTML and CSS. This has the purpose of making the HTML easier to read for different designers and also gives it a better SEO rating.</li>
+                                <li>I also learnt more about type selectors such as id, class and style and properties such as padding, border, colour and text-align.</li>
+                                <li class="removePoint"><img src="images/worklog/0910htmlforcss.jpg" alt="HTML for webpage"/></li>
+                                <li class="removePoint"><img src="images/worklog/0910cssforcss.jpg" alt="CSS for webpage"/></li>
+                                <li class="removePoint"><img src="images/worklog/0910firststepswebpage.jpg" alt="Result of HTML and CSS in the browser"/></li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('16/10/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>16/10/15 - <em>Literature Review Research</em></h3>
+                        <ul id="16/10/15">
+                                <li>In this practical we were introduced to the Literature Review coursework on Sustainable Computing. We had the first chance to research what part of Sustainable Computing we would settle on.</li>
+                                <li>I created a mind map on Coggle (below)</li>
+                                <li class="removePoint"><img src="images/worklog/1610coggle.jpg" alt="Coggle"/></li>
+                                <li>After researching I decided on the topic of Hardware and Sustainable Computing as my research area.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('23/10/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>23/10/15 - <em>More Literature Review</em></h3>
+                        <ul id="23/10/15">
+                                <li>In the fifth lesson we furthered our literature review.</li>
+                                <li>I decided on the Key themes and what I was going to write about.</li>
+                                <li>These were:</li>
+                                        <li class="removePoint">
+                                            <ol>
+                                                <li>How can hardware be amended to become sustainable?</li>
+                                                <li>The importance of reducing the energy used by hardware</li>
+                                                <li>The increased use of mobile devices and smaller hardware</li>
+                                            </ol>
+                                        </li>
+                                <li>I also found journals and academic writings on the topics around my themes</li>
+                                <li>The last thing that I achieved this week was to write the first draft of my Literature Review</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('30/10/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>30/10/15 - <em>Reading Week</em></h3>
+                        <ul id="30/10/15">
+                                <li>This week was a reading week so I spent the hour in the Library doing research on and reading around my Literature Review topic.</li>
+                                <li>I also completed my second draft in this week, while also adding an introduction.</li>
+                                <li>In addition to this I caught up on all work that I hadn't been able to complete. This meant that I was now up to date with all work and could focus my time soley on the Literature Review</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('06/11/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>06/11/15 - <em>Using Media</em></h3>
+                        <ul id="06/11/15">
+                                <li>In this practical we covered the basics of media on a website. This included videos and images.</li>
+                                <li>Using the video tag we added a video that we made into our websites (a template website was given). The video had to be in the correct file type to work on the browser I was using (Chrome). </li>
+                                <li>In the lecture we learned that different browsers use different file types. For example the .mov file type is patented by Apple and works on Safari, yet other file types may not. Due to this the HTML must include different files for one video, containing different file types.</li>
+                                <li>Additionally we added an image to our website. We also added a style attribute so that the image would change to a different one depending on the size of the window open. </li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('13/11/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>13/11/15 - <em>Using Media 2 (SVG)</em></h3>
+                        <ul id="13/11/15">
+                                <li>In this practical we learnt more about using media in a website, and also about using SVG type images.</li>
+                                <li>SVG type images are the best type of image to use on a website as they are extremely scalable without becoming pixelated but also because they take up a tiny amount of space on a server. </li>
+                                <li>Additionally, in the lecture we learnt about the different colours that could be used on a website, or the Websafe Palette.</li>
+                                <li>During this week I did further work on my Literature review. This time I handed in a draft to my Personal Tutor so that she could give me feedback on the work I had completed.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('20/11/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>20/11/15 - <em>Design</em></h3>
+                        <ul id="20/11/15">
+                                <li>This week we learnt that the first stage of website building is to understand why you are building the site. E.g. what its purpose is and who is the target audience.</li>
+                                <li>In the practical we used a process of "Reverse Identifying". This is a review process for existing websites that looks into the questions you will face when designing a new website.</li>
+                                <li>We were given a list of websites to evaluate, and also questions to think about when looking at them to decide on their purpose, target audience and aesthetics and technicalities.</li>
+                                <li>The questions we were asked included:</li>
+                                    <li class="removePoint">
+                                        <ul>
+                                             <li>Based on first impressions what do you think is the purpose of the site?</li>
+                                             <li>Is the purpose stated?</li>
+                                             <li>Was it easy to identify the purpose of the site?</li>
+                                             <li>Who do you think the target audience of the site is?</li>
+                                             <li>Was it easy to identify the target audience</li>
+                                             <li>What is your emotional response to the site?</li>
+                                             <li>Do you think the site was built in a single step or has it evolved over time?</li>
+                                        </ul>
+                                     </li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('27/11/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>27/11/15 - <em>Standards</em></h3>
+                        <ul id="27/11/15">
+                            <li>This week we learnt about the standards used in HTML and what elements are used.</li>
+                            <li>The lecture covered that standards were everywhere and that they have been created to be followed so that there is uniform to what we create.</li>
+                            <li>The practical showed us that we had to use the correct HTML5 standards and also how to validate them using validator.w3.org.</li>
+                            <li>This website has been created in accordance to these guidelines.</li>
+                            <li>Some standards covered included: <em>"em, i, b, u, strong"</em> and <em>"body, article, section, nav, aside, header, footer"</em></li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('04/12/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>04/12/15 - <em>Productivity and Efficiency: Editors</em></h3>
+                        <ul id="04/12/15">
+                            <li>This practical showed us the importance of having a text editor that we feel comfortable with so that we would be able to increase our productivity.</li>
+                            <li>The focus was on the text editor Atom, and we were shown in the lecture all of the tools that it has and could have. This served the purpose of helping us work more efficiently.</li>
+                            <li>To do this we installed atom and downloaded some tools that were given to us on the tutorial file, we also gave atom some snippets which I found particularly useful as they made it easier to create a HTML document.</li>
+                            <li>Due to what I have discovered this week, I will continue my website on the text editor atom. I currently use Notepad++ but feel that Atom is a lot more modern and will fit my needs more.</li>
+                            <li>Additionally we did further work on our website.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('11/12/15');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>11/12/15 - <em>Christmas Week</em></h3>
+                        <ul id="11/12/15">
+                            <li>In this weeks lecture we were shown how to build a webpage in an hour.</li>
+                            <li>The design was more of a Christmas card for students than a conventional site.</li>
+                            <li class="removePoint"><img src="images/worklog/1112website.jpg" alt="Christmas Website"/></li>
+                            <li>In the practical we were given resources to set us up for the Christmas break, this included the website created in the lecture.</li>
+                            <li>We also did more work on our own websites.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('08/01/16');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>08/01/16 - <em>Basic Scripting (Javascript)</em></h3>
+                        <ul id="08/01/16">
+                            <li>In this week's lecture we saw a canvas of stick figures being created and animated to show us how you can use JavaScript on websites.</li>
+                            <li>In the practical we downloaded the code from github, adding it to our server. After doing this we analysed the code, trying to find the specific part which was the 'anti-cheat' code.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('15/01/16');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>15/01/16 - <em>Basic Scripting (PHP)</em></h3>
+                        <ul id="15/01/16">
+                            <li>We were shown the other end of scripting online with PHP.</li>
+                            <li>Using PHP we created a Hello World program which used the function ECHO to display the text Hello World on a website.</li>
+                            <li>We also used it at the top of the browser to do simple math calculations.</li>
+                            <li>The final thing we did was see how we could collect data from forms.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('22/01/16');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>22/01/16 - <em>Usability</em></h3>
+                        <ul id="22/01/16">
+                            <li>This weeks lecture talked about why usability is important on websites.</li>
+                            <li>It focused on:</li>
+                            <li class="removePoint">
+                                <ul>
+                                    <li>What is usability? - How easy something is to use. </li>
+                                    <li>Why is it important?</li>
+                                    <li>User centered approach to design.</li>
+                                </ul>
+                            </li>
+                            <li>We found that good usability was centered around:</li>
+                            <li class="removePoint">
+                                <ul>
+                                    <li>Clear Navigation</li>
+                                    <li>Easy to learn interface</li>
+                                    <li>Error Prevention</li>
+                                    <li>Organised Layout</li>
+                                </ul>
+                            </li>
+                            <li>Also touched on was how to organise our content.</li>
+                            <li>We did a card sorting exercise in class. Each card had a different kind of amenity and we had to put them into groups based on a group vote. The purpose of this was to show us what went well together and how to categorise content on a website.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('29/01/16');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>29/01/16 - <em>Usability 2</em></h3>
+                        <ul id="29/01/16">
+                            <li>This week we continued to learn about how Usability can affect websites.</li>
+                            <li>This week we researched:</li>
+                            <li class="removePoint">
+                                <ul>
+                                     <li>Navigation and Orientation</li>
+                                     <li>Design of web pages</li>
+                                     <li>Mobile Design</li>
+                                     <li>Incorporating Usability</li>
+                                </ul>
+                            </li>
+                            <li>We were shown that websites should be laid out in such a way so that the user can build a mental map of how the content is laid out.</li>
+                            <li>We were also told about media queries and responsive design, usually using columns.</li>
+                            <li>The lecture also touched on usability mistakes such as neglecting user aims, mobile users and distracting images.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('05/02/16');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>05/02/16 - <em>Accessibility</em></h3>
+                        <ul id="05/02/16">
+                            <li>During this weeks lecture we had a guest speaker who worked on the NHS's website</li>
+                            <li>He informed us that we should take care to make our website easy to use for people with all disabilities</li>
+                            <li>This included:</li>
+                            <li class="removePoint">
+                                <ul>
+                                    <li>Making it easily read by a screen reader, for example using aria-labels on elements</li>
+                                    <li>Choosing colours carefully as to not confuse the colour blind</li>
+                                </ul>
+                            </li>
+                            <li>When he taught us about colour choice, he switched between a yellow box, to a box that changed from red to green when sufficient text was entered. At this point, Rich, who is colour blind, pointed out that he didn't see the change at all.</li>
+                            <li>In the practical we simulated impairment</li>
+                            <li>This involved us wearing special glasses that changed our vision and enabled us to simulate using our websites as if we had eye issues.</li>
+                        </ul>
+                        <h3 onclick="toggle_visibility('12/02/16');"  class="weekDate"><i class="fa fa-arrow-circle-right"></i>12/02/16-25/02/16 - <em>Finishing Website</em></h3>
+                        <ul id="12/02/16">
+                            <li>From the 12th of February right up to the due date for the website I focused all my time on finishing it.</li>
+                            <li>This included me getting feedback from other coursemate and friends to make sure it was easy to navigate and read.</li>
+                            <li>In this week I also added the finishing touches and uploaded it to my server to be handed in.</li>
+                        </ul>
+                </article>
+        </main>
+        <footer>
+                <a href="http://validator.w3.org/check?uri=referer" target="_blank">Click here to validate the HTML for this page</a>
+        </footer>
+</body>

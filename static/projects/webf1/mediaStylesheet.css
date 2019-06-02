@@ -1,0 +1,67 @@
+picture {
+
+
+}
+
+img {
+        width: 50%;
+}
+body {text-align: center;}
+
+figure {
+  width: 45%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0 1% 1rem 1%;
+  display: inline-block;
+
+}
+#panorama {width: 92.4%;}
+
+figure img {width:100%;}
+figure a {
+    text-decoration: none;
+    color: inherit;
+}
+.textholder p {
+        text-align: center;
+}
+.csslightbox img {
+    width: auto;
+}
+.csslightbox #panorama img {
+    width: 100%;
+}
+p {
+    text-align: center;
+}
+video {
+    width: 92.4%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0 1% 1rem 1%;
+}
+
+
+@media only screen
+and (max-device-width: 800px)
+and (-webkit-min-device-pixel-ratio: 2),
+(max-width: 800px)
+{
+    article {
+        font-size: 2em;
+    }
+    img {
+        width:96%;
+    }
+    figure {
+        width: inherit;;
+        display: block;
+        margin: 0 auto;
+    }
+    #panorama {
+        width: inherit;
+    }
+    video {
+        width: 96%;
+    }
+}

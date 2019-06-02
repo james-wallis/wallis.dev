@@ -40,11 +40,11 @@ class Layout extends React.Component {
     new Rellax('.rellax');
     window.Cookies = require('../../node_modules/js-cookie');
     // Create cookie, if its created add 5 minutes to expiry time
-    // Wait 5 seconds to ensure animation can finish if it has started
+    // Wait 10 seconds to ensure animation can finish if it has started
     setTimeout(() => {
       const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
       Cookies.set('wallis.devs', true, { expires: inFiveMinutes });
-    }, 5000);
+    }, 10000);
     if (this.props.elementToScrollTo) {
       const nav = document.getElementsByTagName('nav')[0];
       const el = document.getElementById(this.props.elementToScrollTo);

@@ -30,6 +30,7 @@
     "next-seo": "^1.11.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-resize-detector": "^4.1.4",
     "react-scroll": "^1.7.11",
     "rellax": "^1.7.0"
   }

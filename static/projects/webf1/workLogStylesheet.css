@@ -1,0 +1,40 @@
+.weekHeader {
+        list-style-type: none;
+        list-style-position: outside;
+        padding-left:0;
+        -webkit-padding-start: 0;
+        text-indent: 0;
+
+
+}
+.weekDate {
+        line-height: 2em;
+        cursor: pointer;
+        color: #000;
+        font-size: 1.1em;
+}
+ul {
+        display: block;
+        transition: all 0.5s ease;
+}
+li>img {
+        width: 20%;
+        transition: width 0.5s ease;
+}
+li>img:hover {
+        width: 90%;
+        transition: width 0.5s ease;
+}
+
+.fa {
+  font-size:50px;
+  margin:5px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+h3:hover .fa {
+        transform: rotate(360deg);
+}
+.removePoint {
+    list-style-type: none;
+}
