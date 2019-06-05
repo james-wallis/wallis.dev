@@ -6,26 +6,29 @@ class Tile extends React.Component {
     let desc = type;
     if (date) desc += ` - ${date}`;
     if (ongoing) desc += ` - ongoing`;
-    return <div className='tile'>
-      <img src={require(`../../images/portfolio/${src}`)} alt={alt} />
-      <div className='overlay'>
-        <h4>{name}</h4>
-        <p>{desc}</p>
-        {
-          comingSoon 
-            ? <div className='view-button coming-soon'>
-              <p>Coming soon</p>
-            </div>
-            : <Link href={'/portfolio' + link}>
-                <div className='view-button'>
-                  <p>View project</p>
-                </div>
-              </Link>
-        }
-       
+    const img = require(`../../images/portfolio/${src}?resize&sizes[]=150&sizes[]=300&sizes[]=600`);
+    return <div className='tile-outer'>
+      <div onMouseEnter={this.zoomImage} onMouseLeave={this.zoomImage} className='tile-inner'>
+        <img srcSet={img.srcSet} src={img.src} alt={alt} />
+        <div className='overlay'>
+          <h4>{name}</h4>
+          <p>{desc}</p>
+          {
+            comingSoon 
+              ? <div className='view-button coming-soon'>
+                <p>Coming soon</p>
+              </div>
+              : <Link href={'/portfolio' + link}>
+                  <a className='view-button'>
+                    <p>View project</p>
+                  </a>
+                </Link>
+          }
+        
+        </div>
       </div>
       <style jsx>{`
-      .tile {
+      .tile-outer {
         height: auto;
         width: 100%;
         display: block;
@@ -33,16 +36,22 @@ class Tile extends React.Component {
         position: relative;
         margin-bottom: 40px;
       }
-      .tile:last-child {
+      .tile-outer:last-child {
         margin-bottom: 0;
       }
-      img {
+      .tile-inner {
         width: 90%;
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+      img {
+        width: 100%;
         object-fit: cover;
         height: 100%;
         color: black;
         filter: grayscale(0%) brightness(100%);
-        transition: 0.5s filter;
+        transition: 0.5s filter,  0.5s transform;
       }
 
       .overlay {
@@ -51,7 +60,7 @@ class Tile extends React.Component {
         bottom: 0;
         left: 0;
         right: 0;
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         opacity: 1;
         background-color: rgba(0, 0, 0, 0.6);
@@ -77,13 +86,13 @@ class Tile extends React.Component {
         font-size: 12px;
         letter-spacing: 0.6px;
       }
-      
-
       .view-button {
         margin-top: 10px;
         border: 1px solid white;
         padding: 10px 20px;
         cursor: pointer !important;
+        color: white;
+        text-decoration: none;
       }
       .view-button.coming-soon {
         cursor: default !important;
@@ -95,12 +104,15 @@ class Tile extends React.Component {
         font-style: normal;
       }
       @media (min-width: 992px) {
-        .tile {
+        .tile-outer {
           display: inline-block;
           width: 33.33%; 
           width: calc(100% / 3);
           height: 250px;
           margin-bottom: 0px;
+        }
+        .tile-inner {
+          height: 250px;
         }
         .overlay {
           opacity: 0;
@@ -109,9 +121,23 @@ class Tile extends React.Component {
         .overlay:hover {
           opacity: 1;
         }
+        .zoom {
+          transform: scale(1.1);
+          transition: 0.5s transform; 
+        }
       }
       `}</style>
     </div>
+  }
+
+  zoomImage(e) {
+    const el = e.currentTarget;
+    const img = el.getElementsByTagName('img')[0];
+    if (img.classList.contains('zoom')) {
+      img.classList.remove('zoom');
+    } else {
+      img.classList.add('zoom');
+    }
   }
 }
 

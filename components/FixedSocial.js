@@ -82,7 +82,6 @@ class Social extends React.Component {
   }
 
   setNavBarOffset = () => {
-    console.log('fired');
     this.setState({ navBarOffset: calculateNavBarHeight() })
   }
 }

@@ -23,15 +23,25 @@
   },
   "homepage": "https://github.com/james-wallis/.com#readme",
   "dependencies": {
+    "image-trace-loader": "^0.1.0",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^7.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "jimp": "^0.6.4",
     "js-cookie": "^2.2.0",
+    "lqip-loader": "^2.2.0",
     "next": "^8.1.0",
     "next-compose-plugins": "^2.1.1",
-    "next-optimized-images": "^1.4.1",
+    "next-optimized-images": "^2.5.1",
     "next-seo": "^1.11.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-resize-detector": "^4.1.4",
     "react-scroll": "^1.7.11",
-    "rellax": "^1.7.0"
+    "rellax": "^1.7.0",
+    "responsive-loader": "^1.2.0",
+    "svg-sprite-loader": "^4.1.6",
+    "webp-loader": "^0.5.0"
   }
 }
