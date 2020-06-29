@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:12
 RUN apt-get update
 RUN apt-get install -y automake autoconf libtool dpkg nasm libpng-dev
 WORKDIR /
