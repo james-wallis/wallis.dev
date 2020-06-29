@@ -35,6 +35,7 @@ class Tile extends React.Component {
         margin: 0 auto;
         position: relative;
         // margin-bottom: 40px;
+        padding-bottom: 20px;
       }
       .tile-outer:last-child {
         // margin-bottom: 0;
@@ -110,6 +111,7 @@ class Tile extends React.Component {
           width: calc(100% / 3);
           height: 100%;
           margin-bottom: 0px;
+          padding-bottom: 0px;
         }
         .tile-inner {
           height: inherit;
