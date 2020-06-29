@@ -1,10 +1,9 @@
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import React from 'react';
-import NextSeo from 'next-seo';
+import { DefaultSeo } from 'next-seo';
 import Head from '../node_modules/next/head'
 
-// import your default seo configuration
-import SEO from '../next-seo.config'
+const url = 'https://wallis.dev'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -19,18 +18,26 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Container>
+      <React.Fragment>
         <Head>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <link rel="icon" href="/static/favicon.png" type="image/png"></link>
-          <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500" rel="stylesheet" />
-          <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Merriweather|Muli:300" rel="stylesheet" />
           <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossOrigin="anonymous" />
           <link rel="stylesheet" href="/static/css/animate.min.css" />
         </Head>
-        <NextSeo config={SEO} />
+        <DefaultSeo
+          titleTemplate='James Wallis | %s'
+          openGraph={{
+            url,
+            title: 'James Wallis',
+            description: 'The personal website for James Wallis, developer.',
+            site_name: 'wallis.dev',
+          }}
+          canonical={url}
+        />
         <Component {...pageProps} />
-      </Container>
+      </React.Fragment>
     );
   }
 }

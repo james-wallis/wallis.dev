@@ -20,13 +20,6 @@ module.exports = withPlugins([
       interlaced: true,
       optimizationLevel: 3,
     },
-    svgo: {
-      // enable/disable svgo plugins here
-    },
-    webp: {
-      preset: 'picture',
-      quality: 70,
-    },
   }]
 ]);
 

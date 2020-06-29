@@ -34,13 +34,14 @@ class Tile extends React.Component {
         display: block;
         margin: 0 auto;
         position: relative;
-        margin-bottom: 40px;
+        // margin-bottom: 40px;
+        padding-bottom: 20px;
       }
       .tile-outer:last-child {
-        margin-bottom: 0;
+        // margin-bottom: 0;
       }
       .tile-inner {
-        width: 90%;
+        // width: 90%;
         position: relative;
         overflow: hidden;
         margin: 0 auto;
@@ -74,11 +75,11 @@ class Tile extends React.Component {
         margin: 0;
       }
       .overlay h4 {
-        font-family: 'Oswald',sans-serif;
+        font-family: 'Merriweather',Serif;
         letter-spacing: 2px;
         font-weight: 200;
         text-transform: uppercase;
-        font-size: 18px;
+        font-size: 16px;
       }
       .overlay p {
         text-transform: capitalize;
@@ -106,13 +107,14 @@ class Tile extends React.Component {
       @media (min-width: 992px) {
         .tile-outer {
           display: inline-block;
-          width: 33.33%; 
+          width: 33.33%;
           width: calc(100% / 3);
-          height: 250px;
+          height: 100%;
           margin-bottom: 0px;
+          padding-bottom: 0px;
         }
         .tile-inner {
-          height: 250px;
+          height: inherit;
         }
         .overlay {
           opacity: 0;

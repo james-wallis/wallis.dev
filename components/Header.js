@@ -17,22 +17,19 @@ class Headings extends React.Component {
         }
         .headings h1 {
           z-index: 6;
-          font-family: 'Oswald', sans-serif;
           font-weight: 500;
-          text-transform: uppercase;
           text-align: center;
-          letter-spacing: 10px;
-          font-size: 26px;
+          letter-spacing: 2px;
           margin: 0;
           margin-bottom: 0.83em;
           animation-duration: 2s;
           animation-delay: 0.5s;
+          Font-Family: 'Merriweather', Serif;
+          Font-Size: 48px;
         }
         .headings h2 {
           z-index: 6;
-          font-family: 'Oswald', sans-serif;
-          letter-spacing: 10px;
-          font-size: 22px;
+          letter-spacing: 5px;
           font-weight: 500;
           text-transform: uppercase;
           text-align: center;
@@ -40,16 +37,18 @@ class Headings extends React.Component {
           color: #c7a674;
           animation-duration: 2s;
           animation-delay: 1.2s;
-          padding-bottom: 150px;
+          padding-bottom: 100px;
+          Font-Family: 'Merriweather', Serif;
+          Font-Size: 28px;
         }
         @media (min-width: 992px) {
           .headings h1 {
-            letter-spacing: 20px;
-            font-size: 35px;
+            letter-spacing: 6px;
+            Font-Size: 60px;
           }
           .headings h2 {
-            letter-spacing: 20px;
-            font-size: 24px;
+            letter-spacing: 5px;
+            Font-Size: 26px;
             padding-bottom: 0;
           }
         }
