@@ -31,7 +31,7 @@ class Grid extends React.Component {
         }
         .portfolio-inner {
           width: 100%;
-          padding: 40px 0px;
+          // padding: 40px 0px;
           margin: 0 auto;
         }
         h3 {
@@ -44,28 +44,29 @@ class Grid extends React.Component {
           text-align: center;
           margin: 0;
           margin-bottom: 60px;
+          font-family: 'Merriweather',Serif;
         }
-        @media (min-width: 576px) {
-          .portfolio-inner {
-            width: 540px;
-          }
-        }
-        @media (min-width: 768px) {
-          .portfolio-inner {
-            width: 720px;
-          }
-        }
-        @media (min-width: 992px) {
-          .portfolio-inner {
-            width: 960px;
-            padding: 80px 0px;
-          }
-        }
-         @media (min-width: 1200px) {
-          .portfolio-inner {
-            width: 1140px;
-          }
-        }
+        // @media (min-width: 576px) {
+        //   .portfolio-inner {
+        //     width: 540px;
+        //   }
+        // }
+        // @media (min-width: 768px) {
+        //   .portfolio-inner {
+        //     width: 720px;
+        //   }
+        // }
+        // @media (min-width: 992px) {
+        //   .portfolio-inner {
+        //     width: 960px;
+        //     padding: 80px 0px;
+        //   }
+        // }
+        //  @media (min-width: 1200px) {
+        //   .portfolio-inner {
+        //     width: 1140px;
+        //   }
+        // }
       `}</style>
     </div>
   }

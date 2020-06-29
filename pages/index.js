@@ -97,11 +97,11 @@ export default class extends React.Component {
       <FixedSocial animate />
       <div id='about' className='section'>
         <LightGrey>
-          <h3>Let me introduce myself</h3>
-          <p>I'm 22, studying Computer Science at the University of Portsmouth and recently finished my placement year at IBM.</p>
-          {/* <p>Oh and I love coffee as much as the next developer.</p> */}
+          <h3>About me</h3>
+          <p>Software Developer @ IBM</p>
+          <p>Computer Science @ University of Portsmouth</p>
         </LightGrey>
-        <White>
+        {/* <White>
           <h3>Technology &amp; personal development</h3>
           <p>
             <strong>1996 - 2015</strong> 
@@ -117,24 +117,25 @@ export default class extends React.Component {
             <strong>2019 - Present</strong> 
             Currently working in a local bistro passing time before starting at IBM in September.
           </p>
-        </White>
+        </White> */}
       </div>
       <div id='portfolio' className='section'>
-        <LightGrey>
-          <h3>Take a look at my work</h3>
-          <p>Ever since I discovered programming at university I've been pushing myself to develop in my free time.</p>
+        <White>
+          <h3>Here's what I've done so far</h3>
+          {/* <p>Ever since I discovered programming at university I've been pushing myself to develop in my free time.</p>
           <p>I've also been able to take on some websites as work.</p>
-          <p>These are my projects.</p>
-        </LightGrey>
+          <p>These are my projects.</p> */}
+        </White>
         <Portfolio content={portfolio} />
       </div>
     <style jsx>{`
         h3 {
-          font-size: 26px;
-          font-family: 'Oswald', sans-serif;
-          letter-spacing: 2px;
+          // font-size: 26px;
+          Font-Family: 'Merriweather', Serif;
+          Font-Size: 35px;
+          letter-spacing: 1px;
           font-weight: 400;
-          text-transform: uppercase;
+          // text-transform: uppercase;
           text-align: center;
           margin: 0;
           margin-bottom: 30px;
@@ -142,11 +143,11 @@ export default class extends React.Component {
         p {
           font-size: 16px;
           font-weight: 200;
-          font-family: 'Roboto', sans-serif;
+          Font-Family: 'Muli', Sans-Serif;
           line-height: 30px;
           margin: 0;
           margin-bottom: 5px;
-          text-align: justify;
+          text-align: center;
         }
         strong {
           padding-right: 10px;

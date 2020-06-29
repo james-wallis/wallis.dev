@@ -20,6 +20,7 @@ class ColumnImage extends React.Component {
           line-height: 30px;
           margin: 0;
           margin-bottom: 5px;
+          font-Family: 'Muli',Sans-Serif;
         }
         @media (min-width: 992px) {
           img {

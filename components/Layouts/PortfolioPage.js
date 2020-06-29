@@ -54,11 +54,11 @@ export default class extends React.Component {
           font-family: 'Oswald', sans-serif;
           letter-spacing: 2px;
           font-weight: 400;
-          text-transform: uppercase;
           text-align: center;
           margin: 0;
           margin-bottom: 30px;
-          // font-size: 35px;
+          Font-Family: 'Merriweather', Serif;
+          Font-Size: 46px;
         }
         p {
           font-size: 16px;
@@ -69,6 +69,7 @@ export default class extends React.Component {
           margin-bottom: 5px;
           text-align: justify;
           // text-align-last: center;
+          font-Family: 'Muli',Sans-Serif;
         }
         @media (min-width: 992px) {
           .col {
