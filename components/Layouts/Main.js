@@ -1,19 +1,17 @@
-import Head from '../../node_modules/next/head'
+import { animateScroll as scroll } from 'react-scroll'
+import { NextSeo } from 'next-seo';
 import Background from '../Background';
 import Navigation from '../Navigation/Main';
 import Headings from '../Header';
 import Footer from '../Footer';
-import { animateScroll as scroll } from 'react-scroll'
-import NextSeo from 'next-seo'
 
 class Layout extends React.Component {
   render() {
+    const { head: { title, description } } = this.props;
     return <div className='container'>
       <NextSeo
-        config={{
-          title: this.props.head.title,
-          description: this.props.head.description,
-        }}
+        title={title}
+        description={description}
       />
       <Background height={this.props.header.height} image={this.props.header.image} imagePosition={this.props.header.imagePosition}/>
       <Navigation animate={this.props.animate} home={this.props.home} />
