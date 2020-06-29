@@ -20,18 +20,18 @@ class Navigation extends React.Component {
         <MenuIcon close onClick={func.closeMenu} />
         <li className='section-link'>
           <Link onMouseOut={func.removeHover} to='__next' spy={true} smooth={'easeInOutCubic'} duration={500} onSetActive={func.closeMenu}>
-          Home
-        </Link>
+            Home
+          </Link>
         </li>
         <li className='section-link'>
           <Link onMouseOut={func.removeHover} to='about' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={func.closeMenu}>
-          About
-        </Link>
+            About
+          </Link>
         </li>
         <li className='section-link'>
           <Link onMouseOut={func.removeHover} to='portfolio' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={func.closeMenu}>
-          Portfolio
-        </Link>
+            Portfolio
+          </Link>
         </li>
         <li><a target='_blank' href='/static/james-wallis-cv.pdf' onMouseOut={func.removeHover}>Resume</a></li>
       </ul>

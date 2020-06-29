@@ -24,7 +24,13 @@ const properties = {
     sections: [
       {
         title: 'Task',
-        para: 'Information Coming Soon.',
+        para: 'I wanted to achieve two things while building this website. \
+            The first was to gain experience developing and launching a website \
+            myself, and the second was to create an online portfolio to help me \
+            achieve a University placement. To achieve the second goal I ensured \
+            that I had sections which highlighted my first year grades and projects \
+            that I had completed and another section which contained details of work \
+            experience that I had gained up to that point.',
         image: {
           text: 'The header section for my old personal website',
           src: 'oldwebsite-header.png',
@@ -33,7 +39,11 @@ const properties = {
       },
       {
         title: 'Technical Details',
-        para: 'Information Coming Soon.',
+        para: 'As this was my first website and I wanted it to look good and function properly \
+            without any bugs I opted to use a Bootstrap3 template. This meant that most of my development \
+            time was spent adding HTML & CSS rather than any JavaScript. While using a template was a bit of a cheat in reflection, \
+            the focus on HTML & CSS enabled me to gain a good foundation in Web development that I was able to use on my placement year \
+            and in other projects such as this website and more using React.js',
         image: {
           text: 'Showcasing first year work completed at the University of Portsmouth',
           src: 'oldwebsite-university-work.png',

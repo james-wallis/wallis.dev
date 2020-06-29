@@ -26,16 +26,17 @@ class NavigationSwitch extends React.Component {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        Font-Family: 'Merriweather', Serif;
       }
       nav.dark {
         background-color: rgba(0, 0, 0, 0.8)
       }
       nav h2 {
         float: left;
-        text-transform: uppercase;
-        font-size: 12px;
+        // text-transform: uppercase;
+        font-size: 14px;
         text-align: left;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         padding: 10px 40px;
         opacity: 0;
         transition: 0.5s opacity;
@@ -57,7 +58,7 @@ class NavigationSwitch extends React.Component {
       }
       nav li {
         transition: all 0.3s;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         list-style-type: none;
         cursor: pointer !important;
         display: block;
@@ -65,7 +66,7 @@ class NavigationSwitch extends React.Component {
         margin: 0;
         padding: 20px 0;
         font-size: 14px;
-        letter-spacing: 3px;
+        letter-spacing: 1px;
         border-bottom: 1px solid #dfdddf;
       }
       nav li:last-child {
@@ -96,8 +97,8 @@ class NavigationSwitch extends React.Component {
           display: inline-block;
           margin: 10px 20px;
           padding: 0 0 3px 2px;
-          font-size: 12px;
-          letter-spacing: 2px;
+          font-size: 14px;
+          // letter-spacing: 2px;
           border-bottom: 1px rgba(199,166,116, 0) solid !important;
         }
         nav li.active {

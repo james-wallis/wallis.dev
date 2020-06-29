@@ -2,9 +2,9 @@
 class ColumnImage extends React.Component {
   render() {
     const { folder, text, src, alt } = this.props;
-    const img = require(`../../images/portfolio/${folder}/${src}?resize&sizes[]=300&sizes[]=600`);
+    const image = getImgSrc(folder, src);
     return <div className='col-img'>
-      <img srcSet={img.srcSet} src={img.src} alt={alt} />
+      <img srcSet={image.srcSet} src={image.src} alt={alt} />
       {(text) ? <p>{text}</p> : null}
       <style jsx>{`
         img {
@@ -16,7 +16,6 @@ class ColumnImage extends React.Component {
           text-align: center;
           font-size: 16px;
           font-weight: 200;
-          font-family: 'Roboto',sans-serif;
           line-height: 30px;
           margin: 0;
           margin-bottom: 5px;
@@ -27,9 +26,18 @@ class ColumnImage extends React.Component {
             margin-top: 0;
           }
         }
-      `}</style>  
+      `}</style>
     </div>
   }
+}
+
+const getImgSrc = (dir, file) => {
+  if (file.endsWith('.gif')) {
+    const src = require(`../../images/portfolio/${dir}/${file}`);
+    return { srcSet: null, src };
+  }
+  const { srcSet, src } = require(`../../images/portfolio/${dir}/${file}?resize&sizes[]=300&sizes[]=600`);
+  return { srcSet, src };
 }
 
 export default ColumnImage

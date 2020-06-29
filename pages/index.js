@@ -74,13 +74,13 @@ const portfolio = [
     comingSoon: true
   },
   {
-    name: 'brickbreaker',
+    name: 'Blockbreaker',
     type: 'competition',
     date: 2015,
-    src: 'brickbreaker/game-and-source.jpg',
-    alt: 'A screenshot of my brickbreaker game made for a programming competition in first year',
-    link: '/brickbreaker',
-    comingSoon: true,
+    src: 'blockbreaker/game-and-source.jpg',
+    alt: 'A screenshot of my Blockbreaker game made for a programming competition in first year',
+    link: '/blockbreaker',
+    // comingSoon: true,
   },
 ]
 
@@ -120,12 +120,12 @@ export default class extends React.Component {
         </White> */}
       </div>
       <div id='portfolio' className='section'>
-        <White>
+        {/* <White>
           <h3>Here's what I've done so far</h3>
-          {/* <p>Ever since I discovered programming at university I've been pushing myself to develop in my free time.</p>
+          <p>Ever since I discovered programming at university I've been pushing myself to develop in my free time.</p>
           <p>I've also been able to take on some websites as work.</p>
-          <p>These are my projects.</p> */}
-        </White>
+          <p>These are my projects.</p>
+        </White> */}
         <Portfolio content={portfolio} />
       </div>
     <style jsx>{`

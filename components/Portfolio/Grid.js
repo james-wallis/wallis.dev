@@ -18,7 +18,7 @@ class Grid extends React.Component {
   render() {
     return <div className='portfolio'>
       <div className='portfolio-inner'>
-        {/* <h3>My Projects</h3> */}
+        <h3>Here's what I've done so far</h3>
         {this.state.content.map(function (array, index) {
           return <Row key={`row-${index}`} array={array} />
         })}
@@ -31,42 +31,20 @@ class Grid extends React.Component {
         }
         .portfolio-inner {
           width: 100%;
-          // padding: 40px 0px;
+          padding: 80px 0px 0px;
           margin: 0 auto;
         }
         h3 {
           color: black;
-          font-size: 26px;
-          font-family: 'Oswald', sans-serif;
-          letter-spacing: 2px;
+          font-size: 35px;
+          letter-spacing: 1px;
           font-weight: 400;
-          text-transform: uppercase;
+          // text-transform: uppercase;
           text-align: center;
           margin: 0;
           margin-bottom: 60px;
           font-family: 'Merriweather',Serif;
         }
-        // @media (min-width: 576px) {
-        //   .portfolio-inner {
-        //     width: 540px;
-        //   }
-        // }
-        // @media (min-width: 768px) {
-        //   .portfolio-inner {
-        //     width: 720px;
-        //   }
-        // }
-        // @media (min-width: 992px) {
-        //   .portfolio-inner {
-        //     width: 960px;
-        //     padding: 80px 0px;
-        //   }
-        // }
-        //  @media (min-width: 1200px) {
-        //   .portfolio-inner {
-        //     width: 1140px;
-        //   }
-        // }
       `}</style>
     </div>
   }
