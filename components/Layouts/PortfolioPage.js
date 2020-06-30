@@ -2,7 +2,7 @@ import Layout from './Main';
 import Portfolio from '../Sections/Portfolio.js';
 import LightGrey from '../Sections/LightGrey.js';
 import Button from '../Button';
-import ColumnImage from '../Portfolio/ColumnImage';
+import ColumnImage from '../Portfolio/ColumnImage.js';
 
 export default class extends React.Component {
   render() {

@@ -1,17 +1,16 @@
+import RequireOtherImage from './RequireOtherImage';
+import RequireGifImage from './RequireGifImage';
 
-class ColumnImage extends React.Component {
+
+class ColumnImageBase extends React.Component {
   render() {
     const { folder, text, src, alt } = this.props;
-    const image = getImgSrc(folder, src);
+    const Image = getImage(src);
     return <div className='col-img'>
-      <img srcSet={image.srcSet} src={image.src} alt={alt} />
+      {/* {showImage(folder, src, alt)} */}
+      <Image dir={folder} file={src} alt={alt}/>
       {(text) ? <p>{text}</p> : null}
       <style jsx>{`
-        img {
-          margin-top: 30px;
-          width: 100%;
-          position: 1;
-        }
         p {
           text-align: center;
           font-size: 16px;
@@ -21,8 +20,15 @@ class ColumnImage extends React.Component {
           margin-bottom: 5px;
           font-Family: 'Muli',Sans-Serif;
         }
+      `}</style>
+      <style global jsx>{`
+        .column-image {
+          margin-top: 30px;
+          width: 100%;
+          position: 1;
+        }
         @media (min-width: 992px) {
-          img {
+          .column-image {
             margin-top: 0;
           }
         }
@@ -31,13 +37,18 @@ class ColumnImage extends React.Component {
   }
 }
 
-const getImgSrc = (dir, file) => {
+// const showImage = (dir, file, alt) => {
+//   if (file.endsWith('.gif')) {
+//     return <RequireGifImage dir={dir} file={file} alt={alt} />
+//   }
+//   return <RequireOtherImage dir={dir} file={file} alt={alt} />
+// }
+
+const getImage = (file) => {
   if (file.endsWith('.gif')) {
-    const src = require(`../../images/portfolio/${dir}/${file}`);
-    return { srcSet: null, src };
+    return RequireGifImage
   }
-  const { srcSet, src } = require(`../../images/portfolio/${dir}/${file}?resize&sizes[]=300&sizes[]=600`);
-  return { srcSet, src };
+  return RequireOtherImage
 }
 
-export default ColumnImage
+export default ColumnImageBase
