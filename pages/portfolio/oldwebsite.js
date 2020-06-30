@@ -56,9 +56,9 @@ const properties = {
       link: 'https://old.wallis.dev',
       text: 'old.wallis.dev',
       image: {
-        text: 'The resume section detailing my education and work experience',
-        src: 'oldwebsite-resume.png',
-        alt: 'The resume section of my old personal website'
+        text: 'Demo of my old single-page website',
+        src: 'oldwebsite.gif',
+        alt: 'The whole website as a gif'
       }
     }
   }
