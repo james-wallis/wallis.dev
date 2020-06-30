@@ -15,7 +15,7 @@ const properties = {
   page: {
     title: 'About Blockbreaker',
     desc: 'Blockbreaker is an implementation of the popular game Brickbreaker, \
-        which everyone had on their BlackBerry phones. I built Brickbreaker to enter a \
+        which everyone had on their BlackBerry phones. I built Blockbreaker to enter a \
         programming competition during my first year at the University of Portsmouth. \
         I entered the competition as I had just discovered programming and wanted to \
         see what I could do with it when I wasn\'t focussing on completing coursework. \
