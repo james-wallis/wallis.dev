@@ -26,7 +26,6 @@
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
-    "jimp": "^0.14.0",
     "js-cookie": "^2.2.1",
     "next": "^9.4.4",
     "next-compose-plugins": "^2.1.1",

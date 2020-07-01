@@ -16,17 +16,10 @@ module.exports = withPlugins([
       optimizationLevel: 4,
     },
     pngquant: false,
-    // gifsicle: {
-    //   interlaced: true,
-    //   optimizationLevel: 3,
-    // },
-    defaultImageLoader: 'responsive-loader',
-    responsiveLoader: {
-      sizes: [150, 300, 600],
-      placeholder: true,
-      placeholderSize: 50,
-      adapter: require('responsive-loader/sharp')
-    }
+    gifsicle: {
+      interlaced: true,
+      optimizationLevel: 3,
+    },
   }]
 ]);
 

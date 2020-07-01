@@ -1,5 +1,5 @@
-import RequireOtherImage from './RequireOtherImage';
-import RequireGifImage from './RequireGifImage';
+import OtherImage from './OtherImage';
+import GifImage from './GifImage';
 
 
 class ColumnImageBase extends React.Component {
@@ -7,7 +7,6 @@ class ColumnImageBase extends React.Component {
     const { folder, text, src, alt } = this.props;
     const Image = getImage(src);
     return <div className='col-img'>
-      {/* {showImage(folder, src, alt)} */}
       <Image dir={folder} file={src} alt={alt}/>
       {(text) ? <p>{text}</p> : null}
       <style jsx>{`
@@ -37,18 +36,11 @@ class ColumnImageBase extends React.Component {
   }
 }
 
-// const showImage = (dir, file, alt) => {
-//   if (file.endsWith('.gif')) {
-//     return <RequireGifImage dir={dir} file={file} alt={alt} />
-//   }
-//   return <RequireOtherImage dir={dir} file={file} alt={alt} />
-// }
-
 const getImage = (file) => {
   if (file.endsWith('.gif')) {
-    return RequireGifImage
+    return GifImage
   }
-  return RequireOtherImage
+  return OtherImage
 }
 
 export default ColumnImageBase

@@ -58,7 +58,8 @@ export default class extends React.Component {
           margin: 0;
           margin-bottom: 30px;
           Font-Family: 'Merriweather', Serif;
-          Font-Size: 46px;
+          Font-Size: 35px;
+          word-break: break-word;
         }
         p {
           font-size: 16px;
@@ -78,6 +79,9 @@ export default class extends React.Component {
           }
           .col-img {
             order: unset;
+          }
+          h3, h4 {
+            Font-Size: 46px;
           }
         }
       `}</style>
