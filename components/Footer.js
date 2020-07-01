@@ -12,7 +12,7 @@ class Footer extends React.Component {
       </div>
       <div>
         <a className='email' href='mailto:j@wallis.dev?Subject=Hello'>j@wallis.dev</a>
-        <p>&copy; 2019 James Wallis. All rights reserved.</p>
+        <p>&copy; 2019-2020 James Wallis. All rights reserved.</p>
       </div>
       <style jsx>{`
         footer {

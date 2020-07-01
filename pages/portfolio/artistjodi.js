@@ -60,9 +60,9 @@ const properties = {
       link: 'https://artistjodi.com',
       text: 'artistjodi.com',
       image: {
-        text: 'The Art Splashbacks section of the website',
-        src: 'artistjodi-artsplashbacks.png',
-        alt: 'A screenshot of the Art Splashbacks section of artistjodi.com'
+        text: 'The acrylic art page for artistjodi.com',
+        src: 'artistjodi-acrylic.gif',
+        alt: 'A gif of the artistjodi.com acrylic page'
       }
     }
   }

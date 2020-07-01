@@ -2,13 +2,12 @@ import Layout from './Main';
 import Portfolio from '../Sections/Portfolio.js';
 import LightGrey from '../Sections/LightGrey.js';
 import Button from '../Button';
-import ColumnImage from '../Portfolio/ColumnImage';
+import ColumnImage from '../Portfolio/ColumnImage.js';
 
 export default class extends React.Component {
   render() {
     const { title, desc, imgFolder, sections, finalSection } = this.props.page;
-    const allSections = sections;
-    allSections.push(finalSection);
+    const allSections = [...sections, finalSection];
     return <Layout {...this.props} >
       <LightGrey className='container'>
         <h3>{title}</h3>
@@ -58,7 +57,8 @@ export default class extends React.Component {
           margin: 0;
           margin-bottom: 30px;
           Font-Family: 'Merriweather', Serif;
-          Font-Size: 46px;
+          Font-Size: 35px;
+          word-break: break-word;
         }
         p {
           font-size: 16px;
@@ -78,6 +78,9 @@ export default class extends React.Component {
           }
           .col-img {
             order: unset;
+          }
+          h3, h4 {
+            Font-Size: 46px;
           }
         }
       `}</style>

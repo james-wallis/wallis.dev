@@ -3,7 +3,8 @@ import Portfolio from '../../components/Layouts/PortfolioPage';
 const properties = {
   head: {
     title: 'Portfolio - Wallis Consultancy',
-    description: 'Wallis Consultancy is a website designed and built by James Wallis, find out more here.'
+    description: 'Wallis Consultancy is a website designed and \
+        built by James Wallis, find out more here.',
   },
   header: {
     h1: 'Wallis Consultancy',
@@ -17,7 +18,8 @@ const properties = {
     desc: 'Mike Wallis is a retired senior banker with professional \
           qualifications and experience in both personal and business banking. \
           He is also my Dad. Mike runs a claims management company from home in \
-          his spare time',
+          his spare time The website was recently refocussed and simplified to \
+          reflect on Mike\'s move away from PPI and into mediation.',
     imgFolder: 'wallisconsultancy',
     sections: [
       {
@@ -46,9 +48,9 @@ const properties = {
             emails sent using PHP Mailer, code inherited from the older sibling mentioned \
             earlier and modified for the new layout/features.',
         image: {
-          text: 'The FAQ page for wallisconsultancy.co.uk',
-          src: 'wallisconsultancy-faq.png',
-          alt: 'A screenshot of the wallisconsultancy.co.uk FAQ page'
+          text: 'The areas of mediation page for wallisconsultancy.co.uk',
+          src: 'wallisconsultancy-areas-of-mediation.png',
+          alt: 'A screenshot of the wallisconsultancy.co.uk areas of mediation page'
         }
       }
     ],
@@ -57,9 +59,9 @@ const properties = {
       link: 'https://wallisconsultancy.co.uk',
       text: 'wallisconsultancy.co.uk',
       image: {
-        text: 'The wallisconsultancy.co.uk footer',
-        src: 'wallisconsultancy-footer.png',
-        alt: 'A screenshot of the footer for wallisconsultancy.co.uk'
+        text: 'The wallisconsultancy.co.uk message form',
+        src: 'wallisconsultancy-formsubmission.gif',
+        alt: 'A gif of message form submission for wallisconsultancy.co.uk'
       }
     }
   }

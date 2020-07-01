@@ -1,20 +1,12 @@
 class Button extends React.Component {
-  state = {};
-
-  static getDerivedStateFromProps(nextProps) {
-    const href = nextProps.href || null;
-    const target = (nextProps.external ? '_blank' : null);
-    const rel = (nextProps.external ? 'noreferrer' : null); 
-    const download = nextProps.download || null;
-    return {
-      href: href,
-      target: target,
-      download: download,
-      rel: rel
-    };
-  }
   render() {
-    return <a href={this.state.href} target={this.state.target} rel={this.state.rel} download={this.state.download}>
+    const { props } = this;
+    const href = props.href || null;
+    const target = (props.external ? '_blank' : null);
+    const rel = (props.external ? 'noreferrer' : null); 
+    const download = props.download || null;
+
+    return <a href={href} target={target} rel={rel} download={download}>
       {this.props.children}
       <style jsx>{`
       a {

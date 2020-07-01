@@ -14,7 +14,7 @@ class Tile extends React.Component {
           <h4>{name}</h4>
           <p>{desc}</p>
           {
-            comingSoon 
+            comingSoon
               ? <div className='view-button coming-soon'>
                 <p>Coming soon</p>
               </div>
@@ -24,7 +24,6 @@ class Tile extends React.Component {
                   </a>
                 </Link>
           }
-        
         </div>
       </div>
       <style jsx>{`
