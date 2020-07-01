@@ -16,10 +16,10 @@ module.exports = withPlugins([
       optimizationLevel: 4,
     },
     pngquant: false,
-    gifsicle: {
-      interlaced: true,
-      optimizationLevel: 3,
-    },
+    // gifsicle: {
+    //   interlaced: true,
+    //   optimizationLevel: 3,
+    // },
   }]
 ]);
 

@@ -7,8 +7,7 @@ import ColumnImage from '../Portfolio/ColumnImage.js';
 export default class extends React.Component {
   render() {
     const { title, desc, imgFolder, sections, finalSection } = this.props.page;
-    const allSections = sections;
-    allSections.push(finalSection);
+    const allSections = [...sections, finalSection];
     return <Layout {...this.props} >
       <LightGrey className='container'>
         <h3>{title}</h3>
