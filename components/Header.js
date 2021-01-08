@@ -1,3 +1,4 @@
+import React from 'react';
 
 class Headings extends React.Component {
   render() {

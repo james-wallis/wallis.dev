@@ -1,3 +1,4 @@
+import React from 'react';
 
 export default class LightGrey extends React.Component {
   render() {

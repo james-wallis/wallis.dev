@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-scroll';
 import ReactResizeDetector from 'react-resize-detector';
 import MenuIcon from './MenuIcon';

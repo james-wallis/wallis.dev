@@ -1,3 +1,4 @@
+import React from 'react';
 import OtherImage from './OtherImage';
 import GifImage from './GifImage';
 

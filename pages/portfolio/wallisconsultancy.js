@@ -1,3 +1,4 @@
+import React from 'react';
 import Portfolio from '../../components/Layouts/PortfolioPage';
 
 const properties = {

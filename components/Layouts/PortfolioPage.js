@@ -1,3 +1,4 @@
+import React from 'react';
 import Layout from './Main';
 import Portfolio from '../Sections/Portfolio.js';
 import LightGrey from '../Sections/LightGrey.js';

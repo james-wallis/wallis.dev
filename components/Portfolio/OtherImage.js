@@ -1,3 +1,5 @@
+import React from 'react';
+
 class RequireOtherImage extends React.Component {
   render() {
     const { dir, file, alt } = this.props;

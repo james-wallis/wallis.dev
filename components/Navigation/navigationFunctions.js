@@ -1,4 +1,3 @@
-
 function toggleNavigationBackground() {
   const nav = document.getElementsByTagName('nav')[0];
   const navName = document.getElementsByClassName('nav-name')[0];

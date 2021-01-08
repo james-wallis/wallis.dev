@@ -1,3 +1,5 @@
+import React from 'react';
+
 class Navigation extends React.Component {
   render() {
     return <div onClick={this.props.onClick} className={(this.props.close ? 'menu-close' : 'menu-icon')}>

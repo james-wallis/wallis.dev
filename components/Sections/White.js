@@ -1,3 +1,4 @@
+import React from 'react';
 
 export default class Headings extends React.Component {
   render() {

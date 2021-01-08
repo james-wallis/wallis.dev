@@ -1,3 +1,4 @@
+import React from 'react';
 import { animateScroll as scroll } from 'react-scroll'
 import { NextSeo } from 'next-seo';
 import Background from '../Background';

@@ -1,5 +1,5 @@
+import React from 'react';
 import Layout from '../components/Layouts/Main'
-import White from '../components/Sections/White';
 import LightGrey from '../components/Sections/LightGrey';
 import Portfolio from '../components/Portfolio/Grid';
 import FixedSocial from '../components/FixedSocial';
