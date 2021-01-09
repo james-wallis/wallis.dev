@@ -1,7 +1,7 @@
 function toggleNavigationBackground() {
   const nav = document.getElementsByTagName('nav')[0];
   const navName = document.getElementsByClassName('nav-name')[0];
-  const background = document.getElementsByClassName('background')[0];
+  const background = document.getElementsByClassName('headings')[0];
   const scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
   if (scrollTop && scrollTop !== 0 && scrollTop > (background.offsetHeight - nav.offsetHeight) && !nav.classList.contains('dark')) {
     nav.classList.add('dark');

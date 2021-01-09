@@ -14,7 +14,7 @@ class Layout extends React.Component {
         title={title}
         description={description}
       />
-      <Background height={this.props.header.height} image={this.props.header.image} imagePosition={this.props.header.imagePosition}/>
+      {this.props.header.image && <Background height={this.props.header.height} image={this.props.header.image} imagePosition={this.props.header.imagePosition}/>}
       <Navigation animate={this.props.animate} home={this.props.home} />
       <Headings animate={this.props.animate} h1={this.props.header.h1} h2={this.props.header.h2} height={this.props.header.height}/>
       {this.props.children}

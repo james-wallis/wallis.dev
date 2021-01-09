@@ -4,7 +4,7 @@ class Headings extends React.Component {
   render() {
     return <div className='headings'>
       <h1 className={(this.props.animate ? 'animated fadeIn' : null)}>{this.props.h1}</h1>
-      <h2 className={(this.props.animate ? 'animated fadeIn' : null)}>{this.props.h2}</h2>
+      {this.props.h2 && <h2 className={(this.props.animate ? 'animated fadeIn' : null)}>{this.props.h2}</h2>}
       <style jsx>{`
         .headings {
           display: flex;
@@ -26,7 +26,7 @@ class Headings extends React.Component {
           animation-duration: 2s;
           animation-delay: 0.5s;
           Font-Family: 'Merriweather', Serif;
-          Font-Size: 48px;
+          Font-Size: 40px;
         }
         .headings h2 {
           z-index: 6;
@@ -46,11 +46,13 @@ class Headings extends React.Component {
           .headings h1 {
             letter-spacing: 6px;
             Font-Size: 60px;
+            max-width: 60%;
           }
           .headings h2 {
             letter-spacing: 5px;
             Font-Size: 26px;
             padding-bottom: 0;
+            max-width: 40%;
           }
         }
       `}</style>
