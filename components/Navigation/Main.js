@@ -1,3 +1,4 @@
+import React from 'react';
 import NavigationHome from './HomePage';
 import NavigationOther from './OtherPage';
 

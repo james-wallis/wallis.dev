@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-scroll'
 import { calculateNavBarHeight } from './Navigation/navigationFunctions';
 

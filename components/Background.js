@@ -1,3 +1,5 @@
+import React from 'react';
+
 class Background extends React.Component {
   render() {
     const imgSourceBig = require(`../images/backgrounds/${this.props.image}?resize&size=2000`)

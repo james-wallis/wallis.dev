@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from '../ActiveLink';
 import MenuIcon from './MenuIcon';
 import func from './navigationFunctions';

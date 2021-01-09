@@ -1,3 +1,5 @@
+import React from 'react';
+
 class RequireGifImage extends React.Component {
   render() {
     const { file, alt } = this.props;
