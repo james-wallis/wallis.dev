@@ -33,7 +33,6 @@ class Navigation extends React.Component {
             Portfolio
           </Link>
         </li>
-        <li><a target='_blank' href='/static/james-wallis-cv.pdf' onMouseOut={func.removeHover}>Resume</a></li>
       </ul>
     </nav>
   }
