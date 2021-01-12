@@ -10,7 +10,7 @@ const canonical_url_prefix = 'https://wallis.dev/blog/';
 
 function Post({ post }) {
     return (
-        <Layout head={{ title: `${post.title} | blog`, description: post.description }} header={{ h1: post.title, height: 60 }}>
+        <Layout head={{ title: `${post.title} | blog`, description: post.description }} header={{ h1: post.title, height: 60, image: post.cover_image }}>
             <White>
                 <div className='content'>
                     <p className='construction'>

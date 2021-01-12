@@ -2,8 +2,16 @@ import React from 'react';
 
 class Background extends React.Component {
   render() {
-    const imgSourceBig = require(`../images/backgrounds/${this.props.image}?resize&size=2000`)
-    const imgSourceSmall = require(`../images/backgrounds/${this.props.image}?resize&size=1000`)
+    let imgSourceBig;
+    let imgSourceSmall;
+    if (this.props.image.startsWith('https')) {
+      imgSourceBig = this.props.image;
+      imgSourceSmall = this.props.image;
+    } else {
+      imgSourceBig = require(`../images/backgrounds/${this.props.image}?resize&size=2000`)
+      imgSourceSmall = require(`../images/backgrounds/${this.props.image}?resize&size=1000`)
+    }
+
     return <div className='section'>
       <div className='background rellax' data-rellax-speed='2'></div>
       <div className='darken'></div>
