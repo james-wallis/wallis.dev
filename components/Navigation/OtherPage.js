@@ -19,6 +19,9 @@ class Navigation extends React.Component {
         <Link href={{ pathname: '/', query: { section: 'portfolio' } }} as='/'>
           <li><a onMouseOut={func.removeHover}>Portfolio</a></li>
         </Link>
+        <Link href={{ pathname: '/', query: { section: 'blog' } }} as='/'>
+          <li><a onMouseOut={func.removeHover}>Blog</a></li>
+        </Link>
       </ul>
     </nav>
   }

@@ -34,6 +34,11 @@ class Navigation extends React.Component {
             Portfolio
           </Link>
         </li>
+        <li className='section-link'>
+          <Link onMouseOut={func.removeHover} to='blog' spy={true} smooth={'easeInOutCubic'} offset={navBarOffset} duration={500} onSetActive={func.closeMenu}>
+            Blog
+          </Link>
+        </li>
       </ul>
     </nav>
   }

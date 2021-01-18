@@ -19,7 +19,7 @@ class Grid extends React.Component {
   render() {
     return <div className='portfolio'>
       <div className='portfolio-inner'>
-        <h3>Here's what I've done so far</h3>
+        <h3>Some projects I've worked on</h3>
         {this.state.content.map(function (array, index) {
           return <Row key={`row-${index}`} array={array} />
         })}
