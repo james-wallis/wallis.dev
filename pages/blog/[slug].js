@@ -1,26 +1,25 @@
 import React from 'react';
-import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 import Layout from '../../components/Layouts/Main';
 import White from '../../components/Sections/White';
+import { getAllArticlesAndMinifyForCache, getArticleFromCache } from '../../lib/devto';
 
-const cacheFile = './.dev-to-cache.json';
-const canonical_url_prefix = 'https://wallis.dev/blog/';
+const cacheFile = '.dev-to-cache.json';
 
-function Post({ post }) {
+function ArticlePage({ article }) {
     return (
-        <Layout head={{ title: `${post.title} | blog`, description: post.description }} header={{ h1: post.title, height: 60, image: post.cover_image }}>
+        <Layout head={{ title: `${article.title} | blog`, description: article.description }} header={{ h1: article.title, height: 60, image: article.cover_image }}>
             <White>
                 <div className='content'>
                     <p className='construction'>
                         New website pending but I wanted to share my blogs on here before taking time to re-implement it.
-                        This blog is dynamically loaded from Dev.to.
+                        This blog is dynamically loaded from Dev.to and updates when I create/update an article.
                         {/* If you would like to read about how I use Dev.to to write and publish my blogs, read my blog <a>Blog title here</a> */}
                     </p>
-                    <a href={post.url}>Also posted on Dev.to</a>
-                    <p className='tags'>{post.tag_list}</p>
-                    <div className='markdown' dangerouslySetInnerHTML={{ __html: post.body_html }} />
+                    <a href={article.url}>Also posted on Dev.to</a>
+                    <p className='tags'>{article.tag_list}</p>
+                    <div className='markdown' dangerouslySetInnerHTML={{ __html: article.body_html }} />
                 </div>
             </White>
             <style jsx>{`
@@ -61,31 +60,16 @@ function Post({ post }) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-    // Call an external API endpoint to get posts
-    const headers = { 'api-key': process.env.DEV_APIKEY };
-    const { data } = await axios.get('https://dev.to/api/articles/me/published', { headers, params: { per_page: 1000 } })
+    // Get minified articles (just article ID and local slug) and cache them for use in getStaticProps
+    const minifiedArticles = await getAllArticlesAndMinifyForCache();
 
-    // Remove posts that don't have a canonicalURL pointing at the host site
-    const validPosts = data.filter(({ canonical_url }) => canonical_url.startsWith(canonical_url_prefix));
-    // console.log(validPosts);
-
-    // Create array containing ID, path, slug and canonicalURL
-    const posts = validPosts.map(({ id, slug, path, url, canonical_url }) => ({
-        id,
-        slug,
-        path,
-        url,
-        canonical_url,
-        canonical_path: canonical_url.replace(canonical_url_prefix, ''),
-    }));
-
-    // Save minified posts data to cache file
-    fs.writeFileSync(path.join(process.cwd(), cacheFile), JSON.stringify(posts));
+    // Save minified article data to cache file
+    fs.writeFileSync(path.join(process.cwd(), cacheFile), JSON.stringify(minifiedArticles));
 
     // Get the paths we want to pre-render based on posts
-    const paths = posts.map(({ slug, canonical_path }) => {
+    const paths = minifiedArticles.map(({ slug }) => {
         return {
-            params: { slug: canonical_path },
+            params: { slug },
         }
     })
 
@@ -96,22 +80,14 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
-    // Read cache
+    // Read cache and parse to object
     const cacheContents = fs.readFileSync(path.join(process.cwd(), cacheFile));
     const cache = JSON.parse(cacheContents);
-    // console.log(cache);
 
-    // Get minified post from cache
-    const cachedPostData = cache.find(post => post.canonical_path === params.slug);
-    // console.log(cachedPostData);
+    // Using the cache, fetch the article from Dev.to
+    const article = await getArticleFromCache(cache, params.slug);
 
-    // params contains the post `id`.
-    // If the route is like /posts/1, then params.id is 1
-    const res = await axios.get(`https://dev.to/api/articles/${cachedPostData.id}`);
-    const post = res.data;
-
-    // Pass post data to the page via props
-    return { props: { post } }
+    return { props: { article } }
 }
 
-export default Post
+export default ArticlePage;
