@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import ArticleCard from '../components/ArticleCard'
 import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
