@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import { NextSeo } from 'next-seo'
 import Header from './Header'
-import SocialIcons from './SocialIcons'
 import Footer from './Footer'
 
 type Props = {
