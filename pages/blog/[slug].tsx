@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { FaDev } from 'react-icons/fa';
 import Layout from '../../components/Layout';
 import PageTitle from '../../components/PageTitle';
 import IArticle from '../../interfaces/IArticle';
@@ -18,9 +19,18 @@ const ArticlePage = ({ article }: IProps) => (
             alt={`Cover image for ${article.title}`}
             className="md:mt-6 lg:mt-10 xl:mt-14"
         />
-        <PageTitle title={article.title} center />
+        <PageTitle title={article.title} center icons={false} />
         <section className="mt-10 font-light leading-relaxed w-full flex flex-col items-center">
             <article className="prose lg:prose-lg w-full md:w-5/6 xl:w-9/12" dangerouslySetInnerHTML={{ __html: article.html }} />
+            <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-gray-700 hover:text-gray-900 transition-colors flex flex-col items-center my-10"
+            >
+                <span className="text-2xl mb-2">React, comment and follow on</span>
+                <FaDev className="text-5xl" />
+            </a>
         </section>
     </Layout>
 

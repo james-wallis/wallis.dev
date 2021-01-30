@@ -20,7 +20,7 @@ const ArticleCard = ({ title, description, date, tags, canonical }: IProps) => (
         </p>
         <p className="text-base mt-4 text-gray-500">{description}</p>
         <Link href={`/blog/${convertCanonicalURLToRelative(canonical)}`} >
-            <a className="text-base mt-2 underline text-gray-500">Read more</a>
+            <a className="text-base mt-2 underline text-gray-500 hover:text-gray-800 transition-colors">Read more</a>
         </Link>
     </div>
 )

@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const title = "Blog ✍️"
-const subtitle = ['I share anything that may help others,', 'technolgies I\'m using and cool things I\'ve made.']
+const subtitle = ['I share anything that may help others,', 'technologies I\'m using and cool things I\'ve made.']
 
 const BlogPage = ({ articles }: IProps) => (
     <Layout title={title} description={subtitle.join(' ')}>

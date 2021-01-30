@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-.highlight__panel {
+/* .highlight__panel {
     display: none;
-}
+} */
+
+@layer components {
+    .highlight__panel {
+      @apply hidden;
+    }
+    .prose img {
+        @apply mx-auto shadow-md rounded;
+    }
+  }
