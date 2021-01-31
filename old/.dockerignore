@@ -1,9 +1,0 @@
-node_modules
-.git
-.gitignore
-.dockerignore
-.next
-.DS_STORE
-Dockerfile
-README.md
-package-lock.json
