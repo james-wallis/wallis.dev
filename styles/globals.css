@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .highlight__panel {
+    display: none;
+} */
+
+@layer components {
+    .highlight__panel {
+      @apply hidden;
+    }
+    .prose img {
+        @apply mx-auto shadow-md rounded;
+    }
+    .prose figure, .prose figcaption {
+        @apply m-0 text-center italic mb-6;
+        margin-top: -1rem;
+    }
+    .prose figure br {
+        @apply hidden;
+    }
+  }
