@@ -1,9 +1,10 @@
 import Link from 'next/link'
 
-const links = [
+const links: { name: string, href: string, hideOnMobile?: boolean }[] = [
     {
         name: 'Home',
         href: '/',
+        hideOnMobile: true,
     },
     {
         name: 'Blog',
@@ -17,9 +18,9 @@ const links = [
 
 const Navigation = () => (
     <nav>
-        {links.map(({ name, href }) => (
+        {links.map(({ name, href, hideOnMobile = false }) => (
             <Link key={name} href={href}>
-                <a className="ml-8">{name}</a>
+                <a className={`ml-8 ${hideOnMobile ? 'hidden' : 'inline'} sm:inline`}>{name}</a>
             </Link>
         ))}
     </nav>
