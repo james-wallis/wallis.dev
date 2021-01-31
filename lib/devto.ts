@@ -28,21 +28,34 @@ const convertDevtoResponseToArticle = (data: any): IArticle => {
     return article;
 }
 
+const blogFilter = (article: IArticle) => article.canonical.startsWith(blogURL);
+
+const portfolioFilter = (article: IArticle) => article.canonical.startsWith(portfolioURL);
+
 // Get all users articles from Dev.to and filter by ones with a canonical URL to your blog
-export const getAllArticles = async (websiteURL: string) => {
+export const getAllArticles = async () => {
     const params = { username, per_page: 1000, 'api-key': 'G9CvBWGe31HUrwWojxARhZSU' };
     const headers = { 'api-key': process.env.DEVTO_APIKEY };
     const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, { params, headers });
     const articles: IArticle[] = data.map(convertDevtoResponseToArticle);
-    return articles.filter((article: IArticle) => article.canonical.startsWith(websiteURL));
+    return articles;
 }
 
 export const getAllBlogArticles = async () => {
-    return getAllArticles(blogURL);
+    const articles = await getAllArticles();
+    return articles.filter(blogFilter);
 }
 
 export const getAllPortfolioArticles = async () => {
-    return getAllArticles(portfolioURL);
+    const articles = await getAllArticles();
+    return articles.filter(portfolioFilter);
+}
+
+export const getLatestBlogAndPortfolioArticle = async () => {
+    const articles = await getAllArticles();
+    const [latestBlog] = articles.filter(blogFilter);
+    const [latestPortfolio] = articles.filter(portfolioFilter);
+    return [latestBlog, latestPortfolio];
 }
 
 // Takes a URL and returns the relative slug to your website

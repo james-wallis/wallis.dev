@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
 import Section from '../components/Section'
 import IArticle from '../interfaces/IArticle'
-import { getAllBlogArticles, getAllPortfolioArticles } from '../lib/devto'
+import { getLatestBlogAndPortfolioArticle } from '../lib/devto'
 
 interface IProps {
     article: IArticle
@@ -54,8 +54,7 @@ const IndexPage = ({ article, project }: IProps) => (
 )
 
 export async function getStaticProps() {
-    const [article] = await getAllBlogArticles();
-    const [project] = await getAllPortfolioArticles();
+    const [article, project] = await getLatestBlogAndPortfolioArticle();
     return { props: { article, project } };
 }
 
