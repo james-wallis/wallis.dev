@@ -3,7 +3,8 @@ import IArticle from '../interfaces/IArticle';
 import ICachedArticle from '../interfaces/ICachedArticle';
 
 const username = 'jameswallis';
-const websiteURL = 'https://wallis.dev/blog/';
+const blogURL = 'https://wallis.dev/blog/';
+const portfolioURL = 'https://wallis.dev/portfolio/';
 
 const convertDevtoResponseToArticle = (data: any): IArticle => {
     const article: IArticle = {
@@ -28,22 +29,32 @@ const convertDevtoResponseToArticle = (data: any): IArticle => {
 }
 
 // Get all users articles from Dev.to and filter by ones with a canonical URL to your blog
-export const getAllArticles = async () => {
-    const params = { username, per_page: 1000 };
-    const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles`, { params });
+export const getAllArticles = async (websiteURL: string) => {
+    const params = { username, per_page: 1000, 'api-key': 'G9CvBWGe31HUrwWojxARhZSU' };
+    const headers = { 'api-key': process.env.DEVTO_APIKEY };
+    const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, { params, headers });
     const articles: IArticle[] = data.map(convertDevtoResponseToArticle);
     return articles.filter((article: IArticle) => article.canonical.startsWith(websiteURL));
 }
 
+export const getAllBlogArticles = async () => {
+    return getAllArticles(blogURL);
+}
+
+export const getAllPortfolioArticles = async () => {
+    return getAllArticles(portfolioURL);
+}
+
 // Takes a URL and returns the relative slug to your website
 export const convertCanonicalURLToRelative = (canonical: string) => {
-    return canonical.replace(websiteURL, '');
+    if (canonical.startsWith(portfolioURL)) {
+        return canonical.replace(portfolioURL, '');
+    }
+    return canonical.replace(blogURL, '');
 }
 
 // Gets all your articles from Dev.to and creates an object of relative URLs and IDs for use in getArticleFromCache
-export const getAllArticlesAndMinifyForCache = async () => {
-    const articles: IArticle[] = await getAllArticles();
-
+const minifyForCache = (articles: IArticle[]) => {
     // Create array containing article ID, and local slug
     const minifiedArticles = articles.map(({ id, canonical }): ICachedArticle => ({
         id,
@@ -51,6 +62,17 @@ export const getAllArticlesAndMinifyForCache = async () => {
     }));
 
     return minifiedArticles;
+}
+
+export const getAllBlogArticlesAndMinify = async () => {
+    const articles: IArticle[] = await getAllBlogArticles();
+    return minifyForCache(articles);
+
+}
+
+export const getAllPortfolioArticlesAndMinify = async () => {
+    const articles: IArticle[] = await getAllPortfolioArticles();
+    return minifyForCache(articles);
 }
 
 // Gets an article from Dev.to using the ID that was saved to the cache earlier

@@ -19,6 +19,7 @@ const SocialIcons = () => (
     <div className="flex flex-row text-2xl my-6 text-gray-500">
         {links.map(({ Icon, href }) => (
             <a
+                key={href}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer nofollow"

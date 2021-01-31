@@ -1,8 +1,9 @@
-import ArticleCard from '../components/ArticleCard'
 import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
+import Section from '../components/Section'
+import ArticleCard from '../components/ArticleCard'
 import IArticle from '../interfaces/IArticle'
-import { getAllArticles } from '../lib/devto'
+import { getAllBlogArticles } from '../lib/devto'
 
 interface IProps {
     articles: IArticle[]
@@ -18,10 +19,10 @@ const BlogPage = ({ articles }: IProps) => (
             subtitle={subtitle}
         />
 
-        <section className="mt-24 md:mt-32 xl:mt-44 text-lg font-light leading-relaxed md:w-5/6 xl:w-9/12">
-            {/* <h2 className="text-4xl mb-8">Latest posts</h2> */}
+        <Section linebreak>
             {articles.map(({ title, description, publishedAt, tags, canonical }) => (
                 <ArticleCard
+                    key={title}
                     title={title}
                     description={description}
                     date={publishedAt}
@@ -29,13 +30,13 @@ const BlogPage = ({ articles }: IProps) => (
                     canonical={canonical}
                 />
             ))}
-        </section>
+        </Section>
     </Layout>
 )
 
 export async function getStaticProps() {
     // Get all the articles that have a canonical URL pointed to your blog
-    const articles = await getAllArticles();
+    const articles = await getAllBlogArticles();
 
     // Pass articles to the page via props
     return { props: { articles } };

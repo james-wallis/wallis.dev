@@ -4,9 +4,9 @@ import { FaDev } from 'react-icons/fa';
 import Layout from '../../components/Layout';
 import PageTitle from '../../components/PageTitle';
 import IArticle from '../../interfaces/IArticle';
-import { getAllBlogArticlesAndMinify, getArticleFromCache } from '../../lib/devto';
+import { getAllPortfolioArticlesAndMinify, getArticleFromCache } from '../../lib/devto';
 
-const cacheFile = '.dev-to-cache.json';
+const cacheFile = '.dev-to-cache-portfolio.json';
 
 interface IProps {
     article: IArticle
@@ -14,11 +14,6 @@ interface IProps {
 
 const ArticlePage = ({ article }: IProps) => (
     <Layout title={article.title} description={article.description}>
-        <img
-            src={article.coverImage}
-            alt={`Cover image for ${article.title}`}
-            className="md:mt-6 lg:mt-10 xl:mt-14 h-40 sm:h-48 md:h-52 lg:h-64 xl:h-68 2xl:h-80 mx-auto"
-        />
         <PageTitle title={article.title} center icons={false} />
         <section className="mt-10 font-light leading-relaxed w-full flex flex-col items-center">
             <article className="prose lg:prose-lg w-full md:w-5/6 xl:w-9/12" dangerouslySetInnerHTML={{ __html: article.html }} />
@@ -37,32 +32,22 @@ const ArticlePage = ({ article }: IProps) => (
 )
 
 export async function getStaticProps({ params }: { params: { slug: string }}) {
-    // Read cache and parse to object
     const cacheContents = fs.readFileSync(path.join(process.cwd(), cacheFile), 'utf-8');
     const cache = JSON.parse(cacheContents);
-
-    // Using the cache, fetch the article from Dev.to
     const article: IArticle = await getArticleFromCache(cache, params.slug);
-
     return { props: { article } }
 }
 
 export async function getStaticPaths() {
-    // Get minified articles (just article ID and local slug) and cache them for use in getStaticProps
-    const minifiedArticles = await getAllBlogArticlesAndMinify();
-
-    // Save minified article data to cache file
+    const minifiedArticles = await getAllPortfolioArticlesAndMinify();
     fs.writeFileSync(path.join(process.cwd(), cacheFile), JSON.stringify(minifiedArticles));
 
-    // Get the paths we want to pre-render based on posts
     const paths = minifiedArticles.map(({ slug }) => {
         return {
             params: { slug },
         }
     })
 
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
     return { paths, fallback: false }
 }
 
