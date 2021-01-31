@@ -17,7 +17,7 @@ const ArticlePage = ({ article }: IProps) => (
         <img
             src={article.coverImage}
             alt={`Cover image for ${article.title}`}
-            className="md:mt-6 lg:mt-10 xl:mt-14"
+            className="md:mt-6 lg:mt-10 xl:mt-14 h-40 sm:h-48 md:h-52 lg:h-64 xl:h-68 2xl:h-80 mx-auto"
         />
         <PageTitle title={article.title} center icons={false} />
         <section className="mt-10 font-light leading-relaxed w-full flex flex-col items-center">

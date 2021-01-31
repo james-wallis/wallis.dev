@@ -22,6 +22,7 @@ const convertDevtoResponseToArticle = (data: any): IArticle => {
         canonical: data.canonical_url,
         markdown: data.body_markdown || '',
         html: data.body_html || '',
+        collectionId: data.collection_id || -1,
     }
     return article;
 }

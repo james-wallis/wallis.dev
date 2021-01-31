@@ -14,6 +14,7 @@ interface IArticle {
     canonical: string
     markdown: string
     html: string
+    collectionId: number
 }
 
 export default IArticle
