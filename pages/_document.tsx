@@ -1,4 +1,3 @@
-import { NextPageContext } from 'next'
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 
 class MyDocument extends Document {
