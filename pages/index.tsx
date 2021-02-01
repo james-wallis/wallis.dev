@@ -21,7 +21,7 @@ const IndexPage = ({ article, project }: IProps) => (
         />
 
         <Section linebreak>
-            <h2 className="text-3xl md:text-4xl mb-4 text-black">About</h2>
+            <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">About</h2>
             <p className="my-2">I currently am working as a fullstack JavaScript developer predominately on the IBM Blockchain VSCode extension.</p>
             <p className="my-2">
                 Outside of work I spend my time creating content for my blog where I discuss other
@@ -30,7 +30,7 @@ const IndexPage = ({ article, project }: IProps) => (
             </p>
         </Section>
         <Section>
-            <h2 className="text-3xl md:text-4xl mb-4 text-black">Latest article</h2>
+            <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">Latest article</h2>
             <ArticleCard
                 title={article.title}
                 description={article.description}
@@ -39,7 +39,7 @@ const IndexPage = ({ article, project }: IProps) => (
                 canonical={article.canonical}
             />
 
-            <h2 className="text-3xl md:text-4xl mb-4 text-black">Latest project</h2>
+            <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">Latest project</h2>
             <ArticleCard
                 title={project.title}
                 description={project.description}
