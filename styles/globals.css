@@ -8,7 +8,7 @@
 
 @layer components {
     .highlight__panel {
-      @apply hidden;
+        @apply hidden;
     }
     .prose img {
         @apply mx-auto shadow-md rounded;
@@ -20,4 +20,4 @@
     .prose figure br {
         @apply hidden;
     }
-  }
+}
