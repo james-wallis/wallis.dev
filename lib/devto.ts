@@ -34,7 +34,7 @@ const portfolioFilter = (article: IArticle) => article.canonical.startsWith(port
 
 // Get all users articles from Dev.to and filter by ones with a canonical URL to your blog
 export const getAllArticles = async () => {
-    const params = { username, per_page: 1000, 'api-key': 'G9CvBWGe31HUrwWojxARhZSU' };
+    const params = { username, per_page: 1000 };
     const headers = { 'api-key': process.env.DEVTO_APIKEY };
     const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, { params, headers });
     const articles: IArticle[] = data.map(convertDevtoResponseToArticle);
@@ -94,7 +94,8 @@ export const getArticleFromCache = async (cache: ICachedArticle[], slug: string)
     const cachedArticle = cache.find(cachedArticle => cachedArticle.slug === slug) as ICachedArticle;
 
     // Get the article from Dev.to by the ID found in the cache
-    const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/${cachedArticle.id}`);
+    const headers = { 'api-key': process.env.DEVTO_APIKEY };
+    const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/${cachedArticle.id}`, { headers });
     const article = convertDevtoResponseToArticle(data);
     return article;
 }
