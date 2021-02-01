@@ -32,7 +32,7 @@ const DarkModeToggle = () => {
             className="text-2xl sm:text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none"
             onClick={() => toggleMode()}
         >
-            {isDarkMode ? <FaMoon /> : <FaSun />}
+            {process.browser && document.documentElement.classList.contains('dark') ? <FaMoon /> : <FaSun />}
         </button>
     )
 }
