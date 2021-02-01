@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import DarkModeToggle from './DarkModeToggle';
 import Navigation from './Navigation'
 
 const Header = () => (
@@ -12,7 +13,10 @@ const Header = () => (
         <Link href="/">
             <a>James Wallis</a>
         </Link>
-        <Navigation />
+        <div className="flex flex-row items-center">
+            <Navigation />
+            <DarkModeToggle />
+        </div>
     </header>
 )
 
