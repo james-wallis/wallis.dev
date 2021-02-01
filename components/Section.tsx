@@ -8,7 +8,7 @@ interface IProps {
 const linebreakStyles = "mt-24 md:mt-32 xl:mt-44"
 
 const Section = ({ children, linebreak = false }: IProps) => (
-    <section className={`text-base sm:text-lg font-light leading-relaxed md:w-9/12 text-gray-600 ${linebreak ? linebreakStyles : 'mt-12'}`}>
+    <section className={`text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 ${linebreak ? linebreakStyles : 'mt-12'}`}>
         {children}
     </section>
 )
