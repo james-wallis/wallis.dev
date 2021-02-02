@@ -14,7 +14,7 @@ const title = "Hello, I'm James 👋"
 const subtitle = "I\'m a software developer working at IBM, and living in Southampton, UK."
 
 const IndexPage = ({ article, project }: IProps) => (
-    <Layout title="Home 👋" description={`${title} - ${subtitle}`}>
+    <Layout title="Home" description={`${title} - ${subtitle}`}>
         <PageTitle
             title={title}
             subtitle={subtitle}
