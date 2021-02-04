@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
 import Section from '../components/Section'
 import IArticle from '../interfaces/IArticle'
-import { getLatestBlogAndPortfolioArticle } from '../lib/devto'
+import { getAllBlogArticlesMinified, getAllPortfolioArticlesMinified } from '../lib/devto'
 
 interface IProps {
     article: IArticle
@@ -39,7 +39,7 @@ const IndexPage = ({ article, project }: IProps) => (
                 canonical={article.canonical}
             />
 
-            <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">Latest project</h2>
+            <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">Featured project</h2>
             <ArticleCard
                 title={project.title}
                 description={project.description}
@@ -54,8 +54,9 @@ const IndexPage = ({ article, project }: IProps) => (
 )
 
 export async function getStaticProps() {
-    const [article, project] = await getLatestBlogAndPortfolioArticle();
-    return { props: { article, project } };
+const [article] = await getAllBlogArticlesMinified();
+const [project] = await getAllPortfolioArticlesMinified();
+return { props: { article, project } };
 }
 
 export default IndexPage

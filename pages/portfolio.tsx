@@ -3,7 +3,7 @@ import PageTitle from '../components/PageTitle'
 import Section from '../components/Section'
 import ArticleCard from '../components/ArticleCard'
 import IArticle from '../interfaces/IArticle'
-import { getAllPortfolioArticles } from '../lib/devto'
+import { getAllPortfolioArticlesMinified } from '../lib/devto'
 
 interface IProps {
     articles: IArticle[]
@@ -36,7 +36,7 @@ const PortfolioPage = ({ articles }: IProps) => (
 )
 
 export async function getStaticProps() {
-    const articles = await getAllPortfolioArticles();
+    const articles = await getAllPortfolioArticlesMinified();
     return { props: { articles } };
 }
 

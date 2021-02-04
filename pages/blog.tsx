@@ -3,7 +3,7 @@ import PageTitle from '../components/PageTitle'
 import Section from '../components/Section'
 import ArticleCard from '../components/ArticleCard'
 import IArticle from '../interfaces/IArticle'
-import { getAllBlogArticles } from '../lib/devto'
+import { getAllBlogArticlesMinified } from '../lib/devto'
 
 interface IProps {
     articles: IArticle[]
@@ -36,7 +36,7 @@ const BlogPage = ({ articles }: IProps) => (
 
 export async function getStaticProps() {
     // Get all the articles that have a canonical URL pointed to your blog
-    const articles = await getAllBlogArticles();
+    const articles = await getAllBlogArticlesMinified();
 
     // Pass articles to the page via props
     return { props: { articles } };
