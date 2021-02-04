@@ -1,29 +1,45 @@
 import axios, { AxiosResponse } from 'axios';
 import IArticle from '../interfaces/IArticle';
 import ICachedArticle from '../interfaces/ICachedArticle';
+import { convertMarkdownToHtml, sanitizeDevToMarkdown } from './markdown';
 
 const username = 'jameswallis';
 const blogURL = 'https://wallis.dev/blog/';
 const portfolioURL = 'https://wallis.dev/portfolio/';
 
+
+
+// Takes a URL and returns the relative slug to your website
+export const convertCanonicalURLToRelative = (canonical: string) => {
+    if (canonical.startsWith(portfolioURL)) {
+        return canonical.replace(portfolioURL, '');
+    }
+    return canonical.replace(blogURL, '');
+}
+
 const convertDevtoResponseToArticle = (data: any): IArticle => {
+    const slug = convertCanonicalURLToRelative(data.canonical_url);
+    const markdown = sanitizeDevToMarkdown(data.body_markdown);
+    const html = convertMarkdownToHtml(markdown);
+
     const article: IArticle = {
         id: data.id,
         title: data.title,
         description: data.description,
         publishedAt: data.published_at,
-        slug: data.slug,
-        path: data.path,
-        url: data.url,
+        devToSlug: data.slug,
+        devToPath: data.path,
+        devToURL: data.url,
         commentsCount: data.comments_count,
         publicReactionsCount: data.public_reactions_count,
         positiveReactionsCount: data.positive_reactions_count,
         coverImage: data.cover_image,
         tags: data.tag_list,
         canonical: data.canonical_url,
-        markdown: data.body_markdown || '',
-        html: data.body_html || '',
         collectionId: data.collection_id || -1,
+        slug,
+        markdown,
+        html,
     }
     return article;
 }
@@ -58,44 +74,9 @@ export const getLatestBlogAndPortfolioArticle = async () => {
     return [latestBlog, latestPortfolio];
 }
 
-// Takes a URL and returns the relative slug to your website
-export const convertCanonicalURLToRelative = (canonical: string) => {
-    if (canonical.startsWith(portfolioURL)) {
-        return canonical.replace(portfolioURL, '');
-    }
-    return canonical.replace(blogURL, '');
-}
-
-// Gets all your articles from Dev.to and creates an object of relative URLs and IDs for use in getArticleFromCache
-const minifyForCache = (articles: IArticle[]) => {
-    // Create array containing article ID, and local slug
-    const minifiedArticles = articles.map(({ id, canonical }): ICachedArticle => ({
-        id,
-        slug: convertCanonicalURLToRelative(canonical),
-    }));
-
-    return minifiedArticles;
-}
-
-export const getAllBlogArticlesAndMinify = async () => {
-    const articles: IArticle[] = await getAllBlogArticles();
-    return minifyForCache(articles);
-
-}
-
-export const getAllPortfolioArticlesAndMinify = async () => {
-    const articles: IArticle[] = await getAllPortfolioArticles();
-    return minifyForCache(articles);
-}
-
 // Gets an article from Dev.to using the ID that was saved to the cache earlier
 export const getArticleFromCache = async (cache: ICachedArticle[], slug: string) => {
     // Get minified post from cache
-    const cachedArticle = cache.find(cachedArticle => cachedArticle.slug === slug) as ICachedArticle;
-
-    // Get the article from Dev.to by the ID found in the cache
-    const headers = { 'api-key': process.env.DEVTO_APIKEY };
-    const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/${cachedArticle.id}`, { headers });
-    const article = convertDevtoResponseToArticle(data);
+    const article = cache.find(cachedArticle => cachedArticle.slug === slug) as IArticle;
     return article;
 }

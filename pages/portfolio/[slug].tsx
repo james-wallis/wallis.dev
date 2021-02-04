@@ -4,7 +4,7 @@ import DevToCallToAction from '../../components/DevToCallToAction';
 import Layout from '../../components/Layout';
 import PageTitle from '../../components/PageTitle';
 import IArticle from '../../interfaces/IArticle';
-import { getAllPortfolioArticlesAndMinify, getArticleFromCache } from '../../lib/devto';
+import { getAllPortfolioArticles, getArticleFromCache } from '../../lib/devto';
 
 const cacheFile = '.dev-to-cache-portfolio.json';
 
@@ -17,7 +17,7 @@ const ArticlePage = ({ article }: IProps) => (
         <PageTitle title={article.title} center icons={false} />
         <section className="mt-10 font-light leading-relaxed w-full flex flex-col items-center">
             <article className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12" dangerouslySetInnerHTML={{ __html: article.html }} />
-            <DevToCallToAction href={article.url} />
+            <DevToCallToAction href={article.devToURL} />
         </section>
     </Layout>
 
@@ -31,10 +31,10 @@ export async function getStaticProps({ params }: { params: { slug: string }}) {
 }
 
 export async function getStaticPaths() {
-    const minifiedArticles = await getAllPortfolioArticlesAndMinify();
-    fs.writeFileSync(path.join(process.cwd(), cacheFile), JSON.stringify(minifiedArticles));
+    const articles: IArticle[] = await getAllPortfolioArticles();
+    fs.writeFileSync(path.join(process.cwd(), cacheFile), JSON.stringify(articles));
 
-    const paths = minifiedArticles.map(({ slug }) => {
+    const paths = articles.map(({ slug }) => {
         return {
             params: { slug },
         }

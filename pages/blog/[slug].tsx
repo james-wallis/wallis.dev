@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+
 import DevToCallToAction from '../../components/DevToCallToAction';
 import Layout from '../../components/Layout';
 import PageTitle from '../../components/PageTitle';
 import IArticle from '../../interfaces/IArticle';
-import { getAllBlogArticlesAndMinify, getArticleFromCache } from '../../lib/devto';
+import { getAllBlogArticles, getArticleFromCache } from '../../lib/devto';
 
 const cacheFile = '.dev-to-cache.json';
 
@@ -22,7 +23,7 @@ const ArticlePage = ({ article }: IProps) => (
         <PageTitle title={article.title} center icons={false} />
         <section className="mt-10 font-light leading-relaxed w-full flex flex-col items-center">
             <article className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12" dangerouslySetInnerHTML={{ __html: article.html }} />
-            <DevToCallToAction href={article.url} />
+            <DevToCallToAction href={article.devToURL} />
         </section>
     </Layout>
 
@@ -33,21 +34,21 @@ export async function getStaticProps({ params }: { params: { slug: string }}) {
     const cacheContents = fs.readFileSync(path.join(process.cwd(), cacheFile), 'utf-8');
     const cache = JSON.parse(cacheContents);
 
-    // Using the cache, fetch the article from Dev.to
+    // Fetch the article from the cache
     const article: IArticle = await getArticleFromCache(cache, params.slug);
 
     return { props: { article } }
 }
 
 export async function getStaticPaths() {
-    // Get minified articles (just article ID and local slug) and cache them for use in getStaticProps
-    const minifiedArticles = await getAllBlogArticlesAndMinify();
+    // Get the published articles and cache them for use in getStaticProps
+    const articles: IArticle[] = await getAllBlogArticles();
 
-    // Save minified article data to cache file
-    fs.writeFileSync(path.join(process.cwd(), cacheFile), JSON.stringify(minifiedArticles));
+    // Save article data to cache file
+    fs.writeFileSync(path.join(process.cwd(), cacheFile), JSON.stringify(articles));
 
     // Get the paths we want to pre-render based on posts
-    const paths = minifiedArticles.map(({ slug }) => {
+    const paths = articles.map(({ slug }) => {
         return {
             params: { slug },
         }

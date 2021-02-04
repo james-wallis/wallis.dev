@@ -4,6 +4,7 @@ import { DefaultSeo } from 'next-seo'
 import { useEffect } from 'react';
 
 import '../styles/globals.css'
+import 'highlight.js/styles/railscasts.css';
 
 declare const window: any;
 
