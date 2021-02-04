@@ -7,7 +7,7 @@ interface IArticle {
     slug: string
     coverImage: string
     devToURL: string
-    html?: string
+    html: string
 }
 
 export default IArticle
