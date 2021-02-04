@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .highlight__panel {
-    display: none;
-} */
-
 @layer components {
     .highlight__panel {
         @apply hidden;
@@ -14,8 +10,11 @@
         @apply mx-auto shadow-md rounded;
     }
     .prose figure, .prose figcaption {
-        @apply m-0 text-center italic mb-6;
+        @apply text-center italic;
         margin-top: -1rem;
+    }
+    .prose figure {
+        @apply my-6;
     }
     .prose figure br {
         @apply hidden;
