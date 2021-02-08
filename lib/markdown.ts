@@ -4,6 +4,7 @@ import remarkHtml from 'remark-html';
 import * as highlight from 'remark-highlight.js';
 import gfm from 'remark-gfm';
 import matter from 'gray-matter';
+import stripHtmlComments from 'strip-html-comments';
 
 export const sanitizeDevToMarkdown = (markdown: string) => {
     let correctedMarkdown = '';
@@ -25,7 +26,7 @@ export const convertMarkdownToHtml = (markdown: string) => {
         .use(gfm)
         .use(highlight)
         .use(remarkHtml)
-        .processSync(content).contents;
+        .processSync(stripHtmlComments(content)).contents;
 
     return String(html);
 }

@@ -24,6 +24,7 @@
     "remark-highlight.js": "^6.0.0",
     "remark-html": "^13.0.1",
     "remark-parse": "^9.0.0",
+    "strip-html-comments": "^1.0.0",
     "tailwindcss": "^2.0.2",
     "unified": "^9.2.0"
   },
