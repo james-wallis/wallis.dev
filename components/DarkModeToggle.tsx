@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
 
 const isDark = () => (
     localStorage && localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -32,7 +31,7 @@ const DarkModeToggle = () => {
             className="text-2xl sm:text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none"
             onClick={() => toggleMode()}
         >
-            {process.browser && document.documentElement.classList.contains('dark') ? <FaMoon /> : <FaSun />}
+            {process.browser && document.documentElement.classList.contains('dark') ? '🌙' : '🌤️'}
         </button>
     )
 }
