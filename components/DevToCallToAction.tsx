@@ -4,7 +4,7 @@ interface IProps {
     href: string
 }
 
-const DevToCallToAction = ({ href }: IProps) => (
+const DevToCallToAction = ({ href }: IProps): JSX.Element => (
     <a
         href={href}
         target="_blank"

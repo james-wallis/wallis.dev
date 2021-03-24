@@ -1,26 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 
-const isDark = () => (
-    localStorage && localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-)
+const isDark = (): boolean =>
+    (localStorage && localStorage.theme === 'dark') ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
 
-const getThemeString = (isDark: boolean) => (
-    isDark ? 'dark' : 'light'
-)
+const getThemeString = (isDark: boolean): string => (isDark ? 'dark' : 'light')
 
-const DarkModeToggle = () => {
-    const [isDarkMode, setDarkMode] = useState(false);
+const DarkModeToggle = (): JSX.Element => {
+    const [isDarkMode, setDarkMode] = useState(false)
 
-    const toggleMode = () => {
-        localStorage.theme = getThemeString(!isDarkMode);
+    const toggleMode = (): void => {
+        localStorage.theme = getThemeString(!isDarkMode)
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark')
         } else {
             document.documentElement.classList.remove('dark')
         }
-        setDarkMode(!isDarkMode);
+        setDarkMode(!isDarkMode)
     }
-
 
     useEffect(() => {
         setDarkMode(isDark())

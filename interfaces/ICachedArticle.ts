@@ -3,4 +3,4 @@ interface ICachedArticle {
     slug: string
 }
 
-export default ICachedArticle;
+export default ICachedArticle

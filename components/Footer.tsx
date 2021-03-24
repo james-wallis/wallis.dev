@@ -1,6 +1,6 @@
-import SocialIcons from "./SocialIcons";
+import SocialIcons from './SocialIcons'
 
-const Footer = () => (
+const Footer = (): JSX.Element => (
     <footer className="w-full flex flex-col items-center">
         <SocialIcons />
         <a

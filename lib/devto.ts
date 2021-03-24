@@ -1,26 +1,25 @@
-import axios, { AxiosResponse } from 'axios';
-import IArticle from '../interfaces/IArticle';
-import ICachedArticle from '../interfaces/ICachedArticle';
-import { convertMarkdownToHtml, sanitizeDevToMarkdown } from './markdown';
+import axios, { AxiosResponse } from 'axios'
+import IArticle from '../interfaces/IArticle'
+import ICachedArticle from '../interfaces/ICachedArticle'
+import { convertMarkdownToHtml, sanitizeDevToMarkdown } from './markdown'
 
-const username = 'jameswallis';
-const blogURL = 'https://wallis.dev/blog/';
-const portfolioURL = 'https://wallis.dev/portfolio/';
-
-
+const username = 'jameswallis'
+const blogURL = 'https://wallis.dev/blog/'
+const portfolioURL = 'https://wallis.dev/portfolio/'
 
 // Takes a URL and returns the relative slug to your website
-export const convertCanonicalURLToRelative = (canonical: string) => {
+export const convertCanonicalURLToRelative = (canonical: string): string => {
     if (canonical.startsWith(portfolioURL)) {
-        return canonical.replace(portfolioURL, '');
+        return canonical.replace(portfolioURL, '')
     }
-    return canonical.replace(blogURL, '');
+    return canonical.replace(blogURL, '')
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
 const convertDevtoResponseToArticle = (data: any): IArticle => {
-    const slug = convertCanonicalURLToRelative(data.canonical_url);
-    const markdown = sanitizeDevToMarkdown(data.body_markdown);
-    const html = convertMarkdownToHtml(markdown);
+    const slug = convertCanonicalURLToRelative(data.canonical_url)
+    const markdown = sanitizeDevToMarkdown(data.body_markdown)
+    const html = convertMarkdownToHtml(markdown)
 
     const article: IArticle = {
         id: data.id,
@@ -41,42 +40,44 @@ const convertDevtoResponseToArticle = (data: any): IArticle => {
         markdown,
         html,
     }
-    return article;
+    return article
 }
 
-const blogFilter = (article: IArticle) => article.canonical.startsWith(blogURL);
+const blogFilter = (article: IArticle): boolean => article.canonical.startsWith(blogURL)
 
-const portfolioFilter = (article: IArticle) => article.canonical.startsWith(portfolioURL);
+const portfolioFilter = (article: IArticle): boolean => article.canonical.startsWith(portfolioURL)
 
 // Get all users articles from Dev.to and filter by ones with a canonical URL to your blog
-export const getAllArticles = async () => {
-    const params = { username, per_page: 1000 };
-    const headers = { 'api-key': process.env.DEVTO_APIKEY };
-    const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, { params, headers });
-    const articles: IArticle[] = data.map(convertDevtoResponseToArticle);
-    return articles;
+export const getAllArticles = async (): Promise<IArticle[]> => {
+    const params = { username, per_page: 1000 }
+    const headers = { 'api-key': process.env.DEVTO_APIKEY }
+    const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, {
+        params,
+        headers,
+    })
+    const articles: IArticle[] = data.map(convertDevtoResponseToArticle)
+    return articles
 }
 
-export const getAllBlogArticles = async () => {
-    const articles = await getAllArticles();
-    return articles.filter(blogFilter);
+export const getAllBlogArticles = async (): Promise<IArticle[]> => {
+    const articles = await getAllArticles()
+    return articles.filter(blogFilter)
 }
 
-export const getAllPortfolioArticles = async () => {
-    const articles = await getAllArticles();
-    return articles.filter(portfolioFilter);
+export const getAllPortfolioArticles = async (): Promise<IArticle[]> => {
+    const articles = await getAllArticles()
+    return articles.filter(portfolioFilter)
 }
 
-export const getLatestBlogAndPortfolioArticle = async () => {
-    const articles = await getAllArticles();
-    const [latestBlog] = articles.filter(blogFilter);
-    const [latestPortfolio] = articles.filter(portfolioFilter);
-    return [latestBlog, latestPortfolio];
+export const getLatestBlogAndPortfolioArticle = async (): Promise<IArticle[]> => {
+    const articles = await getAllArticles()
+    const [latestBlog] = articles.filter(blogFilter)
+    const [latestPortfolio] = articles.filter(portfolioFilter)
+    return [latestBlog, latestPortfolio]
 }
 
 // Gets an article from Dev.to using the ID that was saved to the cache earlier
-export const getArticleFromCache = async (cache: ICachedArticle[], slug: string) => {
-    // Get minified post from cache
-    const article = cache.find(cachedArticle => cachedArticle.slug === slug) as IArticle;
-    return article;
+export const getArticleFromCache = (cache: ICachedArticle[], slug: string): IArticle => {
+    const article = cache.find((cachedArticle) => cachedArticle.slug === slug) as IArticle
+    return article
 }
