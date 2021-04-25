@@ -1,11 +1,15 @@
 import axios, { AxiosResponse } from 'axios'
 import IArticle from '../interfaces/IArticle'
 import ICachedArticle from '../interfaces/ICachedArticle'
+import IHomePageArticles from '../interfaces/IHomePageArticles'
 import { convertMarkdownToHtml, sanitizeDevToMarkdown } from './markdown'
 
 const username = 'jameswallis'
 const blogURL = 'https://wallis.dev/blog/'
 const portfolioURL = 'https://wallis.dev/portfolio/'
+
+const featuredBlogSlug = 'i-completely-rewrote-my-personal-website-using-dev-to-as-a-cms-2pje'
+const featuredPortfolioSlug = 'ameira-me-5a55'
 
 // Takes a URL and returns the relative slug to your website
 export const convertCanonicalURLToRelative = (canonical: string): string => {
@@ -69,11 +73,21 @@ export const getAllPortfolioArticles = async (): Promise<IArticle[]> => {
     return articles.filter(portfolioFilter)
 }
 
-export const getLatestBlogAndPortfolioArticle = async (): Promise<IArticle[]> => {
+export const getHomePageArticles = async (): Promise<IHomePageArticles> => {
     const articles = await getAllArticles()
     const [latestBlog] = articles.filter(blogFilter)
     const [latestPortfolio] = articles.filter(portfolioFilter)
-    return [latestBlog, latestPortfolio]
+
+    const featuredBlog = articles.find(({ devToSlug }) => devToSlug === featuredBlogSlug) || null
+    const featuredPortfolio =
+        articles.find(({ devToSlug }) => devToSlug === featuredPortfolioSlug) || null
+
+    return {
+        latestBlog,
+        latestPortfolio,
+        featuredBlog,
+        featuredPortfolio,
+    }
 }
 
 // Gets an article from Dev.to using the ID that was saved to the cache earlier

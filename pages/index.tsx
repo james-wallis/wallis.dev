@@ -3,60 +3,84 @@ import ArticleCard from '../components/ArticleCard'
 import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
 import Section from '../components/Section'
-import IArticle from '../interfaces/IArticle'
-import { getLatestBlogAndPortfolioArticle } from '../lib/devto'
+import IHomePageArticles from '../interfaces/IHomePageArticles'
+import { getHomePageArticles } from '../lib/devto'
 
 interface IProps {
-    article: IArticle
-    project: IArticle
+    homePageArticles: IHomePageArticles
 }
 
 const title = "Hello, I'm James 👋"
 const subtitle = "I'm a software developer working at IBM, and living in Southampton, UK."
 
-const IndexPage = ({ article, project }: IProps): JSX.Element => (
-    <Layout title="Home" description={`${title} - ${subtitle}`}>
-        <PageTitle title={title} subtitle={subtitle} />
+const IndexPage = ({
+    homePageArticles: { latestBlog, latestPortfolio, featuredBlog, featuredPortfolio },
+}: IProps): JSX.Element => {
+    const project = featuredPortfolio || latestPortfolio
+    return (
+        <Layout title="Home" description={`${title} - ${subtitle}`}>
+            <PageTitle title={title} subtitle={subtitle} />
 
-        <Section linebreak>
-            <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">About</h2>
-            <p className="my-2">
-                I currently am working as a fullstack JavaScript developer on the IBM Blockchain Platform. Sometimes I use Docker, Kubernetes and Golang.
-            </p>
-            <p className="my-2">
-                Outside of work I spend my time creating content for my blog where I discuss other
-                projects I&apos;m working on, interesting problems I&apos;ve had to solve and create
-                tutorials to educate and help others use various technologies for the first time or
-                in a more efficient manner.
-            </p>
-        </Section>
-        <Section>
-            <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">Latest article</h2>
-            <ArticleCard
-                title={article.title}
-                description={article.description}
-                date={article.publishedAt}
-                tags={article.tags}
-                canonical={article.canonical}
-            />
+            <Section linebreak>
+                <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">About</h2>
+                <p className="my-2">
+                    I currently am working as a fullstack JavaScript developer on the IBM Blockchain
+                    Platform. Sometimes I use Docker, Kubernetes and Golang.
+                </p>
+                <p className="my-2">
+                    Outside of work I spend my time creating content for my blog where I discuss
+                    other projects I&apos;m working on, interesting problems I&apos;ve had to solve
+                    and create tutorials to educate and help others use various technologies for the
+                    first time or in a more efficient manner.
+                </p>
+            </Section>
+            <Section>
+                <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
+                    Latest article
+                </h2>
+                <ArticleCard
+                    title={latestBlog.title}
+                    description={latestBlog.description}
+                    date={latestBlog.publishedAt}
+                    tags={latestBlog.tags}
+                    canonical={latestBlog.canonical}
+                />
 
-            <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">Latest project</h2>
-            <ArticleCard
-                title={project.title}
-                description={project.description}
-                date={project.publishedAt}
-                tags={project.tags}
-                canonical={project.canonical}
-                portfolio
-                coverImage={project.coverImage}
-            />
-        </Section>
-    </Layout>
-)
+                {featuredBlog && (
+                    <>
+                        <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
+                            Featured article
+                        </h2>
+                        <ArticleCard
+                            title={featuredBlog.title}
+                            description={featuredBlog.description}
+                            date={featuredBlog.publishedAt}
+                            tags={featuredBlog.tags}
+                            canonical={featuredBlog.canonical}
+                        />
+                    </>
+                )}
+
+                <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
+                    Featured project
+                </h2>
+                <ArticleCard
+                    title={project.title}
+                    description={project.description}
+                    date={project.publishedAt}
+                    tags={project.tags}
+                    canonical={project.canonical}
+                    portfolio
+                    coverImage={project.coverImage}
+                />
+            </Section>
+        </Layout>
+    )
+}
 
 export const getStaticProps: GetStaticProps = async () => {
-    const [article, project] = await getLatestBlogAndPortfolioArticle()
-    return { props: { article, project } }
+    const homePageArticles = await getHomePageArticles()
+    return { props: { homePageArticles } }
 }
 
 export default IndexPage
