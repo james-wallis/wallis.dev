@@ -48,7 +48,7 @@ const ArticleCard = ({
         </Link>
         {coverImage && (
             <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-2/5 mt-4 sm:mt-0 sm:ml-4 flex items-center justify-center">
-                <img src={coverImage} className="w-full" alt="" />
+                <img src={coverImage} className="w-full rounded-sm" alt="" />
             </div>
         )}
     </div>

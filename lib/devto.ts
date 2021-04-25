@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
+import moment from 'moment'
 import IArticle from '../interfaces/IArticle'
 import ICachedArticle from '../interfaces/ICachedArticle'
 import IHomePageArticles from '../interfaces/IHomePageArticles'
@@ -9,7 +10,10 @@ const blogURL = 'https://wallis.dev/blog/'
 const portfolioURL = 'https://wallis.dev/portfolio/'
 
 const featuredBlogSlug = 'i-completely-rewrote-my-personal-website-using-dev-to-as-a-cms-2pje'
-const featuredPortfolioSlug = 'ameira-me-5a55'
+const featuredPortfolioSlugs = [
+    'ameira-me-5a55',
+    'wallis-family-mediation-previously-wallis-consultancy-2okf',
+]
 
 // Takes a URL and returns the relative slug to your website
 export const convertCanonicalURLToRelative = (canonical: string): string => {
@@ -79,8 +83,9 @@ export const getHomePageArticles = async (): Promise<IHomePageArticles> => {
     const [latestPortfolio] = articles.filter(portfolioFilter)
 
     const featuredBlog = articles.find(({ devToSlug }) => devToSlug === featuredBlogSlug) || null
-    const featuredPortfolio =
-        articles.find(({ devToSlug }) => devToSlug === featuredPortfolioSlug) || null
+    const featuredPortfolio = articles
+        .filter(({ devToSlug }) => featuredPortfolioSlugs.includes(devToSlug))
+        .sort((a1, a2) => (moment(a1.publishedAt).isBefore(a2.publishedAt) ? 1 : -1))
 
     return {
         latestBlog,

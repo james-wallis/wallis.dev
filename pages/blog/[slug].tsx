@@ -1,4 +1,5 @@
 import fs from 'fs'
+import moment from 'moment'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import path from 'path'
 import { ParsedUrlQuery } from 'querystring'
@@ -13,13 +14,14 @@ const cacheFile = '.dev-to-cache.json'
 
 interface IProps {
     article: IArticle
+    publishedDate: string
 }
 
 interface IParams extends ParsedUrlQuery {
     slug: string
 }
 
-const ArticlePage = ({ article }: IProps): JSX.Element => (
+const ArticlePage = ({ article, publishedDate }: IProps): JSX.Element => (
     <Layout title={article.title} description={article.description}>
         {article.coverImage && (
             <img
@@ -29,7 +31,10 @@ const ArticlePage = ({ article }: IProps): JSX.Element => (
             />
         )}
         <PageTitle title={article.title} center icons={false} />
-        <section className="mt-10 font-light leading-relaxed w-full flex flex-col items-center">
+        <p className="text-center w-full my-4 italic leading-relaxed text-gray-600">
+            {publishedDate}
+        </p>
+        <section className="mt-6 font-light leading-relaxed w-full flex flex-col items-center">
             <article
                 className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12"
                 dangerouslySetInnerHTML={{ __html: article.html }}
@@ -48,7 +53,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // Fetch the article from the cache
     const article: IArticle = await getArticleFromCache(cache, slug)
 
-    return { props: { article } }
+    const publishedDate = moment(article.publishedAt).format('Do MMMM YYYY')
+
+    return { props: { article, publishedDate } }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

@@ -16,7 +16,7 @@ const subtitle = "I'm a software developer working at IBM, and living in Southam
 const IndexPage = ({
     homePageArticles: { latestBlog, latestPortfolio, featuredBlog, featuredPortfolio },
 }: IProps): JSX.Element => {
-    const project = featuredPortfolio || latestPortfolio
+    const projects = featuredPortfolio || [latestPortfolio]
     return (
         <Layout title="Home" description={`${title} - ${subtitle}`}>
             <PageTitle title={title} subtitle={subtitle} />
@@ -62,17 +62,20 @@ const IndexPage = ({
                 )}
 
                 <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
-                    Featured project
+                    Featured projects
                 </h2>
-                <ArticleCard
-                    title={project.title}
-                    description={project.description}
-                    date={project.publishedAt}
-                    tags={project.tags}
-                    canonical={project.canonical}
-                    portfolio
-                    coverImage={project.coverImage}
-                />
+                {projects.map((project) => (
+                    <ArticleCard
+                        key={project.id}
+                        title={project.title}
+                        description={project.description}
+                        date={project.publishedAt}
+                        tags={project.tags}
+                        canonical={project.canonical}
+                        portfolio
+                        coverImage={project.coverImage}
+                    />
+                ))}
             </Section>
         </Layout>
     )
