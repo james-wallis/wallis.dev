@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from './NoScrollLink'
 
 const links: { name: string; href: string; hideOnMobile?: boolean }[] = [
     {
