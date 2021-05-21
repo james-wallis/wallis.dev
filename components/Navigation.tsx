@@ -42,8 +42,8 @@ const Navigation = (): JSX.Element => {
                             {name}
                             {isActiveLink(href, router.pathname) && (
                                 <motion.div
-                                    layoutId="outline"
-                                    className="w-full border border-yellow-300"
+                                    layoutId="navigation-underline"
+                                    className="navigation-underline"
                                     animate
                                 />
                             )}
