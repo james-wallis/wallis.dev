@@ -19,4 +19,8 @@
     .prose figure br {
         @apply hidden;
     }
+
+    .navigation-underline {
+        @apply w-full border border-yellow-300;
+    }
 }

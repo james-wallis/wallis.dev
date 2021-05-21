@@ -1,5 +1,5 @@
 import moment from 'moment'
-import Link from 'next/link'
+import Link from './NoScrollLink'
 import { convertCanonicalURLToRelative } from '../lib/devto'
 
 interface IProps {

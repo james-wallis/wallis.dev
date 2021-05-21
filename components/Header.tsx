@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from './NoScrollLink'
 import DarkModeToggle from './DarkModeToggle'
 import Navigation from './Navigation'
 

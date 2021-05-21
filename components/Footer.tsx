@@ -1,5 +1,5 @@
 import SocialIcons from './SocialIcons'
-import Link from 'next/link'
+import Link from './NoScrollLink'
 
 const Footer = (): JSX.Element => (
     <footer className="w-full flex flex-col items-center">

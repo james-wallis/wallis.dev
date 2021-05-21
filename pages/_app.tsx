@@ -2,6 +2,9 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import { useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 import '../styles/globals.css'
 import 'highlight.js/styles/railscasts.css'
@@ -51,7 +54,15 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
                 }}
                 canonical={url}
             />
-            <Component {...pageProps} canonical={url} />
+            <Header />
+            <AnimatePresence
+                exitBeforeEnter
+                initial={false}
+                onExitComplete={() => window.scrollTo(0, 0)}
+            >
+                <Component {...pageProps} canonical={url} key={url} />
+            </AnimatePresence>
+            <Footer />
         </>
     )
 }
