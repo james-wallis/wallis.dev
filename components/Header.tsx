@@ -13,7 +13,10 @@ const Header = (): JSX.Element => (
     "
     >
         <Link href="/">
-            <a>James Wallis</a>
+            <a>
+                <span className="inline sm:hidden">JW</span>
+                <span className="hidden sm:inline">James Wallis</span>
+            </a>
         </Link>
         <div className="flex flex-row items-center">
             <Navigation />
