@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const isDark = (): boolean =>
     (localStorage && localStorage.theme === 'dark') ||
@@ -23,13 +24,22 @@ const DarkModeToggle = (): JSX.Element => {
         setDarkMode(isDark())
     }, [])
 
+    const darkModeActive: boolean =
+        process.browser && document.documentElement.classList.contains('dark')
     return (
-        <button
-            className="text-2xl sm:text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none"
-            onClick={() => toggleMode()}
-        >
-            {process.browser && document.documentElement.classList.contains('dark') ? '🌙' : '🌤️'}
-        </button>
+        <AnimatePresence exitBeforeEnter initial={false}>
+            <motion.button
+                className="text-2xl sm:text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none"
+                onClick={() => toggleMode()}
+                key={darkModeActive ? 'dark-icon' : 'light-icon'}
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 20, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+            >
+                {darkModeActive ? '🌙' : '🌤️'}
+            </motion.button>
+        </AnimatePresence>
     )
 }
 
