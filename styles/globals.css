@@ -24,3 +24,17 @@
         @apply w-full border border-yellow-300;
     }
 }
+
+@layer utilities {
+    @variants responsive {
+        .hide {
+            display: none;
+            visibility: hidden;
+        }
+
+        .show {
+            display: inline;
+            visibility: visible;
+        }
+    }
+}
