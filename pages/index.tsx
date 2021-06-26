@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const title = "Hello, I'm James 👋"
-const subtitle = "I'm a software developer working at IBM, and living in Southampton, UK."
+const subtitle = "I'm a software developer at Ostmodern, and living in Southampton, UK."
 
 const IndexPage = ({
     homePageArticles: { latestBlog, latestPortfolio, featuredBlog, featuredPortfolio },
