@@ -24,8 +24,8 @@ const IndexPage = ({
             <Section linebreak>
                 <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">About</h2>
                 <p className="my-2">
-                    I currently am working as a fullstack JavaScript developer on the IBM Blockchain
-                    Platform. Sometimes I use Docker, Kubernetes and Golang.
+                    I spend most of my time as a frontend developer on Ostmodern's Skylark CMS using React.js. 
+                    Sometimes I use Node.js, Docker, Kubernetes and Golang and I'm currently experimenting with Serverless technologies on AWS and Azure.
                 </p>
                 <p className="my-2">
                     Outside of work I spend my time creating content for my blog where I discuss
