@@ -24,7 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "autoprefixer": "^10.2.4",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "eslint": "^7.22.0",
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.1.0",
