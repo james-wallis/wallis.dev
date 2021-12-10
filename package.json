@@ -37,7 +37,7 @@
     "husky": "^5.2.0",
     "moment": "^2.29.1",
     "next-seo": "^4.18.0",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.10",
     "prettier": "^2.2.1",
     "react-icons": "^4.1.0",
     "remark-gfm": "^1.0.0",
