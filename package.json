@@ -35,7 +35,7 @@
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.5.0",
     "husky": "^5.2.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "next-seo": "^4.18.0",
     "postcss": "^8.2.4",
     "prettier": "^2.2.1",
