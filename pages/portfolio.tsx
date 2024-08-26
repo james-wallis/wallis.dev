@@ -10,12 +10,12 @@ interface IProps {
     articles: IArticle[]
 }
 
-const title = 'Projects 📚'
+const title = 'Projects'
 const subtitle = "A selection of projects I've worked on, during my career as a software developer."
 
 const PortfolioPage = ({ articles }: IProps): JSX.Element => (
     <Layout title={title} description={subtitle}>
-        <PageTitle title={title} subtitle={subtitle} />
+        <PageTitle title={title} subtitle={subtitle} emoji={{ primary: '📚', secondary: '🐊' }} />
         <Section linebreak>
             {articles.map(({ title, description, publishedAt, tags, canonical, coverImage }) => (
                 <ArticleCard

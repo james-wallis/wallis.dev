@@ -10,13 +10,13 @@ interface IProps {
     articles: IArticle[]
 }
 
-const title = 'Blog ✍️'
+const title = 'Blog'
 const subtitle =
     "I share anything that may help others, technologies I'm using and cool things I've made."
 
 const BlogPage = ({ articles }: IProps): JSX.Element => (
     <Layout title={title} description={subtitle}>
-        <PageTitle title={title} subtitle={subtitle} />
+        <PageTitle title={title} subtitle={subtitle} emoji={{ primary: '✍️', secondary: '🧊' }} />
 
         <Section linebreak>
             {articles.map(({ title, description, publishedAt, tags, canonical }) => (

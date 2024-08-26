@@ -19,7 +19,11 @@ const IndexPage = ({
     const projects = featuredPortfolio || [latestPortfolio]
     return (
         <Layout title="Home" description={`${title} - ${subtitle}`}>
-            <PageTitle title={title} subtitle={subtitle} withWave />
+            <PageTitle
+                title={title}
+                subtitle={subtitle}
+                emoji={{ primary: `👋`, secondary: `✨` }}
+            />
 
             <Section linebreak>
                 <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">About</h2>
