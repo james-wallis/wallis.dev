@@ -10,7 +10,7 @@ const Footer = (): JSX.Element => (
         >
             j@wallis.dev
         </a>
-        <Link href="/blog/rewriting-my-website-with-a-devto-cms">
+        <Link href="/blog/rewriting-my-website-with-a-devto-cms" legacyBehavior>
             <a className="text-sm mb-8 text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors">
                 Powered by the Dev.to API. Find out more.
             </a>

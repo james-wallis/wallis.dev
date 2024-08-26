@@ -26,6 +26,7 @@ const ArticleCard = ({
             href={`/${portfolio ? 'portfolio' : 'blog'}/${convertCanonicalURLToRelative(
                 canonical
             )}`}
+            legacyBehavior
         >
             <a
                 className={`w-full text-gray-500 dark:text-gray-300 ${

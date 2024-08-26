@@ -1,10 +1,11 @@
-import unified from 'unified'
+import { unified } from 'unified'
 import parse from 'remark-parse'
-import remarkHtml from 'remark-html'
-import * as highlight from 'remark-highlight.js'
+import rehypeHighlight from 'rehype-highlight'
 import gfm from 'remark-gfm'
 import matter from 'gray-matter'
 import stripHtmlComments from 'strip-html-comments'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 
 export const sanitizeDevToMarkdown = (markdown: string): string => {
     let correctedMarkdown = ''
@@ -18,15 +19,16 @@ export const sanitizeDevToMarkdown = (markdown: string): string => {
     return correctedMarkdown.replace(addSpaceAfterHeaderHashtagRegex, '$& ')
 }
 
-export const convertMarkdownToHtml = (markdown: string): string => {
+export const convertMarkdownToHtml = async (markdown: string): Promise<string> => {
     const { content } = matter(markdown)
 
-    const html = unified()
+    const html = await unified()
         .use(parse)
         .use(gfm)
-        .use(highlight)
-        .use(remarkHtml)
-        .processSync(stripHtmlComments(content)).contents
+        .use(remarkRehype)
+        .use(rehypeHighlight, { detect: true })
+        .use(rehypeStringify)
+        .process(stripHtmlComments(content))
 
     return String(html)
 }

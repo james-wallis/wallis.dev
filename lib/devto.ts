@@ -24,10 +24,10 @@ export const convertCanonicalURLToRelative = (canonical: string): string => {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
-const convertDevtoResponseToArticle = (data: any): IArticle => {
+const convertDevtoResponseToArticle = async (data: any): Promise<IArticle> => {
     const slug = convertCanonicalURLToRelative(data.canonical_url)
     const markdown = sanitizeDevToMarkdown(data.body_markdown)
-    const html = convertMarkdownToHtml(markdown)
+    const html = await convertMarkdownToHtml(markdown)
 
     const article: IArticle = {
         id: data.id,
@@ -63,7 +63,7 @@ export const getAllArticles = async (): Promise<IArticle[]> => {
         params,
         headers,
     })
-    const articles: IArticle[] = data.map(convertDevtoResponseToArticle)
+    const articles: IArticle[] = await Promise.all(data.map(convertDevtoResponseToArticle))
     return articles
 }
 

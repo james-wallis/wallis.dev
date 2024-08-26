@@ -7,7 +7,6 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 import '../styles/globals.css'
-import 'highlight.js/styles/railscasts.css'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const window: any
@@ -56,7 +55,7 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
             />
             <Header />
             <AnimatePresence
-                exitBeforeEnter
+                mode="wait"
                 initial={false}
                 onExitComplete={() => window.scrollTo(0, 0)}
             >

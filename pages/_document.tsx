@@ -24,6 +24,10 @@ class MyDocument extends Document {
                         `,
                         }}
                     />
+                    <link
+                        rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.min.css"
+                    />
                 </Head>
                 <body className="bg-white dark:bg-gray-800 transition-colors duration-100 ease-linear">
                     <Main />

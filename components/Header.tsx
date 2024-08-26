@@ -12,7 +12,7 @@ const Header = (): JSX.Element => (
         text-black dark:text-white
     "
     >
-        <Link href="/">
+        <Link href="/" legacyBehavior>
             <a>
                 <span className="show sm:hide">JW</span>
                 <span className="hide sm:show">James Wallis</span>

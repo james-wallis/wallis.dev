@@ -6,7 +6,7 @@ interface IProps extends LinkProps {
 }
 
 const NoScrollLink = ({ children, href, passHref }: IProps): JSX.Element => (
-    <Link href={href} passHref={passHref} scroll={false}>
+    <Link href={href} passHref={passHref} scroll={false} legacyBehavior>
         {children}
     </Link>
 )
