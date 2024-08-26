@@ -10,8 +10,8 @@ interface IProps {
     homePageArticles: IHomePageArticles
 }
 
-const title = "Hello, I'm James 👋"
-const subtitle = "I'm a software developer at Ostmodern, and living in Southampton, UK."
+const title = "Hello, I'm James"
+const subtitle = "I'm a software developer at Skylark currently living in London, UK."
 
 const IndexPage = ({
     homePageArticles: { latestBlog, latestPortfolio, featuredBlog, featuredPortfolio },
@@ -19,14 +19,15 @@ const IndexPage = ({
     const projects = featuredPortfolio || [latestPortfolio]
     return (
         <Layout title="Home" description={`${title} - ${subtitle}`}>
-            <PageTitle title={title} subtitle={subtitle} />
+            <PageTitle title={title} subtitle={subtitle} withWave />
 
             <Section linebreak>
                 <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">About</h2>
                 <p className="my-2">
-                    I spend most of my time as a frontend developer on Ostmodern&apos;s Skylark CMS
-                    using React.js. Sometimes I use Node.js, Docker, Kubernetes and Golang and
-                    I&apos;m currently experimenting with Serverless technologies on AWS and Azure.
+                    I spend most of my time as a frontend developer on Skylark, a CMS for Streaming
+                    sites, built using technologies in the React.js ecosystem. Sometimes I use
+                    Node.js, Docker, Kubernetes and Golang and I&apos;m currently experimenting with
+                    Serverless technologies on AWS and Azure.
                 </p>
                 <p className="my-2">
                     Outside of work I spend my time creating content for my blog where I discuss
