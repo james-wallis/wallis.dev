@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const title = "Hello, I'm James"
-const subtitle = "I'm a software developer at Skylark currently living in London, UK."
+const subtitle = "I'm a software developer at Anchore currently living in London, UK."
 
 const IndexPage = ({
     homePageArticles: { latestBlog, latestPortfolio, featuredBlog, featuredPortfolio },
@@ -28,10 +28,8 @@ const IndexPage = ({
             <Section linebreak>
                 <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">About</h2>
                 <p className="my-2">
-                    I spend most of my time as a frontend developer on Skylark, a CMS for Streaming
-                    sites, built using technologies in the React.js ecosystem. Sometimes I use
-                    Node.js, Docker, Kubernetes and Golang and I&apos;m currently experimenting with
-                    Serverless technologies on AWS and Azure.
+                    Currently at Anchore building frontend experiences that simplify DevSecOps
+                    workflows.
                 </p>
                 <p className="my-2">
                     Outside of work I spend my time creating content for my blog where I discuss
@@ -89,7 +87,7 @@ const IndexPage = ({
 
 export const getStaticProps: GetStaticProps = async () => {
     const homePageArticles = await getHomePageArticles()
-    return { props: { homePageArticles } }
+    return { props: { homePageArticles }, revalidate: 3600 }
 }
 
 export default IndexPage

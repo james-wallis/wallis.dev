@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const cacheContents = fs.readFileSync(path.join(process.cwd(), cacheFile), 'utf-8')
     const cache = JSON.parse(cacheContents)
     const article: IArticle = await getArticleFromCache(cache, slug)
-    return { props: { article } }
+    return { props: { article }, revalidate: 3600 }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

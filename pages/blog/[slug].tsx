@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     const publishedDate = moment(article.publishedAt).format('Do MMMM YYYY')
 
-    return { props: { article, publishedDate } }
+    return { props: { article, publishedDate }, revalidate: 3600 }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

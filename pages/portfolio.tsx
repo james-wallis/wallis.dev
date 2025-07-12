@@ -35,7 +35,7 @@ const PortfolioPage = ({ articles }: IProps): JSX.Element => (
 
 export const getStaticProps: GetStaticProps = async () => {
     const articles = await getAllPortfolioArticles()
-    return { props: { articles } }
+    return { props: { articles }, revalidate: 3600 }
 }
 
 export default PortfolioPage

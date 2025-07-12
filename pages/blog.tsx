@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const articles = await getAllBlogArticles()
 
     // Pass articles to the page via props
-    return { props: { articles } }
+    return { props: { articles }, revalidate: 3600 }
 }
 
 export default BlogPage

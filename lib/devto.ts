@@ -10,7 +10,10 @@ const blogURL = 'https://wallis.dev/blog/'
 const portfolioURL = 'https://wallis.dev/portfolio/'
 
 const featuredBlogSlug = 'i-completely-rewrote-my-personal-website-using-dev-to-as-a-cms-2pje'
-const featuredPortfolioSlugs = ['wallis-family-mediation-previously-wallis-consultancy-2okf']
+const featuredPortfolioSlugs = [
+    'skylarktv-streaming-platform-built-with-nextjs-and-skylark-cms-18gh',
+    'wallis-family-mediation-previously-wallis-consultancy-2okf',
+]
 
 // Takes a URL and returns the relative slug to your website
 export const convertCanonicalURLToRelative = (canonical: string): string => {
